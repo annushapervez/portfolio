@@ -6,7 +6,7 @@ import Image from 'next/image';
 import SideNav from '../components/SideNav'; // Ensure the path is correct
 import "../styles/nav.css"; // Ensure the path is correct
 import "../styles/termynal.css"; // Ensure the path is correct
-import animationData from '/Users/annu/portfolio/public/animation.json';
+import animationData from '../public/animation.json';
 
 
 import Lottie from 'lottie-react'; // Correct import
