@@ -122,7 +122,7 @@ export default function Home() {
     <div className="text-content">
     <h2>About Me</h2>
   <p>
-    I'm a passionate software engineer based in New York City with a unique blend
+  I&apos;m a passionate software engineer based in New York City with a unique blend
     of expertise in computer science and psychology. I graduated from the University 
     at Buffalo with a Bachelor of Science in Computer Science and a Bachelor of Arts 
     in Psychology in May 2024. My academic journey has equipped me with a solid 
@@ -131,7 +131,7 @@ export default function Home() {
   </p>
   <p>
     I thrive on tackling complex problems and developing innovative solutions. I enjoy 
-    finding creative approaches to challenges, whether it's optimizing algorithms, 
+    finding creative approaches to challenges, whether it&apos;s optimizing algorithms, 
     designing intuitive user experiences, or implementing efficient systems. Every 
     problem presents a new puzzle, and I am always eager to explore unconventional 
     solutions that push boundaries and deliver meaningful results.
@@ -153,11 +153,11 @@ export default function Home() {
       </div>
       
       {/* Profile picture */}
-      <img src="/pic.jpg" alt="Your Name" />
+      <Image src="/pic.jpg" alt="Annusha Pervez" width={300} height={300} />
     </div>
   </div>
   <div className="what-im-looking-for-content">
-  <h3>What I’m Looking For</h3>
+  <h3>What I&apos;m Looking For</h3>
   <p>
     I am actively seeking a software engineering position where I can apply my skills 
     in web development, distributed systems, and software engineering to contribute to 
