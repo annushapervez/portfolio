@@ -1,0 +1,186 @@
+/* styles/nav.css */
+
+.sidebar {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  height: auto; /* Let the height be determined by its content */
+  width: 16.66%; /* Slimmer sidebar (1/6th of the width) */
+  background-color: rgba(0, 0, 0, 0.9); /* Black background with opacity */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 1rem; /* Space between items */
+  transform: translateY(-50%); /* Center the sidebar vertically */
+  z-index: 1000; /* Ensure the sidebar is on top */
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.5); /* Optional shadow */
+}
+
+.nav-link {
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s;
+  display: block;
+  color: white; /* White text */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2); /* Highlight active section */
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.3); /* Highlight on hover */
+}
+
+.main-content {
+  margin-left: 16.66%; /* Same as sidebar width */
+  padding: 1rem;
+  background-color: black;
+  color: white;
+}
+
+.section {
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+.image-container {
+  position: relative;
+  width: 350px; /* Match width with your Image component */
+  height: 300px; /* Match height with your Image component */
+  top: 30px;
+  right: -40px;
+
+}
+
+.bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bubble img {
+  display: block; /* Remove any space below the image */
+}
+.bubble {
+  position: absolute;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  
+}
+
+.bubble1 {
+  bottom: -4%; /* Adjust the position as needed */
+  right: 11%; /* Adjust the position as needed */
+}
+
+.bubble2 {
+  bottom: -14%; /* Adjust the position as needed */
+  right: 11%; /* Adjust the position as needed */
+}
+
+.bubble3 {
+  bottom: -24%; /* Adjust the position as needed */
+  right: 11%; /* Adjust the position as needed */
+}
+
+/* Add more bubble styles as needed */
+@keyframes popOutLeft {
+  from {
+    transform: scale(1);
+    opacity: 0.8;
+    transform: translateX(0);
+  }
+  to {
+    transform: scale(1.2);
+    opacity: 1;
+    transform: translateX(-25px); /* Adjust this value to control the distance */
+  }
+}
+
+/* Apply the animation on hover */
+.bubble:hover {
+  filter: none !important; /* Removes any filter (grayscale) applied */
+
+  animation: popOutLeft 0.3s forwards;
+}
+
+.bubbles:hover .bubble {
+  filter: grayscale(100%);
+}
+
+
+.image-and-text {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  justify-content: flex-start; /* Add space between image and text */
+  gap: 100px; /* Adjust this value to control the space between the image and text */
+
+}
+
+.recruitment-container {
+  display: flex;
+  align-items: center; /* Align the text and animation vertically */
+  gap: 10px; /* Add space between the text and animation */
+}
+
+.recruitment-status {
+  font-size: 20px;
+  line-height: 1.5;
+  /* Remove the margin-left from here */
+}
+
+.recruitment-status h2 {
+  font-size: 26px;
+  margin-bottom: 0px;
+  margin-left: -35px; /* Only move the heading to the left */
+}
+
+.recruitment-status p {
+  color: #878787; /* Customize the color */
+  margin-left: 0; /* Keep this in place */
+}
+
+
+.json-animation {
+  margin-top: 35px; /* Adjust this value to move the light down */
+  /* Alternatively, you can use transform for more control */
+  /* transform: translateY(10px);  */
+}
+
+.typing-container {
+  font-family: "Arial", sans-serif;
+  font-size: 35px;
+  position: absolute;
+  display: flex;
+  
+  justify-content: center;
+  align-items: center;
+  top: 100px; /* Adjust as needed */
+  left: 740px; /* Adjust as needed */
+}
+
+@keyframes blink {
+  0% {opacity: 1;}
+  40% {opacity: 1;}
+  60% {opacity: 0;}
+  100% {opacity: 0;}
+}
+
+
+
+.input-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 35px; /* Match font size */
+  background-color: white;
+  margin-left: 8px;
+  animation: blink .6s linear infinite alternate;
+
+}
+

@@ -1,101 +1,151 @@
-import Image from "next/image";
+"use client"; // Add this at the top of your file
+
+import Head from 'next/head';
+import Script from 'next/script';
+import Image from 'next/image';
+import SideNav from '../components/SideNav'; // Ensure the path is correct
+import "../styles/nav.css"; // Ensure the path is correct
+import "../styles/termynal.css"; // Ensure the path is correct
+import animationData from '/Users/annu/portfolio/public/animation.json';
+
+
+import Lottie from 'lottie-react'; // Correct import
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+  return (
+    <>
+      <Head>
+        <title>My Portfolio</title>
+        <meta name="description" content="My personal portfolio" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <SideNav />
+
+      <main className="main-content">
+        <section id="section0" className="section">
+    
+          <div className="image-and-text">
+            <div className="image-container">
+              <Image
+                src="/iphone2.png" // Ensure this path is correct
+                alt="iPhone"
+                width={350} // Match the width of the image
+                height={300} // Match the height of the image
+                priority
+              />
+
+              <div className="bubbles">
+                <a href="https://www.linkedin.com/in/annusha-pervez/" target="_blank" rel="noopener noreferrer" className="bubble bubble1">
+                  <Image
+                    src="/linkedin2.png" // Ensure this path is correct
+                    alt="LinkedIn Bubble"
+                    width={261}
+                    height={26}
+                    className="bubble-image"
+                  />
+                </a>
+
+                <a href="https://github.com/annushapervez" target="_blank" rel="noopener noreferrer" className="bubble bubble2">
+                  <Image
+                    src="/github2.png" // Ensure this path is correct
+                    alt="GitHub Bubble"
+                    width={261}
+                    height={26}
+                    className="bubble-image"
+                  />
+                </a>
+
+                <a href="mailto:annushapervez7@gmail.com" className="bubble bubble3">
+                  <Image
+                    src="/email2.png" // Ensure this path is correct
+                    alt="Email Bubble"
+                    width={261}
+                    height={26}
+                    className="bubble-image"
+                  />
+                </a>
+              </div>
+            </div>
+            
+            <div className="typing-container">
+              <span id="sentence" className="sentence"></span>
+              <span className="input-cursor"></span>    
+            </div>
+            {/* Recruitment status and blinking light */}
+            <div className="recruitment-container">
+              {/* JSON animation */}
+              <div className="json-animation">
+              <Lottie
+  animationData={animationData} // Use the imported variable here
+  loop
+  autoplay
+  style={{ width: '30px', height: '30px'}} // Adjust size as needed
+/>
+              </div>
+
+              {/* Recruitment Status Text */}
+              <div className="recruitment-status">
+                <h2>Recruitment Status</h2>
+                <p>Currently open to new opportunities.</p>
+              </div>
+            </div>
+             {/* Terminal block goes here */}
+             <div id="termynal" data-termynal data-ty-typedelay="40" data-ty-linedelay="700">
+              {/* Computer Languages */}
+              <span data-ty="input">ls Languages</span>
+              <span data-ty>Python, C, Scala, PHP, Go, JavaScript, TypeScript, CSS, HTML, OCaml, Mips Assembly</span>
+              <span data-ty></span>
+
+              {/* Frameworks */}
+              <span data-ty="input">ls Frameworks</span>
+              <span data-ty>Flask, TensorFlow, React, Next.js, Unreal Engine 5</span>
+              <span data-ty></span>
+
+              {/* Databases */}
+              <span data-ty="input">ls Databases</span>
+              <span data-ty>MongoDB, SQL</span>
+              <span data-ty></span>
+
+              {/* Tools */}
+              <span data-ty="input">ls Tools</span>
+              <span data-ty>Docker, GitHub, Git</span>
+              <span data-ty></span>
+</div>
+          </div>
+        </section>
+
+        <section id="section1" className="section">
+          <h1>Section 1</h1>
+          <p>Content for section 1...</p>
+        </section>
+
+        <section id="section2" className="section">
+          <h1>Section 2</h1>
+          <p>Content for section 2...</p>
+        </section>
+
+        <section id="section3" className="section">
+          <h1>Section 3</h1>
+          <p>Content for section 3...</p>
+        </section>
+
+        <Script
+  src="/typing.js"
+  strategy="afterInteractive" // Load script after the page is interactive
+  onLoad={() => {
+    if (typeof window !== 'undefined' && typeof window.typeAndDelete === 'function') {
+      window.typeAndDelete(); // Call the function only if it's defined
+    }
+  }}
+/>
+<Script
+  src="/termynal.js"
+  strategy="afterInteractive"
+  data-termynal-container="#termynal"
+  onLoad={() => console.log("Termynal loaded")}
+/>      </main>
+    </>
   );
 }
