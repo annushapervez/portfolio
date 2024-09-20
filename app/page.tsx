@@ -7,6 +7,8 @@ import SideNav from '../components/SideNav'; // Ensure the path is correct
 import "../styles/nav.css"; // Ensure the path is correct
 import "../styles/termynal.css"; // Ensure the path is correct
 import animationData from '../public/animation.json';
+import animationData1 from '../public/animation2.json';
+
 
 
 import Lottie from 'lottie-react'; // Correct import
@@ -112,14 +114,61 @@ export default function Home() {
               <span data-ty="input">ls Tools</span>
               <span data-ty>Docker, GitHub, Git</span>
               <span data-ty></span>
-</div>
+        </div>
           </div>
         </section>
 
-        <section id="section1" className="section">
-          <h1>Section 1</h1>
-          <p>Content for section 1...</p>
+        <section id="section1" className="section">  <div className="about-me-content">
+    <div className="text-content">
+    <h2>About Me</h2>
+  <p>
+    I'm a passionate software engineer based in New York City with a unique blend
+    of expertise in computer science and psychology. I graduated from the University 
+    at Buffalo with a Bachelor of Science in Computer Science and a Bachelor of Arts 
+    in Psychology in May 2024. My academic journey has equipped me with a solid 
+    foundation in data structures, algorithms, web development, machine learning, and 
+    software quality practices.
+  </p>
+  <p>
+    I thrive on tackling complex problems and developing innovative solutions. I enjoy 
+    finding creative approaches to challenges, whether it's optimizing algorithms, 
+    designing intuitive user experiences, or implementing efficient systems. Every 
+    problem presents a new puzzle, and I am always eager to explore unconventional 
+    solutions that push boundaries and deliver meaningful results.
+  </p>
+    </div>
+    <div className="image-content">
+      {/* Lottie animation behind the image */}
+      <div className="animation-background">
+      <Lottie 
+      animationData={animationData1} 
+      loop={true} 
+      autoplay={true} 
+      height={300} 
+      width={300} 
+      rendererSettings={{
+        preserveAspectRatio: 'xMidYMid slice',
+      }}
+    />
+      </div>
+      
+      {/* Profile picture */}
+      <img src="/pic.jpg" alt="Your Name" />
+    </div>
+  </div>
+  <div className="what-im-looking-for-content">
+  <h3>What I’m Looking For</h3>
+  <p>
+    I am actively seeking a software engineering position where I can apply my skills 
+    in web development, distributed systems, and software engineering to contribute to 
+    innovative projects. I’m excited to collaborate with a dynamic team and work in 
+    an environment that fosters growth, creativity, and impactful problem-solving.
+  </p>
+  </div>
         </section>
+
+
+
 
         <section id="section2" className="section">
           <h1>Section 2</h1>
