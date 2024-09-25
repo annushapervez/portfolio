@@ -120,7 +120,11 @@ export default function Home() {
 
         <section id="section1" className="section">  <div className="about-me-content">
     <div className="text-content">
-    <h2>About Me</h2>
+    <div className="typing-container2">
+    <span id="header1" className="header1"></span>
+    <span className="input-cursor2"></span>    
+    </div>
+
   <p>
   I&apos;m a passionate software engineer based in New York City with a unique blend
     of expertise in computer science and psychology. I graduated from the University 
@@ -157,7 +161,12 @@ export default function Home() {
     </div>
   </div>
   <div className="what-im-looking-for-content">
-  <h3>What I&apos;m Looking For</h3>
+  <div className="typing-container2">
+  <span id="header2" className="header2"></span>
+  <span className="input-cursor2"></span>    
+  </div>
+
+
   <p>
     I am actively seeking a software engineering position where I can apply my skills 
     in web development, distributed systems, and software engineering to contribute to 
@@ -185,7 +194,9 @@ export default function Home() {
   strategy="afterInteractive" // Load script after the page is interactive
   onLoad={() => {
     if (typeof window !== 'undefined' && typeof window.typeAndDelete === 'function') {
-      window.typeAndDelete(); // Call the function only if it's defined
+      window.typeAndDelete();
+      window.typeHeaders(); // Call the function only if it's defined
+
     }
   }}
 />
