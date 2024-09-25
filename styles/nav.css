@@ -222,7 +222,7 @@
   justify-content: flex-start; /* Align items to the start */
   align-items: center;
   position: relative; /* Enable absolute positioning of the animation */
-  margin-top: 50px; /* Adjust the value as needed */
+  margin-top: 10px; /* Adjust the value as needed */
 
 }
 
@@ -269,14 +269,20 @@
 }
 
 .projects-section {
-  padding: 50px 0;
-  background-color: #f0f0f0;
+  padding: 50px;
+  
+
 }
 
 .projects-title {
-  text-align: center;
-  font-size: 2.5rem;
+  text-align: left;
+  font-size: 25px;
   margin-bottom: 30px;
+}
+
+.projects-carousel {
+  display: flex;
+  justify-content: flex-start; /* Align items to the left */
 }
 
 .project-card {
@@ -299,4 +305,25 @@
   font-size: 1.25rem;
   font-weight: 600;
   color: #333;
+}
+
+/* Custom styling for the next arrow */
+.projects-section {
+  position: relative; /* Ensure relative positioning for contained elements */
+}
+
+/* Custom styling for the next arrow */
+/* Custom styling for the next arrow */
+.custom-next-arrow {
+  display: inline-block;
+  font-size: 2rem;
+  color: white; /* Adjust color as needed */
+  cursor: pointer;
+  margin-top: 20px; /* Space between the carousel and the arrow */
+  text-align: center; /* Center text in the arrow */
+  position: relative; /* Adjust as needed */
+}
+
+.custom-next-arrow:hover {
+  color: #ddd; /* Change color on hover if needed */
 }

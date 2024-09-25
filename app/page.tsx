@@ -8,6 +8,8 @@ import "../styles/nav.css"; // Ensure the path is correct
 import "../styles/termynal.css"; // Ensure the path is correct
 import animationData from '../public/animation.json';
 import animationData1 from '../public/animation2.json';
+import ProjectCarousel from '../components/ProjectCarousel';
+
 
 
 
@@ -92,7 +94,7 @@ export default function Home() {
                 <h2>Recruitment Status</h2>
                 <p>Currently open to new opportunities.</p>
               </div>
-            </div>
+
              {/* Terminal block goes here */}
              <div id="termynal" data-termynal data-ty-typedelay="40" data-ty-linedelay="700">
               {/* Computer Languages */}
@@ -114,6 +116,7 @@ export default function Home() {
               <span data-ty="input">ls Tools</span>
               <span data-ty>Docker, GitHub, Git</span>
               <span data-ty></span>
+        </div>
         </div>
           </div>
         </section>
@@ -180,8 +183,9 @@ export default function Home() {
 
 
         <section id="section2" className="section">
-          <h1>Section 2</h1>
-          <p>Content for section 2...</p>
+
+          <ProjectCarousel />
+
         </section>
 
         <section id="section3" className="section">
