@@ -109,7 +109,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="section1" className="section">  <div className="about-me-content">
+        <section id="section1" className="section">  
+        <div className="content-columns">
+        <div className="about-me-content">
     <div className="text-content">
     <div className="typing-container2">
     <span id="header1" className="header1"></span>
@@ -133,23 +135,11 @@ export default function Home() {
   </p>
     </div>
     <div className="image-content">
-      {/* Lottie animation behind the image */}
-      <div className="animation-background">
-      <Lottie 
-      animationData={animationData1} 
-      loop={true} 
-      autoplay={true} 
-      height={300} 
-      width={300} 
-      rendererSettings={{
-        preserveAspectRatio: 'xMidYMid slice',
-      }}
-    />
-      </div>
       
       {/* Profile picture */}
       <Image src="/pic.jpg" alt="Annusha Pervez" width={300} height={300} />
     </div>
+  </div>
   </div>
   <div className="what-im-looking-for-content">
   <div className="typing-container2">
@@ -165,11 +155,8 @@ export default function Home() {
     an environment that fosters growth, creativity, and impactful problem-solving.
   </p>
   </div>
+
         </section>
-
-
-
-
         <section id="section2" className="section">
 
           <ProjectCarousel />

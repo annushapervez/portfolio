@@ -40,7 +40,7 @@
   margin-left: 15%; /* Shift content slightly to the right */
   margin-right: auto; /* Keep right margin auto for centering */
   padding: 1rem;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   color: white;
   width: 80%;
 }
@@ -314,14 +314,13 @@ box-shadow: 0 16px 40px rgba(255, 255, 255, 0.5); /* Adjusted offsets */
   margin-left: 80px; /* Move the image container further to the right */
 }
 
-.animation-background {
-  position: absolute; /* Position the animation absolutely */
-  top: -47px; /* Move it up (adjust the value as needed) */
-  left: -47px; /* Move it to the left (adjust the value as needed) */
-  width: 85%; /* Full width of the container */
-  height: 85%; /* Full height of the container */
-  
+#section1 .content-columns {
+  display: flex;
+  justify-content: center; /* Center the content */
+  align-items: flex-start;
+  margin-top: 60px; /* Same top margin as section0 */
 }
+
 
 .image-content img {
   width: 275px; /* Set a fixed width */
@@ -381,8 +380,11 @@ box-shadow: 0 16px 40px rgba(255, 255, 255, 0.5); /* Adjusted offsets */
 }
 
 .header1,
-.header2 {
+.header2 .header3 {
   text-align: left; /* Ensure the text is aligned to the left */
+}
+.swiper-container {
+  margin-top: 20px; /* Add space above the carousel */
 }
 
 .projects-section {
@@ -423,26 +425,35 @@ box-shadow: 0 16px 40px rgba(255, 255, 255, 0.5); /* Adjusted offsets */
   font-weight: 600;
   color: #333;
 }
-
-/* Custom styling for the next arrow */
 .projects-section {
-  position: relative; /* Ensure relative positioning for contained elements */
+  position: relative;
+  padding: 50px;
 }
 
-/* Custom styling for the next arrow */
-/* Custom styling for the next arrow */
-.custom-next-arrow {
-  display: inline-block;
-  font-size: 2rem;
-  color: white; /* Adjust color as needed */
-  cursor: pointer;
-  margin-top: 20px; /* Space between the carousel and the arrow */
-  text-align: center; /* Center text in the arrow */
-  position: relative; /* Adjust as needed */
-}
-
-.custom-next-arrow:hover {
-  color: #ddd; /* Change color on hover if needed */
+/* Pagination bullets */
+.swiper-pagination {
+  position: absolute;
+  bottom: 10px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 
+/* Pagination bullets */
+.swiper-pagination-bullet {
+  background: #ffffff !important;  /* Lighter gray for non-active bullets */
+  opacity: 1 !important;  /* Ensure opacity is 1 for visibility */
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  border-radius: 50%;
+}
+
+/* Active pagination bullet */
+.swiper-pagination-bullet-active {
+  background: #2980b9 !important;  /* Blue color for the active bullet */
+  width: 16px;
+  height: 16px;
+  transform: scale(1.2);  /* Slightly larger for the active bullet */
+  opacity: 1 !important;
+}

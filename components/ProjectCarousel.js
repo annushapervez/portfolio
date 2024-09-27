@@ -1,9 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';              // Core Swiper styles
-import 'swiper/css/navigation';   // Navigation styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import "../styles/nav.css"; // Ensure the path is correct
 
-// Import Swiper's navigation module from 'swiper/modules'
-import { Navigation } from 'swiper/modules';
+import { Pagination, Mousewheel } from 'swiper/modules';
 
 const projects = [
   { image: '/empty.jpg', title: 'Project 1' },
@@ -15,32 +15,43 @@ const projects = [
 ];
 
 const ProjectCarousel = () => {
-  return (
-    <section id="section2" className="projects-section">
-      <h2 className="projects-title">My Projects</h2>
-      
-      {/* Swiper container */}
-      <Swiper
-        spaceBetween={50}
-        slidesPerView={3}
-        loop={true} // Enables looping
-        navigation={{ nextEl: '.swiper-button-next' }} // Use custom navigation buttons
-        modules={[Navigation]} // Include the navigation module
-      >
-        {projects.map((project, index) => (
-          <SwiperSlide key={index}>
-            <div className="project-card">
-              <img src={project.image} alt={project.title} className="project-image" />
-              <h3 className="project-title">{project.title}</h3>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-
-      {/* Custom next arrow */}
-      <div className="swiper-button-next custom-next-arrow">→</div>
-    </section>
-  );
-};
+    return (
+      <section id="section2" className="projects-section">
+        <div className="typing-container2">
+          <span id="header3" className="header3"></span>
+          <span className="input-cursor2"></span>    
+        </div>
+        
+        {/* Swiper container */}
+        <div className="swiper-container">
+          <Swiper
+            spaceBetween={30} // Space between the slides
+            slidesPerView={3}  // Show 1 slide at a time for better control
+            loop={true}  // Loop through slides continuously
+            pagination={{
+              clickable: true, 
+              el: '.swiper-pagination',
+            }}
+            mousewheel={true}  // Enable mouse wheel control
+            modules={[Pagination, Mousewheel]}  // Include the modules
+          >
+            {projects.map((project, index) => (
+              <SwiperSlide key={index}>
+                <div className="project-card">
+                  <img src={project.image} alt={project.title} className="project-image" />
+                  <h3 className="project-title">{project.title}</h3>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+  
+        {/* Swiper pagination */}
+        <div className="swiper-pagination"></div>
+      </section>
+    );
+  };
+  
+  
 
 export default ProjectCarousel;
