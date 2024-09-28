@@ -25,7 +25,7 @@ export default function FeaturedProjects({ projects }) {
         {/* Left Column for Heading and Explore More Link */}
         {/* Right Column for Cards */}
         <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Box display="flex" flexDirection="column" justifyContent="space-between" flex="1">
+        <Box display="flex" flexDirection="column" justifyContent="space-between" flex=".9">
         <Stack spacing={2} height="100%">
           <div className="typing-container2">
             <span id="header3" className="header3"></span>

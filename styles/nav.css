@@ -45,13 +45,19 @@
   width: 80%;
 }
 
+
 .section {
   min-height: 100vh;
   padding: 1.5rem;
   
 }
 
+.section2 {
+  min-height: 100vh;
+  padding: 1.5rem;
+  margin-left: 6%; /* Shift content slightly to the right */
 
+}
 .image-container {
   position: relative;
   width: 350px; /* Match width with your Image component */
@@ -314,12 +320,6 @@ box-shadow: 0 16px 40px rgba(255, 255, 255, 0.5); /* Adjusted offsets */
   margin-left: 80px; /* Move the image container further to the right */
 }
 
-#section1 .content-columns {
-  display: flex;
-  justify-content: center; /* Center the content */
-  align-items: flex-start;
-  margin-top: 60px; /* Same top margin as section0 */
-}
 
 
 .image-content img {
@@ -339,6 +339,7 @@ box-shadow: 0 16px 40px rgba(255, 255, 255, 0.5); /* Adjusted offsets */
   align-items: center;
   position: relative; /* Enable absolute positioning of the animation */
   margin-top: 10px; /* Adjust the value as needed */
+  margin-left: 30px;
 
 }
 
@@ -367,7 +368,7 @@ box-shadow: 0 16px 40px rgba(255, 255, 255, 0.5); /* Adjusted offsets */
   margin-top: 20px;
   flex: 2; /* Takes up more space compared to the image */
   max-width: 70%;
-  margin-left: 50px;
+  margin-left: 70px;
 }
 
 .typing-container2 {

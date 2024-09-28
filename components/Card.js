@@ -55,7 +55,7 @@ const Cards = ({ slug, desc, imageURL, tag, title }) => {
     >
       <NextLink href={slug} passHref>
         <Link onClick={() => handleClick(`project_${title.replace('@', '-at')}`)}>
-          <Box height="250px" width="470px"> {/* Set a fixed height for the image container */}
+          <Box height="200px" width="420px"> {/* Set a fixed height for the image container */}
             <Image 
               src={imageURL} 
               alt={title} 

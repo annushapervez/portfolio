@@ -184,7 +184,7 @@ export default function Home() {
   </div>
 
         </section>
-        <section id="section2" className="section">
+        <section id="section2" className="section2">
           <FeaturedProjects projects={projects} />
 
         </section>
