@@ -5,7 +5,6 @@ import {
   Text,
   SimpleGrid,
   Box,
-  Spacer,
 } from '@chakra-ui/react'; // Ensure you're importing from Chakra UI
 import NextLink from 'next/link';
 import Cards from './Card'; // Make sure this is the correct path
@@ -34,7 +33,7 @@ export default function FeaturedProjects({ projects }) {
           </div>
           {/* Adjust marginTop to align with the second project */}
           <Heading color="displayColor" fontSize={{ base: 'xl', md: '2xl' }} mt={4}>
-            Here's a glimpse into some of my recent projects.
+          Here&apos;s a glimpse into some of my recent projects.
           </Heading>
           <NextLink passHref href="/projects">
             <Link onClick={() => handleClick('featuredprojects_explore more')}>
