@@ -1,57 +1,32 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import "../styles/nav.css"; // Ensure the path is correct
-
-import { Pagination, Mousewheel } from 'swiper/modules';
+import { Stack, Box, Image, Text } from '@chakra-ui/react';
+import '../styles/nav.css'; // Ensure the path is correct
 
 const projects = [
   { image: '/empty.jpg', title: 'Project 1' },
   { image: '/empty.jpg', title: 'Project 2' },
-  { image: '/empty.jpg', title: 'Project 3' },
-  { image: '/empty.jpg', title: 'Project 4' },
-  { image: '/empty.jpg', title: 'Project 5' }
+  { image: '/empty.jpg', title: 'Project 3' }
   // Add more projects here
 ];
 
-const ProjectCarousel = () => {
-    return (
-      <section id="section2" className="projects-section">
-        <div className="typing-container2">
-          <span id="header3" className="header3"></span>
-          <span className="input-cursor2"></span>    
-        </div>
-        
-        {/* Swiper container */}
-        <div className="swiper-container">
-          <Swiper
-            spaceBetween={30} // Space between the slides
-            slidesPerView={3}  // Show 1 slide at a time for better control
-            loop={true}  // Loop through slides continuously
-            pagination={{
-              clickable: true, 
-              el: '.swiper-pagination',
-            }}
-            mousewheel={true}  // Enable mouse wheel control
-            modules={[Pagination, Mousewheel]}  // Include the modules
-          >
-            {projects.map((project, index) => (
-              <SwiperSlide key={index}>
-                <div className="project-card">
-                  <img src={project.image} alt={project.title} className="project-image" />
-                  <h3 className="project-title">{project.title}</h3>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-  
-        {/* Swiper pagination */}
-        <div className="swiper-pagination"></div>
-      </section>
-    );
-  };
-  
-  
+const ProjectStack = () => {
+  return (
+    <section id="section2" className="projects-section">
+      <div className="typing-container2">
+        <span id="header3" className="header3"></span>
+        <span className="input-cursor2"></span>
+      </div>
 
-export default ProjectCarousel;
+      {/* Chakra Stack for project display */}
+      <Stack spacing={6} mt={6} direction={['column', 'row']} justify="space-between">
+        {projects.map((project, index) => (
+          <Box key={index} className="project-card" flex="1" maxW="300px" borderRadius="10px" boxShadow="md" overflow="hidden">
+            <Image src={project.image} alt={project.title} className="project-image" />
+            <Text className="project-title" fontSize="1.25rem" fontWeight="600" p={2} textAlign="center">{project.title}</Text>
+          </Box>
+        ))}
+      </Stack>
+    </section>
+  );
+};
+
+export default ProjectStack;

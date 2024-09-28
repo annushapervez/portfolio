@@ -38,13 +38,10 @@ async function typeSentence(sentence, elementId, speed = 100) {
   async function typeHeaders() {
     
         await typeSentence("About Me", "#header1");
-        await new Promise(resolve => setTimeout(resolve, 2000)); 
         
         await typeSentence("What I'm Looking For", "#header2");
-        await new Promise(resolve => setTimeout(resolve, 2000)); 
         // Pause before typing the next message
-        await typeSentence("My Projects", "#header3");
-        await new Promise(resolve => setTimeout(resolve, 2000)); 
+        await typeSentence("Projects", "#header3");
     }
 
 

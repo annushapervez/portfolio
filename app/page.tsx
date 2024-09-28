@@ -6,15 +6,42 @@ import Image from 'next/image';
 import SideNav from '../components/SideNav'; // Ensure the path is correct
 import "../styles/nav.css"; // Ensure the path is correct
 import animationData from '../public/animation.json';
-import animationData1 from '../public/animation2.json';
-import ProjectCarousel from '../components/ProjectCarousel';
-
+import FeaturedProjects from '../components/FeaturedProjects'
 
 
 
 import Lottie from 'lottie-react'; // Correct import
 
 export default function Home() {
+  const projects = [
+    {
+      fields: {
+        slug: 'project-1',
+        description: 'Description for project 1',
+        imageUrl: '/empty.jpg', // Update with actual image path
+        tags: ['React', 'Next.js'],
+        title: 'Project 1'
+      }
+    },
+    {
+      fields: {
+        slug: 'project-2',
+        description: 'Description for project 2',
+        imageUrl: '/empty.jpg', // Update with actual image path
+        tags: ['JavaScript', 'CSS'],
+        title: 'Project 2'
+      }
+    },
+    {
+      fields: {
+        slug: 'project-3',
+        description: 'Description for project 3',
+        imageUrl: '/empty.jpg', // Update with actual image path
+        tags: ['Python', 'Flask'],
+        title: 'Project 3'
+      }
+    }
+  ];
 
   return (
     <>
@@ -158,8 +185,7 @@ export default function Home() {
 
         </section>
         <section id="section2" className="section">
-
-          <ProjectCarousel />
+          <FeaturedProjects projects={projects} />
 
         </section>
 
