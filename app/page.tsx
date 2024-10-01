@@ -6,7 +6,9 @@ import Image from 'next/image';
 import SideNav from '../components/SideNav'; // Ensure the path is correct
 import "../styles/nav.css"; // Ensure the path is correct
 import animationData from '../public/animation.json';
-import FeaturedProjects from '../components/FeaturedProjects'
+import FeaturedProjects from '../components/FeaturedProjects';
+import ContactMe from '../components/ContactMe';
+
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import Lottie from 'lottie-react'; // Correct import
 
@@ -66,7 +68,7 @@ export default function Home() {
       <SideNav />
 
       <main className="main-content">
-        <section id="section0" className="section">
+        <section id="Home" className="section">
           <div className="content-columns">
               {/* iPhone Wrapper */}
               <div className="iphone-wrapper">
@@ -148,7 +150,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="section1" className="section">  
+        <section id="AboutMe" className="section">  
         <div className="content-columns">
         <div className="about-me-content">
     <div className="text-content">
@@ -196,14 +198,14 @@ export default function Home() {
   </div>
 
         </section>
-        <section id="section2" className="section2">
+        <section id="FeaturedProjects" className="section">
           <FeaturedProjects projects={projects} />
 
         </section>
 
-        <section id="section3" className="section">
-          <h1>Section 3</h1>
-          <p>Content for section 3...</p>
+        <section id="Resume" className="section">
+        <ContactMe contactMe={ContactMe} />
+
         </section>
 
         <Script

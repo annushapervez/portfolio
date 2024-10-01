@@ -356,7 +356,7 @@ box-shadow: 0 16px 40px rgba(255, 255, 255, 0.5); /* Adjusted offsets */
 }
 
 /* Paragraph styling for section0 and section1 */
-#section1 p {
+#AboutMe p {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 20px;
@@ -385,4 +385,32 @@ box-shadow: 0 16px 40px rgba(255, 255, 255, 0.5); /* Adjusted offsets */
   text-align: left; /* Ensure the text is aligned to the left */
 }
 
+
+.section3 {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: center;
+  align-items: center; 
+  height: 40vh;
+  text-align: center;
+  background-color: black;
+}
+
+
+
+.typing-container3 {
+  font-family: "Arial", sans-serif;
+  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  height: 50px; /* Set a fixed height to prevent jumping */
+  margin-top: 50px; /* Adjust this value to move the header up */
+
+  
+}
+.contact-message {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-top: 10px; /* Add some space between the title and the message */
+}
 

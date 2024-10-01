@@ -4,10 +4,10 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 const sections = [
-{ id: 'section0', title: 'Home' },
-  { id: 'section1', title: 'About Me' },
-  { id: 'section2', title: 'Projects' },
-  { id: 'section3', title: 'Resume' },
+{ id: 'Home', title: 'Home' },
+  { id: 'AboutMe', title: 'About Me' },
+  { id: 'FeaturedProjects', title: 'Projects' },
+  { id: 'Resume', title: 'Resume' },
 ];
 
 export default function SideNav() {
