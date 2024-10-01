@@ -55,7 +55,7 @@
 .section2 {
   min-height: 100vh;
   padding: 1.5rem;
-  margin-left: 6%; /* Shift content slightly to the right */
+  margin-left: 7%; /* Shift content slightly to the right */
 
 }
 .image-container {
@@ -368,7 +368,7 @@ box-shadow: 0 16px 40px rgba(255, 255, 255, 0.5); /* Adjusted offsets */
   margin-top: 20px;
   flex: 2; /* Takes up more space compared to the image */
   max-width: 70%;
-  margin-left: 70px;
+  margin-left: 79px;
 }
 
 .typing-container2 {

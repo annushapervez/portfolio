@@ -1,11 +1,34 @@
-import { Box, Image, Text, Link, Tag, TagLabel, TagLeftIcon, Stack, Divider } from '@chakra-ui/react';
-import NextLink from 'next/link';
+import {
+  Center,
+  Divider,
+  Link,
+  ScaleFade,
+  Stack,
+  Tag,
+  TagLabel,
+  TagLeftIcon,
+  Text,
+  Box,
+  Image,
+} from '@chakra-ui/react';
 import ReactGA from 'react-ga4';
-import { FaReact, FaPython, FaJs, FaSass, FaPepperHot, FaLaravel, FaBootstrap, FaDatabase, FaCode } from 'react-icons/fa';
+import {
+  FaBootstrap,
+  FaCode,
+  FaDatabase,
+  FaExternalLinkAlt,
+  FaJs,
+  FaLaravel,
+  FaPepperHot,
+  FaPython,
+  FaReact,
+  FaSass,
+} from 'react-icons/fa';
 import { SiChakraui, SiNextdotjs } from 'react-icons/si';
-import useMediaQuery from '../components/useMediaQuery'; // Assuming this is the correct path
+import useMediaQuery from '../components/useMediaQuery';
+import NextLink from 'next/link';
 
-const Cards = ({ slug, desc, imageURL, tag, title }) => {
+export default function Cards({ imageURL, title, slug, desc, tag }) {
   const getTagDetails = (tag) => {
     switch (tag) {
       case 'React':
@@ -33,7 +56,7 @@ const Cards = ({ slug, desc, imageURL, tag, title }) => {
     }
   };
 
-  const isLargerThan800 = useMediaQuery(800); // Custom hook for responsive design
+  const isLargerThan800 = useMediaQuery(800);
 
   const handleClick = (event) => {
     ReactGA.event({
@@ -42,51 +65,68 @@ const Cards = ({ slug, desc, imageURL, tag, title }) => {
     });
   };
 
+
   return (
-       <Box 
-      borderRadius="md" 
-      overflow="hidden" 
-      border="1px" 
-      borderColor="gray.200" 
-      width={{ base: '100%', md: '350px', lg: '450px' }} // Increased responsive width
-      height="auto" // Set height to auto to accommodate dynamic content
-      boxShadow="md" // Optional: Add a shadow for visual depth
-      margin="2" // Adjust margin for spacing
+    <Stack
+      minH="320px"
+      maxH="500px"
+      bg="secondary"
+      borderColor={{ base: '#333', md: 'borderColor' }}
+      borderRadius="10px"
+      overflow="hidden"
+      margin="2"
     >
-      <NextLink href={slug} passHref>
-        <Link onClick={() => handleClick(`project_${title.replace('@', '-at')}`)}>
-          <Box height="200px" width="420px"> {/* Set a fixed height for the image container */}
-            <Image 
-              src={imageURL} 
-              alt={title} 
-              width="100%" 
-              height="100%" 
-              objectFit="cover" // Ensures the image covers the area
-              borderRadius="10px" // Round all corners of the image by 10 pixels
-            />
-          </Box>
-          <Box p="4">
-            <Text fontWeight="bold" fontSize="xl">{title}</Text>
-            <Text mt={2}>{desc}</Text>
-            <Stack isInline mt={2}>
-              {tag.map((item) => {
-                const { color, icon } = getTagDetails(item);
-                return (
-                  <Tag key={item} colorScheme={color} size={isLargerThan800 ? 'md' : 'sm'}>
-                    <TagLeftIcon as={icon} />
-                    <TagLabel>{item}</TagLabel>
-                  </Tag>
-                );
-              })}
+      <NextLink href={`/projects/${slug}`} passHref>
+        <Link
+          onClick={() => handleClick(`project_${title.replace('@', '-at')}`)}
+          textDecoration="none"
+          _hover={{ textDecoration: 'none' }}
+          _focus={{ textDecoration: 'none' }}
+        >
+          <ScaleFade transition={{ duration: 1 }} in={true}>
+            <Center w="auto">
+              <Image
+                width={700}
+                height={150}
+                minH="270px"
+                borderRadius="10px 10px 0px 0px"
+                transition="0.3s"
+                objectFit="cover"
+                alt={title}
+                src={imageURL}
+              />
+            </Center>
+            <Stack px={4} py={2}>
+              <Stack alignItems="center" justifyContent="space-between" isInline>
+                <Text color="displayColor" fontFamily="Ubuntu" fontSize="2xl">
+                  {title}
+                </Text>
+                <Stack alignItems="center" justifyContent="flex-end" isInline spacing={4}>
+                  <Link color="white" onClick={() => handleClick(`project_${title.replace('@', '-at')}`)}>
+                    <FaExternalLinkAlt aria-label="project link" size={20} />
+                  </Link>
+                </Stack>
+              </Stack>
+              <Stack isInline>
+                {tag.map((item) => {
+                  const { color, icon } = getTagDetails(item);
+                  return (
+                    <Tag key={item} colorScheme={color} size={isLargerThan800 ? 'md' : 'sm'}>
+                      <TagLeftIcon as={icon} />
+                      <TagLabel>{item}</TagLabel>
+                    </Tag>
+                  );
+                })}
+              </Stack>
+              <Divider />
+              <Text color="textSecondary" fontSize={['sm', 'md']}>
+              {desc}
+
+              </Text>
             </Stack>
-            <Divider mt={2} />
-          </Box>
+          </ScaleFade>
         </Link>
       </NextLink>
-    </Box>
+    </Stack>
   );
-};
-
-
-
-export default Cards;
+}

@@ -7,43 +7,55 @@ import SideNav from '../components/SideNav'; // Ensure the path is correct
 import "../styles/nav.css"; // Ensure the path is correct
 import animationData from '../public/animation.json';
 import FeaturedProjects from '../components/FeaturedProjects'
-
-
-
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import Lottie from 'lottie-react'; // Correct import
+
+
+const theme = extendTheme({
+  styles: {
+    global: {
+      "html, body": {
+        backgroundColor: "black",
+        color: "white",
+      },
+    },
+  },
+});
 
 export default function Home() {
   const projects = [
     {
       fields: {
         slug: 'project-1',
-        description: 'Description for project 1',
-        imageUrl: '/empty.jpg', // Update with actual image path
-        tags: ['React', 'Next.js'],
-        title: 'Project 1'
+        description: 'This Spotify clone enables song uploads, playlist management, and Stripe payment integration all while ensuring efficient data handling and real-time updates',
+        imageUrl: '/spotify.png', // Update with actual image path
+        tags: ['TypeScript', 'React', 'Tailwind'],
+        title: 'Spotify Clone'
       }
     },
     {
+    
       fields: {
         slug: 'project-2',
-        description: 'Description for project 2',
-        imageUrl: '/empty.jpg', // Update with actual image path
-        tags: ['JavaScript', 'CSS'],
-        title: 'Project 2'
+        description: 'A web application that helps users discover volunteering opportunities in New York City based on their personal interests.',
+        imageUrl: '/helping.png', // Update with actual image path
+        tags: ['React', 'Next.js', 'CSS'],
+        title: 'Helping Hands'
       }
     },
     {
       fields: {
         slug: 'project-3',
-        description: 'Description for project 3',
-        imageUrl: '/empty.jpg', // Update with actual image path
-        tags: ['Python', 'Flask'],
-        title: 'Project 3'
+        description: 'A web application allows users to track their nutrition and exercise, offering personalized suggestions and fostering connections with friends for motivation.',
+        imageUrl: '/theclimb.png', // Update with actual image path
+        tags: ['PHP', 'JavaScript', 'HTML', 'CSS'],
+        title: 'The Climb'
       }
     }
   ];
 
   return (
+    <ChakraProvider theme={theme}>
     <>
       <Head>
         <title>My Portfolio</title>
@@ -212,5 +224,9 @@ export default function Home() {
   onLoad={() => console.log("Termynal loaded")}
 />      </main>
     </>
+    </ChakraProvider>
+
   );
+
 }
+
