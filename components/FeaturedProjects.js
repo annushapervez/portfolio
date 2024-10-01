@@ -8,7 +8,7 @@ import {
 } from '@chakra-ui/react'; // Ensure you're importing from Chakra UI
 import NextLink from 'next/link';
 import Cards from './Card'; // Make sure this is the correct path
-import SlideUpWhenVisible from '../components/SlideUpWhenVisible'; // Ensure the path is correct
+import SlideUpWhenVisible from './SlideUpwhenVisible.js'; // Ensure the path is correct
 import ReactGA from 'react-ga4';
 
 export default function FeaturedProjects({ projects }) {
