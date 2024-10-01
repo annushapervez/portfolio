@@ -1,14 +1,13 @@
 import {
   Link,
   Stack,
-  Heading,
   Text,
   SimpleGrid,
   Box,
 } from '@chakra-ui/react'; // Ensure you're importing from Chakra UI
 import NextLink from 'next/link';
 import Cards from './Card'; // Make sure this is the correct path
-import SlideUpWhenVisible from './SlideUpwhenVisible.js'; // Ensure the path is correct
+import SlideUpWhenVisible from './components/SlideUpwhenVisible.js'; // Ensure the path is correct
 import ReactGA from 'react-ga4';
 
 export default function FeaturedProjects({ projects }) {
@@ -45,7 +44,7 @@ export default function FeaturedProjects({ projects }) {
               </NextLink>
             </Stack>
             <Text color="textSecondary" fontSize={{ base: 'md', md: 'xl' }}>
-              Here's some of my projects that I have worked on.
+              Here&apos;s some of my projects that I have worked on.
             </Text>
             <NextLink href="/projects">
               <Link onClick={() => handleClick('featuredprojects_explore more')}>

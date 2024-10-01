@@ -8,7 +8,6 @@ import {
   TagLabel,
   TagLeftIcon,
   Text,
-  Box,
   Image,
 } from '@chakra-ui/react';
 import ReactGA from 'react-ga4';
