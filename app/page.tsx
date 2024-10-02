@@ -1,5 +1,6 @@
 "use client"; // Add this at the top of your file
 
+import Head from 'next/head';
 import Script from 'next/script';
 import Image from 'next/image';
 import SideNav from '../components/SideNav'; // Ensure the path is correct
@@ -58,6 +59,11 @@ export default function Home() {
   return (
     <ChakraProvider theme={theme}>
     <>
+      <Head>
+        <title>My Portfolio</title>
+        <meta name="description" content="My personal portfolio" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
       <SideNav />
 
