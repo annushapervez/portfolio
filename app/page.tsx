@@ -1,6 +1,5 @@
 "use client"; // Add this at the top of your file
 
-import Head from 'next/head';
 import Script from 'next/script';
 import Image from 'next/image';
 import SideNav from '../components/SideNav'; // Ensure the path is correct
