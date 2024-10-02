@@ -1,11 +1,8 @@
 import { Box, Flex, Stack, Text, chakra } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
-import ReactGA from 'react-ga4'
+
 const Container = ({ children }) => {
   const [mounted, setMounted] = useState(false)
-  useEffect(() => {
-    ReactGA.initialize(process.env.NEXT_PUBLIC_UA_CODE)
-  }, [])
 
   useEffect(() => {
     setMounted(true)
@@ -35,7 +32,6 @@ const Container = ({ children }) => {
             &{' '}
             <chakra.span color="button1" fontWeight="semibold">
               React
-        
             </chakra.span>
             .
           </Text>
