@@ -7,11 +7,10 @@ import { Input, InputGroup, InputRightElement } from '@chakra-ui/input';
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { FaSearch } from 'react-icons/fa';
 import Script from 'next/script';
-import { fetchGitHubData } from '../lib/github'; // Updated import
+import { GraphQLClient } from 'graphql-request';
 import "../styles/nav.css"; // Ensure the path is correct
 
-
-
+// Theme customization for Chakra UI
 const theme = extendTheme({
   styles: {
     global: {
@@ -40,7 +39,7 @@ export default function Projects({ projects }) {
         <Stack justifyContent="center" my={{ base: '15vh', md: '16vh' }} spacing={10}>
           <Stack spacing={5}>
             <Heading color="displayColor" fontSize={{ base: '5xl', md: '5xl' }}>
-            Repositories
+              Repositories
             </Heading>
             <Text fontSize={{ base: '14px', md: '16px' }}>
               Here are some of my public GitHub repositories.
@@ -61,7 +60,7 @@ export default function Projects({ projects }) {
           <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={8}>
             {projects
               .filter((repo) =>
-                repo.name.toLowerCase().includes(query.toLowerCase()),
+                repo.name.toLowerCase().includes(query.toLowerCase())
               )
               .map((repo) => (
                 <a href={repo.url} target="_blank" rel="noopener noreferrer" key={repo.name}>
@@ -76,13 +75,17 @@ export default function Projects({ projects }) {
           </SimpleGrid>
         </Stack>
       </Container>
-      <Script
-  src="/typing.js"
-
-/>
+      <Script src="/typing.js" />
     </ChakraProvider>
   );
 }
+
+// Create GraphQL client to interact with GitHub API
+const client = new GraphQLClient('https://api.github.com/graphql', {
+  headers: {
+    Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
+  },
+});
 
 export async function getStaticProps() {
   const query = `
@@ -104,15 +107,24 @@ export async function getStaticProps() {
     }
   `;
 
-  // Fetch the repositories from GitHub using the `fetchGitHubData` helper
-  const response = await fetchGitHubData(query);
-  const repositories = response.user.repositories.nodes;
+  try {
+    // Use client.request to fetch data from GitHub API
+    const response = await client.request(query);
+    const repositories = response.user.repositories.nodes;
 
-  return {
-    props: {
-      projects: repositories, // Pass repositories as projects
-    },
-    revalidate: 10, // Revalidate the page every 10 seconds
-  };
-  
+    return {
+      props: {
+        projects: repositories, // Pass repositories as projects
+      },
+      revalidate: 10, // Revalidate the page every 10 seconds
+    };
+  } catch (error) {
+    console.error("Error fetching GitHub repositories:", error);
+    return {
+      props: {
+        projects: [], // Return an empty array in case of error
+      },
+      revalidate: 10,
+    };
+  }
 }
