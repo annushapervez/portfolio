@@ -62,7 +62,7 @@ export default function Home() {
       <Head>
         <title>My Portfolio</title>
         <meta name="description" content="My personal portfolio" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="../app/favicon.ico" />
       </Head>
 
       <SideNav />
@@ -203,7 +203,7 @@ export default function Home() {
 
         </section>
 
-        <section id="Resume" className="section">
+        <section id="Resume" className="section3">
         <ContactMe contactMe={ContactMe} />
 
         </section>

@@ -391,7 +391,7 @@ box-shadow: 0 16px 40px rgba(255, 255, 255, 0.5); /* Adjusted offsets */
   flex-direction: column; /* Stack elements vertically */
   justify-content: center;
   align-items: center; 
-  height: 40vh;
+  height: 80vh;
   text-align: center;
   background-color: black;
 }
