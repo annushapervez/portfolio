@@ -8,6 +8,8 @@ import "../styles/nav.css"; // Ensure the path is correct
 import animationData from '../public/animation.json';
 import FeaturedProjects from '../components/FeaturedProjects';
 import ContactMe from '../components/ContactMe';
+import AboutMe from '../components/AboutMe'; // Adjust the path if necessary
+
 
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import Lottie from 'lottie-react'; // Correct import
@@ -55,6 +57,13 @@ export default function Home() {
       }
     }
   ];
+
+  const aboutMeContent = {
+    introduction: " I'm a passionate software engineer based in New York City with a unique blend of expertise in computer science and psychology. I graduated from the University at Buffalo with a Bachelor of Science in Computer Science and a Bachelor of Arts in Psychology in May 2024. My academic journey has equipped me with a solid foundation in data structures, algorithms, web development, machine learning, and software quality practices.",
+    problemSolving: " I thrive on tackling complex problems and developing innovative solutions. I enjoy finding creative approaches to challenges, whether it's optimizing algorithms, designing intuitive user experiences, or implementing efficient systems. Every problem presents a new puzzle, and I am always eager to explore unconventional solutions that push boundaries and deliver meaningful results.",
+    seeking: "I am actively seeking a software engineering position where I can apply my skills in web development, distributed systems, and software engineering to contribute to innovative projects. I’m excited to collaborate with a dynamic team and work in an environment that fosters growth, creativity, and impactful problem-solving."
+  };
+
 
   return (
     <ChakraProvider theme={theme}>
@@ -150,53 +159,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="AboutMe" className="section">  
-        <div className="content-columns">
-        <div className="about-me-content">
-    <div className="text-content">
-    <div className="typing-container2">
-    <span id="header1" className="header1"></span>
-    <span className="input-cursor2"></span>    
-    </div>
-
-  <p>
-  I&apos;m a passionate software engineer based in New York City with a unique blend
-    of expertise in computer science and psychology. I graduated from the University 
-    at Buffalo with a Bachelor of Science in Computer Science and a Bachelor of Arts 
-    in Psychology in May 2024. My academic journey has equipped me with a solid 
-    foundation in data structures, algorithms, web development, machine learning, and 
-    software quality practices.
-  </p>
-  <p>
-    I thrive on tackling complex problems and developing innovative solutions. I enjoy 
-    finding creative approaches to challenges, whether it&apos;s optimizing algorithms, 
-    designing intuitive user experiences, or implementing efficient systems. Every 
-    problem presents a new puzzle, and I am always eager to explore unconventional 
-    solutions that push boundaries and deliver meaningful results.
-  </p>
-    </div>
-    <div className="image-content">
-      
-      {/* Profile picture */}
-      <Image src="/pic.jpg" alt="Annusha Pervez" width={300} height={300} />
-    </div>
-  </div>
-  </div>
-  <div className="what-im-looking-for-content">
-  <div className="typing-container2">
-  <span id="header2" className="header2"></span>
-  <span className="input-cursor2"></span>    
-  </div>
-
-
-  <p>
-    I am actively seeking a software engineering position where I can apply my skills 
-    in web development, distributed systems, and software engineering to contribute to 
-    innovative projects. I’m excited to collaborate with a dynamic team and work in 
-    an environment that fosters growth, creativity, and impactful problem-solving.
-  </p>
-  </div>
-
+        <section id="AboutMe" className="section1">  
+        <AboutMe aboutMeContent={aboutMeContent} />
         </section>
         <section id="FeaturedProjects" className="section">
           <FeaturedProjects projects={projects} />

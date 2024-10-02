@@ -1,40 +1,42 @@
-/* styles/nav.css */
-
 .sidebar {
   position: fixed;
-  top: 50%;
+  top: 0;
   left: 0;
-  height: auto; /* Let the height be determined by its content */
-  width: 16.66%; /* Slimmer sidebar (1/6th of the width) */
-  background-color: rgba(0, 0, 0, 0.9); /* Black background with opacity */
-  color: white;
+  height: 100vh;
+  width: 200px;
+  background-color: #000000; /* Dark background */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 1.5rem;
-  gap: 1rem; /* Space between items */
-  transform: translateY(-50%); /* Center the sidebar vertically */
-  z-index: 1000; /* Ensure the sidebar is on top */
-  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.5); /* Optional shadow */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  padding: 20px;
 }
 
 .nav-link {
-  width: 100%;
-  text-align: center;
-  padding: 0.5rem 1rem;
-  transition: background-color 0.3s;
-  display: block;
-  color: white; /* White text */
-  text-decoration: none; /* Remove underline from links */
-}
-
-.nav-link.active {
-  background-color: rgba(255, 255, 255, 0.2); /* Highlight active section */
+  font-size: 18px;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center; /* Center text */
+  width: 100%; /* Ensure the link takes the full width */
 }
 
 .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.3); /* Highlight on hover */
+  background-color: #2d3748; /* Hover effect */
 }
+
+.nav-link.active {
+  background-color: #3182ce; /* Active link color */
+  color: #ffffff;
+}
+
+.nav-link.active:hover {
+  background-color: #63b3ed; /* Hover effect for active link */
+}
+
 
 .main-content {
   margin-left: 15%; /* Shift content slightly to the right */
@@ -341,6 +343,12 @@ box-shadow: 0 16px 40px rgba(255, 255, 255, 0.5); /* Adjusted offsets */
   margin-top: 10px; /* Adjust the value as needed */
   margin-left: 30px;
 
+}
+
+.section1 {
+  min-height: 80vh;
+  padding: 1.5rem;
+  
 }
 
 

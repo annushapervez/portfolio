@@ -48,7 +48,7 @@ export default function ContactMe({ contactMe }) {
               pos="static"
               bg="black"
               color="white"
-              leftIcon={<FaLinkedin fill="#3CCF91" />}
+              leftIcon={<FaLinkedin fill="#3182ce" />}
               size={isLargerThan800 ? 'md' : 'sm'}
               _hover={{ backgroundColor: 'rgba(255, 255, 255, 0.9)', color: 'black' }}
             >
@@ -65,7 +65,7 @@ export default function ContactMe({ contactMe }) {
               bg="black"
               color="white"
               transition="0.3s"
-              leftIcon={<FaEnvelope fill="#3CCF91" />}
+              leftIcon={<FaEnvelope fill="#3182ce" />}
               size={isLargerThan800 ? 'md' : 'sm'}
               _hover={{ backgroundColor: 'rgba(255, 255, 255, 0.9)', color: 'black' }}
             >
@@ -81,7 +81,7 @@ export default function ContactMe({ contactMe }) {
               pos="static"
               bg="black"
               color="white"
-              leftIcon={<FaFileAlt fill="#3CCF91" />}
+              leftIcon={<FaFileAlt fill="#3182ce" />}
               size={isLargerThan800 ? 'md' : 'sm'}
               _hover={{ backgroundColor: 'rgba(255, 255, 255, 0.9)', color: 'black' }}
             >

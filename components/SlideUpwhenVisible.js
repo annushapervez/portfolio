@@ -26,3 +26,4 @@ export default function SlideUpWhenVisible({ children, threshold }) {
     </motion.div>
   )
 }
+
