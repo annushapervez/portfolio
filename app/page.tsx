@@ -59,11 +59,6 @@ export default function Home() {
   return (
     <ChakraProvider theme={theme}>
     <>
-      <Head>
-        <title>My Portfolio</title>
-        <meta name="description" content="My personal portfolio" />
-        <link rel="icon" href="../app/favicon.ico" />
-      </Head>
 
       <SideNav />
 
