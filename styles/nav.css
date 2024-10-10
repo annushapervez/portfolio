@@ -10,6 +10,8 @@
   justify-content: center; /* Center vertically */
   align-items: center; /* Center horizontally */
   padding: 20px;
+  font-family: 'Arial', sans-serif;
+
 }
 
 .nav-link {
@@ -22,6 +24,8 @@
   transition: background-color 0.3s ease, color 0.3s ease;
   text-align: center; /* Center text */
   width: 100%; /* Ensure the link takes the full width */
+  font-family: 'Arial', sans-serif;
+
 }
 
 .nav-link:hover {
@@ -29,12 +33,13 @@
 }
 
 .nav-link.active {
-  background-color: #3182ce; /* Active link color */
   color: #ffffff;
+  background-color: rgba(99, 179, 237, 0.434); /* More opaque active link color */
+
 }
 
 .nav-link.active:hover {
-  background-color: #63b3ed; /* Hover effect for active link */
+  background-color: rgba(99, 179, 237, 0.949); /* More opaque active link color */
 }
 
 
@@ -128,7 +133,7 @@
   display: flex;
   justify-content: center; /* Centers the content instead of pushing them to the edges */
   align-items: flex-start;
-  gap: 50px; /* Align items at the top of the container */
+  gap: 60px; /* Align items at the top of the container */
   margin-top: 20px; /* Adjust this value to bring the section down */
 
 }
@@ -334,16 +339,6 @@ box-shadow: 0 16px 40px rgba(255, 255, 255, 0.5); /* Adjusted offsets */
   position: relative; /* Position relative for z-index to work */
 }
 
-.about-me-content {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start; /* Align items to the start */
-  align-items: center;
-  position: relative; /* Enable absolute positioning of the animation */
-  margin-top: 10px; /* Adjust the value as needed */
-  margin-left: 30px;
-
-}
 
 .section1 {
   min-height: 80vh;
@@ -371,17 +366,12 @@ box-shadow: 0 16px 40px rgba(255, 255, 255, 0.5); /* Adjusted offsets */
   text-align: left; 
 } 
 
-/* Special section for "What I’m Looking For" in section1 only */
-.what-im-looking-for-content {
-  margin-top: 20px;
-  flex: 2; /* Takes up more space compared to the image */
-  max-width: 70%;
-  margin-left: 79px;
-}
+
 
 .typing-container2 {
+  font-weight: 600; /* Semi-bold */
   font-family: "Arial", sans-serif;
-  font-size: 25px;
+  font-size: 1.7rem;
   display: flex;
   align-items: center; /* Vertically center the cursor with the text */
 
@@ -407,6 +397,7 @@ box-shadow: 0 16px 40px rgba(255, 255, 255, 0.5); /* Adjusted offsets */
 
 
 .typing-container3 {
+  font-weight: 600; /* Semi-bold */
   font-family: "Arial", sans-serif;
   font-size: 2.2rem;
   display: flex;

@@ -64,7 +64,6 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
     });
   };
 
-
   return (
     <Stack
       minH="320px"
@@ -76,55 +75,48 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
       margin="2"
     >
       <NextLink href={`/projects/${slug}`} passHref>
-        <Link
-          onClick={() => handleClick(`project_${title.replace('@', '-at')}`)}
-          textDecoration="none"
-          _hover={{ textDecoration: 'none' }}
-          _focus={{ textDecoration: 'none' }}
-        >
-          <ScaleFade transition={{ duration: 1 }} in={true}>
-            <Center w="auto">
-              <Image
-                width={700}
-                height={150}
-                minH="270px"
-                borderRadius="10px 10px 0px 0px"
-                transition="0.3s"
-                objectFit="cover"
-                alt={title}
-                src={imageURL}
-              />
-            </Center>
-            <Stack px={4} py={2}>
-              <Stack alignItems="center" justifyContent="space-between" isInline>
-                <Text color="displayColor" fontFamily="Ubuntu" fontSize="2xl">
-                  {title}
-                </Text>
-                <Stack alignItems="center" justifyContent="flex-end" isInline spacing={4}>
-                  <Link color="white" onClick={() => handleClick(`project_${title.replace('@', '-at')}`)}>
-                    <FaExternalLinkAlt aria-label="project link" size={20} />
-                  </Link>
-                </Stack>
-              </Stack>
-              <Stack isInline>
-                {tag.map((item) => {
-                  const { color, icon } = getTagDetails(item);
-                  return (
-                    <Tag key={item} colorScheme={color} size={isLargerThan800 ? 'md' : 'sm'}>
-                      <TagLeftIcon as={icon} />
-                      <TagLabel>{item}</TagLabel>
-                    </Tag>
-                  );
-                })}
-              </Stack>
-              <Divider />
-              <Text color="textSecondary" fontSize={['sm', 'md']}>
-              {desc}
-
+        <ScaleFade transition={{ duration: 1 }} in={true}>
+          <Center w="auto">
+            <Image
+              width={700}
+              height={150}
+              minH="270px"
+              borderRadius="10px 10px 0px 0px"
+              transition="0.3s"
+              objectFit="cover"
+              alt={title}
+              src={imageURL}
+            />
+          </Center>
+          <Stack px={4} py={2}>
+            <Stack alignItems="center" justifyContent="space-between" isInline>
+              {/* Apply Arial font here */}
+              <Text color="displayColor" fontFamily="Arial, sans-serif" fontSize="2xl">
+                {title}
               </Text>
+              <Stack alignItems="center" justifyContent="flex-end" isInline spacing={4}>
+                <Link color="white" onClick={() => handleClick(`project_${title.replace('@', '-at')}`)}>
+                  <FaExternalLinkAlt aria-label="project link" size={20} />
+                </Link>
+              </Stack>
             </Stack>
-          </ScaleFade>
-        </Link>
+            <Stack isInline>
+              {tag.map((item) => {
+                const { color, icon } = getTagDetails(item);
+                return (
+                  <Tag key={item} colorScheme={color} size={isLargerThan800 ? 'md' : 'sm'}>
+                    <TagLeftIcon as={icon} />
+                    <TagLabel>{item}</TagLabel>
+                  </Tag>
+                );
+              })}
+            </Stack>
+            <Divider />
+            <Text color="gray" fontFamily="Arial, sans-serif" fontSize={['sm', 'md']}>
+              {desc}
+            </Text>
+          </Stack>
+        </ScaleFade>
       </NextLink>
     </Stack>
   );

@@ -17,8 +17,8 @@ export default function ContactMe({ contactMe }) {
   const title = contactMe?.[0]?.fields?.title || "Let’s connect—I'm always open to new conversations and opportunities";
   
   return (
-    <Container>
-    <Stack alignItems="center" justifyContent="center" w="100%" spacing={4}>
+    <Container >
+    <Stack alignItems="center" justifyContent="center" w="100%" spacing={4} px={10}>
       <SlideUpWhenVisible>
         <div className="typing-container3">
           <span id="header4" className="header4"></span>
@@ -48,7 +48,7 @@ export default function ContactMe({ contactMe }) {
               pos="static"
               bg="black"
               color="white"
-              leftIcon={<FaLinkedin fill="#3182ce" />}
+              leftIcon={<FaLinkedin fill="#63b3ed" />}
               size={isLargerThan800 ? 'md' : 'sm'}
               _hover={{ backgroundColor: 'rgba(255, 255, 255, 0.9)', color: 'black' }}
             >
@@ -65,7 +65,7 @@ export default function ContactMe({ contactMe }) {
               bg="black"
               color="white"
               transition="0.3s"
-              leftIcon={<FaEnvelope fill="#3182ce" />}
+              leftIcon={<FaEnvelope fill="#63b3ed" />}
               size={isLargerThan800 ? 'md' : 'sm'}
               _hover={{ backgroundColor: 'rgba(255, 255, 255, 0.9)', color: 'black' }}
             >
@@ -81,7 +81,7 @@ export default function ContactMe({ contactMe }) {
               pos="static"
               bg="black"
               color="white"
-              leftIcon={<FaFileAlt fill="#3182ce" />}
+              leftIcon={<FaFileAlt fill="#63b3ed" />}
               size={isLargerThan800 ? 'md' : 'sm'}
               _hover={{ backgroundColor: 'rgba(255, 255, 255, 0.9)', color: 'black' }}
             >

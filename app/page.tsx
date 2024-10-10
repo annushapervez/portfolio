@@ -24,13 +24,19 @@ const theme = extendTheme({
       },
     },
   },
+  fonts: {
+    body: '"Arial", sans-serif',
+    heading: '"Arial", sans-serif',
+  },
 });
+
+
 
 export default function Home() {
   const projects = [
     {
       fields: {
-        slug: 'project-1',
+        slug: 'spotify-clone',
         description: 'This Spotify clone enables song uploads, playlist management, and Stripe payment integration all while ensuring efficient data handling and real-time updates',
         imageUrl: '/spotify.png', // Update with actual image path
         tags: ['TypeScript', 'React', 'Tailwind'],
@@ -40,11 +46,11 @@ export default function Home() {
     {
     
       fields: {
-        slug: 'project-2',
+        slug: 'HelpingHands',
         description: 'A web application that helps users discover volunteering opportunities in New York City based on their personal interests.',
         imageUrl: '/helping.png', // Update with actual image path
         tags: ['React', 'Next.js', 'CSS'],
-        title: 'Helping Hands'
+        title: 'HelpingHands'
       }
     },
     {

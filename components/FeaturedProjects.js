@@ -18,9 +18,10 @@ export default function FeaturedProjects({ projects }) {
     });
   };
 
+  
   return (
     <Stack spacing={8} w="full">
-      <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={16}>
+      <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={16} px={10}>
         <SlideUpWhenVisible threshold={0.1}>
           <Stack spacing={1}>
             <Stack isInline alignItems="center" justifyContent="space-between">
@@ -29,28 +30,36 @@ export default function FeaturedProjects({ projects }) {
                 <span className="input-cursor2"></span>
               </div>              
               <NextLink passHref href="/projects">
-              <NextLink passHref href="/projects">
-              <Link onClick={() => handleClick('featuredprojects_explore more')}>
-                <Text
-                  _hover={{ color: 'button2' }}
-                  color="button1"
-                  display={{ base: 'block', md: 'none' }}
-                  fontSize={{ base: 'sm', md: 'xl' }}
+                <Link
+                  onClick={() => handleClick('featuredprojects_explore more')}
+                  textDecoration="none" // Remove underline
+                  _hover={{ textDecoration: 'none', color: '#63b3ed' }} // Keep no underline on hover
                 >
-                  Explore more &rarr;
-                </Text>
-              </Link>
-            </NextLink>
+                  <Text
+                    _hover={{ color: '#63b3ed' }} // Change this to your desired blue shade
+                    color="#63b3ed" // Set the initial color to blue
+                    display={{ base: 'block', md: 'none' }}
+                    fontSize={{ base: 'sm', md: 'xl' }}
+                  >
+                    Explore more &rarr;
+                  </Text>
+                </Link>
               </NextLink>
             </Stack>
             <Text color="textSecondary" fontSize={{ base: 'md', md: 'xl' }}>
               Here&apos;s some of my projects that I have worked on.
             </Text>
             <NextLink href="/projects">
-              <Link onClick={() => handleClick('featuredprojects_explore more')}>
+              <Link
+                onClick={() => handleClick('featuredprojects_explore more')}
+                textDecoration="none" // Remove underline
+                _hover={{ textDecoration: 'none', color: '#63b3ed' }} // Keep no underline on hover
+              >
                 <Text
                   display={{ base: 'none', md: 'block' }}
                   fontSize={{ base: 'md', md: 'xl' }}
+                  color="#63b3ed" // Set the initial color to blue
+                  _hover={{ color: '#63b3ed' }}
                 >
                   Explore more &rarr;
                 </Text>

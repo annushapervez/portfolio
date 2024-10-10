@@ -1,12 +1,12 @@
-import { Box, Flex, Stack, Text, chakra } from '@chakra-ui/react'
-import { useEffect, useState } from 'react'
+import { Box, Flex, Stack, Text, chakra } from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
 
 const Container = ({ children }) => {
-  const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   // fix hydration mismatch from using useMediaQuery hooks
   if (mounted)
@@ -23,21 +23,25 @@ const Container = ({ children }) => {
         </Flex>
         <Stack alignItems="center" mt={10} mb={5}>
           <Text fontSize="sm" textAlign="center">
-            Designed and Developed by Annusha Pervez.
+            Designed and Developed by{' '}
+            <chakra.span color="#63b3ed" fontWeight="semibold">
+              Annusha Pervez
+            </chakra.span>
+            .
             <br />
             Built with{' '}
-            <chakra.span color="button1" fontWeight="semibold">
+            <chakra.span color="#63b3ed" fontWeight="semibold">
               Next.js
             </chakra.span>{' '}
             &{' '}
-            <chakra.span color="button1" fontWeight="semibold">
+            <chakra.span color="#63b3ed" fontWeight="semibold">
               React
             </chakra.span>
             .
           </Text>
         </Stack>
       </Box>
-    )
-}
+    );
+};
 
-export default Container
+export default Container;

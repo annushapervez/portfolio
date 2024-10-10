@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import { Stack, Heading, Text, SimpleGrid, Divider, IconButton } from '@chakra-ui/react';
-import { FaArrowLeft, FaSearch } from 'react-icons/fa'; // Import FaArrowLeft
+import { FaArrowLeft, FaSearch } from 'react-icons/fa';
 import Link from 'next/link';
-import Cards from '../components/Card';
-import Container from '../components/Container';
+import Cards from '../../components/Card';
+import Container from '../../components/Container';
 import Head from 'next/head';
 import { Input, InputGroup, InputRightElement } from '@chakra-ui/input';
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import Script from 'next/script';
 import { GraphQLClient } from 'graphql-request';
-import "../styles/nav.css"; // Ensure the path is correct
 
 // Theme customization for Chakra UI
 const theme = extendTheme({
@@ -18,6 +17,8 @@ const theme = extendTheme({
       "html, body": {
         backgroundColor: "black",
         color: "white",
+        fontFamily: 'Arial, sans-serif', // Set the font to Arial
+
       },
     },
   },
@@ -34,7 +35,7 @@ export default function Projects({ projects }) {
     <ChakraProvider theme={theme}>
       <Container>
         <Head>
-          <title>Annusha Pervez - Repositories</title>
+          <title>Repositories</title>
           <meta content="GitHub repositories by Annusha Pervez" name="description" />
         </Head>
         
@@ -42,22 +43,22 @@ export default function Projects({ projects }) {
         <Stack justifyContent="center" mt={10} spacing={5}>
           
           {/* Back Arrow Button */}
-          <Link href="/#FeaturedProjects" passHref> {/* Link back to the main page */}
-          <IconButton
-          aria-label="Back to Home"
-          icon={<FaArrowLeft size={24} />} // Adjust the size here
-          variant="ghost"
-          color="white"
-          _hover={{ color: 'gray.400' }}
-          alignSelf="flex-start"
-        />
+          <Link href="/#FeaturedProjects" passHref>
+            <IconButton
+              aria-label="Back to Home"
+              icon={<FaArrowLeft size={24} />}
+              variant="ghost"
+              color="white"
+              _hover={{ color: 'gray.400' }}
+              alignSelf="flex-start"
+            />
           </Link>
           
           {/* Heading and description */}
-          <Heading color="displayColor" fontSize={{ base: '5xl', md: '5xl' }}>
+          <Heading color="displayColor" fontSize={{ base: '4xl', md: '4xl' }}>
             Repositories
           </Heading>
-          <Text fontSize={{ base: '14px', md: '16px' }}>
+          <Text fontSize={{ base: '18px', md: '18px' }} color="gray">
             Here are some of my public GitHub repositories.
           </Text>
           <InputGroup maxW="400px">
@@ -75,20 +76,24 @@ export default function Projects({ projects }) {
         </Stack>
 
         <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={8}>
-          {projects
-            .filter((repo) =>
-              repo.name.toLowerCase().includes(query.toLowerCase())
-            )
-            .map((repo) => (
-              <a href={repo.url} target="_blank" rel="noopener noreferrer" key={repo.name}>
-                <Cards
-                  desc={repo.description}
-                  imageURL={`https://raw.githubusercontent.com/annushapervez/${repo.name}/main/main.png`} // Set the image URL dynamically
-                  tag={repo.primaryLanguage ? [repo.primaryLanguage.name] : []}
-                  title={repo.name}
-                />
-              </a>
-            ))}
+        {projects
+  .filter((repo) =>
+    repo.name && repo.name.toLowerCase().includes(query.toLowerCase())
+)
+  .map((repo) => (
+    <Link href={`/projects/${encodeURIComponent(repo.name)}`} passHref key={repo.name}>
+      <Cards
+        desc={repo.description}
+slug={encodeURIComponent(repo.name)}
+        imageURL={`https://raw.githubusercontent.com/annushapervez/${repo.name}/main/main.png`}
+        tag={repo.primaryLanguage ? [repo.primaryLanguage.name] : []}
+        title={repo.name
+          .split('-') // Split by dashes
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize first letter
+          .join(' ')} 
+      />
+    </Link>
+  ))}
         </SimpleGrid>
 
       </Container>
@@ -118,6 +123,9 @@ export async function getStaticProps() {
             primaryLanguage {
               name
             }
+            owner {
+              login
+            }
           }
         }
       }
@@ -129,9 +137,12 @@ export async function getStaticProps() {
     const response = await client.request(query);
     const repositories = response.user.repositories.nodes;
 
+    // Filter to only include repositories owned by the specified user
+    const userRepositories = repositories.filter(repo => repo.owner.login === "annushapervez");
+
     return {
       props: {
-        projects: repositories, // Pass repositories as projects
+        projects: userRepositories, // Pass user repositories as projects
       },
       revalidate: 10, // Revalidate the page every 10 seconds
     };
