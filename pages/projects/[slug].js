@@ -19,10 +19,9 @@ import matter from 'gray-matter';
 import readingTime from 'reading-time';
 import { FaGithub, FaLink } from 'react-icons/fa';
 import { ChakraProvider } from '@chakra-ui/react';
-import customTheme from '/Users/annu/portfolio/styles/theme.js'; 
+import customTheme from '../../styles/theme.js'; 
 import { useEffect, useState } from 'react';
 import MDXComponents from '../../components/MDXComponents'
-
 import ProjectContainer from '../../components/ProjectContainer';
 
 
