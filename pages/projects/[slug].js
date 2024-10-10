@@ -31,16 +31,6 @@ export default function Project({ metadata, source, toc }) {
     // State for active heading in ToC
     const [activeId, setActiveId] = useState();
 
-    // If metadata isn't available yet, return a loading state
-    if (!metadata || !slug) {
-        return (
-            <Center flexDir="column" height="100vh">
-                <Spinner size="xl" />
-                <Text>Loading project details...</Text>
-            </Center>
-        );
-    }
-
     // Handle scrolling and set active ToC heading
     useEffect(() => {
         const handleScroll = () => {
