@@ -1,11 +1,9 @@
 import {
     Box,
-    Center,
     Divider,
     Heading,
     Stack,
     Text,
-    Spinner,
     Image,
     HStack,
     Link,
