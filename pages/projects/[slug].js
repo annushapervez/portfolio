@@ -21,9 +21,8 @@ import { FaGithub, FaLink } from 'react-icons/fa';
 import { ChakraProvider } from '@chakra-ui/react';
 import customTheme from '../../styles/theme.js'; 
 import { useEffect, useState } from 'react';
-import MDXComponents from '../../components/MDXComponents'
+import MDXComponents from '../../components/MDXComponents';
 import ProjectContainer from '../../components/ProjectContainer';
-
 
 export default function Project({ metadata, source, toc }) {
     const router = useRouter();
@@ -68,106 +67,105 @@ export default function Project({ metadata, source, toc }) {
 
     // Construct the image URL based on the slug
     const imageURL = `https://raw.githubusercontent.com/annushapervez/${slug}/main/main.png`;
-    
+
     return (
         <ChakraProvider theme={customTheme}>
-          <HStack spacing={4} p={4} px={160} mx="auto" align="start"> {/* Adjust outer HStack padding */}
-    {/* Main Content Section */}
-    <Stack flex="1" spacing={4}>
-        <Stack
-            mt="20px"  // Decreased margin-top for closer placement
-            border="1px"
-            borderColor={{ base: '#333', md: 'borderColor' }}
-            borderRadius="10px"
-        >
-            <Image
-                src={imageURL}
-                alt={metadata.title}
-                borderRadius="10px"
-                width="100%"
-                height="auto"
-                objectFit="cover"
-            />
-        </Stack>
+          <HStack spacing={4} p={4} px={160} mx="auto" align="start">
+            {/* Main Content Section */}
+            <Stack flex="1" spacing={4}>
+                <Stack
+                    mt="20px"
+                    border="1px"
+                    borderColor={{ base: '#333', md: 'borderColor' }}
+                    borderRadius="10px"
+                >
+                    <Image
+                        src={imageURL}
+                        alt={metadata.title}
+                        borderRadius="10px"
+                        width="100%"
+                        height="auto"
+                        objectFit="cover"
+                    />
+                </Stack>
 
-        <Stack pt={4}>
-            <Heading as="h1" color="displayColor" fontSize={['3xl', '4xl']}>
-                {metadata.title}
-            </Heading>
-            <Text fontSize={['sm', 'md']} color="textPrimary">
-                {metadata.summary}
-            </Text>
-            <Text fontSize={['sm', 'md']} color="textSecondary">
-                {readingTime(source).text} read
-            </Text>
+                <Stack pt={4}>
+                    <Heading as="h1" color="displayColor" fontSize={['3xl', '4xl']}>
+                        {metadata.title}
+                    </Heading>
+                    <Text fontSize={['sm', 'md']} color="textPrimary">
+                        {metadata.summary}
+                    </Text>
+                    <Text fontSize={['sm', 'md']} color="textSecondary">
+                        {readingTime(source).text} read
+                    </Text>
 
-            <HStack spacing={2} pt={2}>
-                {metadata.githubLink && (
-                    <Link href={metadata.githubLink} isExternal>
-                        <HStack>
-                            <FaGithub fontSize="20px" />
-                            <Text color="textPrimary" fontSize={['xs', 'sm']}>
-                                Github
-                            </Text>
-                        </HStack>
-                    </Link>
-                )}
-                {metadata.deployLink && (
-                    <Link href={metadata.deployLink} isExternal>
-                        <HStack>
-                            <FaLink fontSize="18px" />
-                            <Text color="textPrimary" fontSize={['xs', 'sm']}>
-                                Live Site
-                            </Text>
-                        </HStack>
-                    </Link>
-                )}
-            </HStack>
-            
+                    <HStack spacing={2} pt={2}>
+                        {metadata.githubLink && (
+                            <Link href={metadata.githubLink} isExternal>
+                                <HStack>
+                                    <FaGithub fontSize="20px" />
+                                    <Text color="textPrimary" fontSize={['xs', 'sm']}>
+                                        Github
+                                    </Text>
+                                </HStack>
+                            </Link>
+                        )}
+                        {metadata.deployLink && (
+                            <Link href={metadata.deployLink} isExternal>
+                                <HStack>
+                                    <FaLink fontSize="18px" />
+                                    <Text color="textPrimary" fontSize={['xs', 'sm']}>
+                                        Live Site
+                                    </Text>
+                                </HStack>
+                            </Link>
+                        )}
+                    </HStack>
 
-            <Divider my={4} />
-            <HStack alignItems="start" pt="23px" spacing="36px">
-            <Stack w={{ base: '100%', md: '50rem' }}>
+                    <Divider my={4} />
+                    <HStack alignItems="start" pt="23px" spacing="36px">
+                    <Stack w={{ base: '100%', md: '50rem' }}>
 
-            <ProjectContainer>
-            <MDXRemote {...source} components={MDXComponents} />
-            </ProjectContainer>
+                    <ProjectContainer>
+                    <MDXRemote {...source} components={MDXComponents} />
+                    </ProjectContainer>
+                    </Stack>
+
+                    <Stack
+                    pos="sticky"
+                    top="6rem"
+                    display={{ base: 'none', md: 'flex' }}
+                    w="250px"
+                    h="500px"
+                    >
+                      <Text color="displayColor" fontSize="xl" fontWeight="semibold">
+                        Table of Contents
+                      </Text>
+
+                      {toc.map((heading) => (
+                        <Box key={heading.title} pl={`${heading.level * 1}rem`}>
+                          <Text
+                            key={heading.id}
+                            color={
+                              heading.title === activeId ? 'activeColor' : 'textSecondary'
+                            }
+                            fontSize={['sm', 'sm', 'md', 'md']}
+                            fontWeight={
+                              heading.title === activeId ? 'semibold' : 'normal'
+                            }
+                          >
+                            <a href={`#${heading.title}`}>{heading.title}</a>
+                          </Text>
+                        </Box>
+                      ))}
+                    </Stack>
+                </HStack>
+
+                </Stack>
             </Stack>
 
-            <Stack
-            pos="sticky"
-            top="6rem"
-            display={{ base: 'none', md: 'flex' }}
-            w="250px"
-            h="500px"
-          >
-            <Text color="displayColor" fontSize="xl" fontWeight="semibold">
-              Table of Contents
-            </Text>
-
-            {toc.map((heading) => (
-              <Box key={heading.title} pl={`${heading.level * 1}rem`}>
-                <Text
-                  key={heading.id}
-                  color={
-                    heading.title === activeId ? 'activeColor' : 'textSecondary'
-                  }
-                  fontSize={['sm', 'sm', 'md', 'md']}
-                  fontWeight={
-                    heading.title === activeId ? 'semibold' : 'normal'
-                  }
-                >
-                  <a href={`#${heading.title}`}>{heading.title}</a>
-                </Text>
-              </Box>
-            ))}
-          </Stack>
-        </HStack>
-
-        </Stack>
-    </Stack>
-
-</HStack>
+          </HStack>
 
         </ChakraProvider>
     );
