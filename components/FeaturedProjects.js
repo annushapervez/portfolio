@@ -21,7 +21,7 @@ export default function FeaturedProjects({ projects }) {
   
   return (
     <Stack spacing={8} w="full">
-      <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={16} px={10}>
+      <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={16} px={20} mt={20}>
         <SlideUpWhenVisible threshold={0.1}>
           <Stack spacing={1}>
             <Stack isInline alignItems="center" justifyContent="space-between">

@@ -35,7 +35,7 @@ import {
   const DocsHeading = (props) => (
     <HStack
       pl={props.as === 'h2' && 4}
-      borderLeft={props.as === 'h2' && '4px solid #3CCF91'}
+      borderLeft={props.as === 'h2' && '4px solid #63b3ed'}
     >
       <Link
         color="displayColor"

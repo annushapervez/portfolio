@@ -37,9 +37,10 @@ const colors = {
 
 const fonts = {
   ...chakraTheme.fonts,
-  body: `Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`,
-  heading: `Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`,
-}
+  body: `Arial, sans-serif`, // Set the body font to Arial
+  heading: `Arial, sans-serif`, // Set the heading font to Arial
+};
+
 
 const breakpoints = createBreakpoints({
   base: '0em',

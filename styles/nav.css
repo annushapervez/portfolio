@@ -1,68 +1,43 @@
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 200px;
-  background-color: #000000; /* Dark background */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
-  padding: 20px;
-  font-family: 'Arial', sans-serif;
+@media (max-width: 450px) { /* Adjust this breakpoint as needed */
+  .content-columns {
+    flex-direction: column; /* Stack items */
+    align-items: center; /* Center items */
+    width: 100vw !important; /* Force width */
+    gap: 370px !important;
+  }
 
-}
+  .recruitment-terminal-container {
+    width: 100%; /* Responsive width */
+    max-width: 550px; /* Maintain maximum width */
+  }
 
-.nav-link {
-  font-size: 18px;
-  color: #ffffff;
-  text-decoration: none;
-  padding: 10px 20px;
-  margin: 10px 0;
-  border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  text-align: center; /* Center text */
-  width: 100%; /* Ensure the link takes the full width */
-  font-family: 'Arial', sans-serif;
+  .image-container {
+    width: 100%; /* Ensure the iPhone fits nicely */
+    max-width: 350px; /* Keep a limit on the width */
+  }
+  .recruitment-terminal-container {
+    display: flex;
+    flex-direction: column; /* or 'row' if you want them side by side */
+    align-items: center;
+    justify-content: center; 
+  }
 
-}
+  [data-termynal] {
+   width: 100vw !important; /* Force width */
+height: auto !important; /* Force height */
+max-height: 100vh !important; /* Force max height */
+font-size: 16px !important; /* Force font size */
+  }
 
-.nav-link:hover {
-  background-color: #2d3748; /* Hover effect */
-}
+  .recruitment-container {
+    flex-direction: column; /* Stack items */
+    align-items: center; /* Center items */
+    text-align: center; /* Center text for the status header */
+  }
 
-.nav-link.active {
-  color: #ffffff;
-  background-color: rgba(99, 179, 237, 0.434); /* More opaque active link color */
-
-}
-
-.nav-link.active:hover {
-  background-color: rgba(99, 179, 237, 0.949); /* More opaque active link color */
-}
-
-
-.main-content {
-  margin-left: 15%; /* Shift content slightly to the right */
-  margin-right: auto; /* Keep right margin auto for centering */
-  padding: 1rem;
-  background-color: rgb(0, 0, 0);
-  color: white;
-  width: 80%;
-}
-
-
-.section {
-  min-height: 100vh;
-  padding: 1.5rem;
-  
-}
-
-.section2 {
-  min-height: 100vh;
-  padding: 1.5rem;
-  margin-left: 7%; /* Shift content slightly to the right */
+  .json-animation {
+    margin-left: -20px; /* Add spacing below the animation */
+  }
 
 }
 .image-container {
@@ -92,16 +67,22 @@
 .bubble1 {
   bottom: -4%; /* Adjust the position as needed */
   right: 11%; /* Adjust the position as needed */
+  width: 261px;
+  height: 26px;
 }
 
 .bubble2 {
   bottom: -14%; /* Adjust the position as needed */
   right: 11%; /* Adjust the position as needed */
+  width: 261px;
+  height: 26px;
 }
 
 .bubble3 {
   bottom: -24%; /* Adjust the position as needed */
   right: 11%; /* Adjust the position as needed */
+  width: 261px;
+  height: 26px;
 }
 
 /* Add more bubble styles as needed */
@@ -134,7 +115,7 @@
   justify-content: center; /* Centers the content instead of pushing them to the edges */
   align-items: flex-start;
   gap: 60px; /* Align items at the top of the container */
-  margin-top: 20px; /* Adjust this value to bring the section down */
+  margin-top: 30px; /* Adjust this value to bring the section down */
 
 }
 
@@ -315,37 +296,6 @@ box-shadow: 0 16px 40px rgba(255, 255, 255, 0.5); /* Adjusted offsets */
 }
 
 
-.text-content {
-  flex: 2; /* Takes up more space compared to the image */
-  max-width: 50%;
-  margin-left: 50px; /* Optional: Space from the left */
-}
-
-.image-content {
-  position: relative; /* Make this container relative for absolute positioning of animation */
-  flex: 1;
-  margin-left: 80px; /* Move the image container further to the right */
-}
-
-
-
-.image-content img {
-  width: 275px; /* Set a fixed width */
-  height: 275px; /* Set the same height to make it square */
-  border-radius: 50%; /* Make it circular */
-  object-fit: cover; /* Ensure proper scaling within the circle */
-  object-position: top center; /* Shift the image upward */
-  z-index: 1; /* Bring the image in front */
-  position: relative; /* Position relative for z-index to work */
-}
-
-
-.section1 {
-  min-height: 80vh;
-  padding: 1.5rem;
-  
-}
-
 
 
 .input-cursor2 {
@@ -358,14 +308,6 @@ box-shadow: 0 16px 40px rgba(255, 255, 255, 0.5); /* Adjusted offsets */
 
 }
 
-/* Paragraph styling for section0 and section1 */
-#AboutMe p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  text-align: left; 
-} 
-
 
 
 .typing-container2 {
@@ -373,6 +315,7 @@ box-shadow: 0 16px 40px rgba(255, 255, 255, 0.5); /* Adjusted offsets */
   font-family: "Arial", sans-serif;
   font-size: 1.7rem;
   display: flex;
+  height: 50px; /* Set a fixed height to prevent jumping */
   align-items: center; /* Vertically center the cursor with the text */
 
   
@@ -384,15 +327,6 @@ box-shadow: 0 16px 40px rgba(255, 255, 255, 0.5); /* Adjusted offsets */
 }
 
 
-.section3 {
-  display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  justify-content: center;
-  align-items: center; 
-  height: 80vh;
-  text-align: center;
-  background-color: black;
-}
 
 
 
@@ -407,9 +341,3 @@ box-shadow: 0 16px 40px rgba(255, 255, 255, 0.5); /* Adjusted offsets */
 
   
 }
-.contact-message {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-top: 10px; /* Add some space between the title and the message */
-}
-

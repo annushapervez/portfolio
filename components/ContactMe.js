@@ -3,7 +3,6 @@ import useMediaQuery from '../components/useMediaQuery';
 import { FaLinkedin, FaEnvelope, FaFileAlt } from 'react-icons/fa'
 import ReactGA from 'react-ga4'
 import SlideUpWhenVisible from './SlideUpwhenVisible.js'; // Ensure the path is correct
-import Container from '../components/Container'; // Ensure this path is correct
 
 export default function ContactMe({ contactMe }) {
   const isLargerThan800 = useMediaQuery(800)
@@ -17,8 +16,7 @@ export default function ContactMe({ contactMe }) {
   const title = contactMe?.[0]?.fields?.title || "Let’s connect—I'm always open to new conversations and opportunities";
   
   return (
-    <Container >
-    <Stack alignItems="center" justifyContent="center" w="100%" spacing={4} px={10}>
+    <Stack alignItems="center" justifyContent="center" w="100%" spacing={4} mt={20}>
       <SlideUpWhenVisible>
         <div className="typing-container3">
           <span id="header4" className="header4"></span>
@@ -27,7 +25,7 @@ export default function ContactMe({ contactMe }) {
       </SlideUpWhenVisible>
 
       <SlideUpWhenVisible>
-        <Text color="textSecondary" fontSize="1.1rem" textAlign="center">
+        <Text color="textSecondary" fontSize="xl" textAlign="center">
           {title}{' '}
           <chakra.span
             color="button1"
@@ -91,6 +89,5 @@ export default function ContactMe({ contactMe }) {
         </Stack>
       </SlideUpWhenVisible>
     </Stack>
-    </Container>
   )
 }

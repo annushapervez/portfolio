@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Cards from '../../components/Card';
 import Container from '../../components/Container';
 import Head from 'next/head';
-import { Input, InputGroup, InputRightElement } from '@chakra-ui/input';
+import { Input, InputGroup, InputRightElement } from '@chakra-ui/react';
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import Script from 'next/script';
 import { GraphQLClient } from 'graphql-request';

@@ -6,6 +6,7 @@ import {
     Text,
     Image,
     HStack,
+    IconButton,
     Link,
 } from '@chakra-ui/react';
 import { MDXRemote } from 'next-mdx-remote';
@@ -14,12 +15,12 @@ import { useRouter } from 'next/router';
 import path from 'path';
 import fs from 'fs';
 import matter from 'gray-matter';
-import readingTime from 'reading-time';
-import { FaGithub, FaLink } from 'react-icons/fa';
+import { FaGithub, FaLink, FaArrowLeft } from 'react-icons/fa';
 import { ChakraProvider } from '@chakra-ui/react';
 import customTheme from '../../styles/theme.js'; 
 import { useEffect, useState } from 'react';
 import MDXComponents from '../../components/MDXComponents';
+import Container from '../../components/Container';
 import ProjectContainer from '../../components/ProjectContainer';
 
 export default function Project({ metadata, source, toc }) {
@@ -28,6 +29,19 @@ export default function Project({ metadata, source, toc }) {
 
     // State for active heading in ToC
     const [activeId, setActiveId] = useState();
+    const [views, setViews] = useState('...');
+
+    // Fetch views on component mount or when slug changes
+    useEffect(() => {
+        if (!slug) {
+          console.warn("Slug is undefined!");
+          return;  // Skip the API call if slug is undefined
+        }
+      
+        fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/views/${slug}`)
+          .then((res) => res.json())
+          .then((json) => setViews(json.views))
+      }, [slug])
 
     // Handle scrolling and set active ToC heading
     useEffect(() => {
@@ -37,16 +51,19 @@ export default function Project({ metadata, source, toc }) {
                 const element = document.getElementById(heading.title);
                 if (element) {
                     const rect = element.getBoundingClientRect();
-                    if (rect.top < window.innerHeight / 2) {
+                    // Check if the heading is in the viewport
+                    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
                         currentId = heading.title;
-                    } else {
-                        break;
+                    } else if (rect.top < window.innerHeight / 2) {
+                        currentId = heading.title;
                     }
                 }
             }
+            if (!currentId && toc.length > 0) {
+                currentId = toc[toc.length - 1].title; // Default to the last heading if none matched
+            }
             setActiveId(currentId);
         };
-
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
@@ -58,103 +75,115 @@ export default function Project({ metadata, source, toc }) {
 
     return (
         <ChakraProvider theme={customTheme}>
-          <HStack spacing={4} p={4} px={160} mx="auto" align="start">
-            {/* Main Content Section */}
-            <Stack flex="1" spacing={4}>
-                <Stack
-                    mt="20px"
-                    border="1px"
-                    borderColor={{ base: '#333', md: 'borderColor' }}
-                    borderRadius="10px"
-                >
-                    <Image
-                        src={imageURL}
-                        alt={metadata.title}
-                        borderRadius="10px"
-                        width="100%"
-                        height="auto"
-                        objectFit="cover"
-                    />
-                </Stack>
+            <Container>
+                <HStack spacing={4} p={4} mx="auto" align="start">
+                    {/* Main Content Section */}
+                    <Stack flex="1" spacing={4}>
+                        <Stack
+                            mt="20px"
+                            border="1px"
+                            borderColor={{ base: '#333', md: 'borderColor' }}
+                            borderRadius="10px"
+                        >
 
-                <Stack pt={4}>
-                    <Heading as="h1" color="displayColor" fontSize={['3xl', '4xl']}>
-                        {metadata.title}
-                    </Heading>
-                    <Text fontSize={['sm', 'md']} color="textPrimary">
-                        {metadata.summary}
-                    </Text>
-                    <Text fontSize={['sm', 'md']} color="textSecondary">
-                        {readingTime(source).text} read
-                    </Text>
+                        <Link href="/projects" passHref>
+                            <IconButton
+                            aria-label="Back to Home"
+                            icon={<FaArrowLeft size={24} />}
+                            variant="ghost"
+                            color="white"
+                            _hover={{ color: 'gray.400' }}
+                            alignSelf="flex-start"
+                            />
+                        </Link>
+                            <Image
+                                src={imageURL}
+                                alt={metadata.title}
+                                borderRadius="10px"
+                                width="100%"
+                                height="auto"
+                                objectFit="cover"
+                                marginTop={2}
+                            />
+                        </Stack>
+                        
 
-                    <HStack spacing={2} pt={2}>
-                        {metadata.githubLink && (
-                            <Link href={metadata.githubLink} isExternal>
-                                <HStack>
-                                    <FaGithub fontSize="20px" />
-                                    <Text color="textPrimary" fontSize={['xs', 'sm']}>
-                                        Github
+                        <Stack pt={4}>
+                            <Heading as="h1" color="displayColor" fontSize={['4xl', '5xl']}> {/* Increased font size */}
+                                {metadata.title}
+                            </Heading>
+                            <Text fontSize={['md', 'lg']} color="textPrimary"> {/* Increased font size */}
+                                {metadata.summary}
+                            </Text>
+
+                            <HStack spacing={2} pt={2}>
+                                <Text color="textPrimary" fontSize={['sm', 'md']}>
+                                    {views} views
+                                </Text>
+                                {metadata.githubLink && (
+                                    <Link href={metadata.githubLink} isExternal>
+                                        <HStack>
+                                            <FaGithub fontSize="20px" color="#63b3ed"/>
+                                            <Text color="textPrimary" fontSize={['sm', 'md']}> {/* Increased font size */}
+                                                Github
+                                            </Text>
+                                        </HStack>
+                                    </Link>
+                                )}
+                                {metadata.deployLink && (
+                                    <Link href={metadata.deployLink} isExternal>
+                                        <HStack>
+                                            <FaLink fontSize="18px" color="#63b3ed"/>
+                                            <Text color="textPrimary" fontSize={['sm', 'md']}> {/* Increased font size */}
+                                                Live Site
+                                            </Text>
+                                        </HStack>
+                                    </Link>
+                                )}
+                            </HStack>
+
+                            <Divider my={4} />
+                            <HStack alignItems="start" pt="23px" spacing="36px">
+                                <Stack w={{ base: '100%', md: '50rem' }}>
+                                    <ProjectContainer>
+                                        <MDXRemote {...source} components={MDXComponents} />
+                                    </ProjectContainer>
+                                </Stack>
+
+                                <Stack
+                                    pos="sticky"
+                                    top="6rem"
+                                    display={{ base: 'none', md: 'flex' }}
+                                    w="250px"
+                                    h="500px"
+                                >
+                                    <Text color="displayColor" fontSize="xl" fontWeight="semibold">
+                                        Table of Contents
                                     </Text>
-                                </HStack>
-                            </Link>
-                        )}
-                        {metadata.deployLink && (
-                            <Link href={metadata.deployLink} isExternal>
-                                <HStack>
-                                    <FaLink fontSize="18px" />
-                                    <Text color="textPrimary" fontSize={['xs', 'sm']}>
-                                        Live Site
-                                    </Text>
-                                </HStack>
-                            </Link>
-                        )}
-                    </HStack>
 
-                    <Divider my={4} />
-                    <HStack alignItems="start" pt="23px" spacing="36px">
-                    <Stack w={{ base: '100%', md: '50rem' }}>
+                                    {toc.map((heading) => (
+                                        <Box key={heading.title} pl={`${heading.level * 1}rem`}>
+                                            <Text
+                                                key={heading.id}
+                                                color={
+                                                    heading.title === activeId ? 'activeColor' : 'textSecondary'
+                                                }
+                                                fontSize={['md', 'lg']}
+                                                fontWeight={
+                                                    heading.title === activeId ? 'semibold' : 'normal'
+                                                }
+                                            >
+                                                <a href={`#${heading.title}`}>{heading.title}</a>
+                                            </Text>
+                                        </Box>
+                                    ))}
+                                </Stack>
+                            </HStack>
 
-                    <ProjectContainer>
-                    <MDXRemote {...source} components={MDXComponents} />
-                    </ProjectContainer>
-                    </Stack>
-
-                    <Stack
-                    pos="sticky"
-                    top="6rem"
-                    display={{ base: 'none', md: 'flex' }}
-                    w="250px"
-                    h="500px"
-                    >
-                      <Text color="displayColor" fontSize="xl" fontWeight="semibold">
-                        Table of Contents
-                      </Text>
-
-                      {toc.map((heading) => (
-                        <Box key={heading.title} pl={`${heading.level * 1}rem`}>
-                          <Text
-                            key={heading.id}
-                            color={
-                              heading.title === activeId ? 'activeColor' : 'textSecondary'
-                            }
-                            fontSize={['sm', 'sm', 'md', 'md']}
-                            fontWeight={
-                              heading.title === activeId ? 'semibold' : 'normal'
-                            }
-                          >
-                            <a href={`#${heading.title}`}>{heading.title}</a>
-                          </Text>
-                        </Box>
-                      ))}
+                        </Stack>
                     </Stack>
                 </HStack>
-
-                </Stack>
-            </Stack>
-
-          </HStack>
-
+            </Container>
         </ChakraProvider>
     );
 }

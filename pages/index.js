@@ -8,10 +8,12 @@ import "../styles/nav.css"; // Ensure the path is correct
 import animationData from '../public/animation.json';
 import FeaturedProjects from '../components/FeaturedProjects';
 import ContactMe from '../components/ContactMe';
+import Container from '../components/Container'; // Ensure this path is correct
 import AboutMe from '../components/AboutMe'; // Adjust the path if necessary
-
-
-import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import HamburgerMenu from '../components/HamburgerMenu'; // Ensure the path is correct
+import { useBreakpointValue } from '@chakra-ui/react';
+import { useEffect } from 'react';
+import { ChakraProvider, extendTheme,Box} from "@chakra-ui/react";
 import Lottie from 'lottie-react'; // Correct import
 
 
@@ -28,11 +30,40 @@ const theme = extendTheme({
     body: '"Arial", sans-serif',
     heading: '"Arial", sans-serif',
   },
+  breakpoints: {
+    sm: "30em", // Small screens (mobile)
+    md: "48em", // Medium screens (tablet)
+    lg: "62em", // Large screens (desktop)
+    xl: "80em", // Extra large screens (large desktop)
+  },
 });
 
 
 
 export default function Home() {
+  
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
+  useEffect(() => {
+    // This function will be called every time the component mounts
+    const loadTypingScript = () => {
+      const script = document.createElement('script');
+      script.src = '/typing.js';
+      script.onload = () => {
+        if (typeof window !== 'undefined' && typeof window.typeAndDelete === 'function') {
+          window.typeAndDelete();
+          window.typeHeaders(); // Call the function only if it's defined
+        }
+      };
+      document.body.appendChild(script);
+      // Cleanup function to remove the scripts when the component unmounts
+      return () => {
+        document.body.removeChild(script);
+      };
+    };
+
+    loadTypingScript();
+  }, []); // Empty dependency array ensures it runs on mount
   const projects = [
     {
       fields: {
@@ -77,13 +108,31 @@ export default function Home() {
       <Head>
         <title>My Portfolio</title>
         <meta name="description" content="My personal portfolio" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <SideNav />
+      {isMobile ? (
+          <HamburgerMenu /> // Show Hamburger Menu on mobile
+        ) : (
+          <SideNav /> // Show SideNav on larger screens
+        )}
 
-      <main className="main-content">
+<Box
+       ml={{ base: 0, md: '150px' }} // Set margin for larger screens, no margin for mobile
+       p={2} // Padding for main content
+       bg="black"
+       color="white"
+       width={{ base: '100%', md: 'calc(100% - 150px)' }}// Adjust width based on sidebar
+          >     <Container >
         <section id="Home" className="section">
+        {isMobile ? (
+        <div className="typing-container">
+                <span id="sentence" className="sentence"></span>
+                <span className="input-cursor"></span>
+              </div>
+        ): null}
+
           <div className="content-columns">
               {/* iPhone Wrapper */}
               <div className="iphone-wrapper">
@@ -128,10 +177,12 @@ export default function Home() {
             </div>
             {/* Terminal Column */}
             <div className="terminal-container">
-              <div className="typing-container">
+            {!isMobile ? (
+        <div className="typing-container">
                 <span id="sentence" className="sentence"></span>
                 <span className="input-cursor"></span>
               </div>
+        ): null}
 
             {/* Recruitment Column */}
             <div className="recruitment-container">
@@ -173,32 +224,22 @@ export default function Home() {
 
         </section>
 
-        <section id="Resume" className="section3">
+        <section id="Resume" className="section">
         <ContactMe contactMe={ContactMe} />
 
         </section>
-
         <Script
-  src="/typing.js"
-  strategy="afterInteractive" // Load script after the page is interactive
-  onLoad={() => {
-    if (typeof window !== 'undefined' && typeof window.typeAndDelete === 'function') {
-      window.typeAndDelete();
-      window.typeHeaders(); // Call the function only if it's defined
+              src="/termynal.js"
+              strategy="afterInteractive"
+              data-termynal-container="#termynal"
+              onLoad={() => console.log("Termynal loaded")}
+            />
+</Container >
+</Box>
 
-    }
-  }}
-/>
-<Script
-  src="/termynal.js"
-  strategy="afterInteractive"
-  data-termynal-container="#termynal"
-  onLoad={() => console.log("Termynal loaded")}
-/>      </main>
     </>
     </ChakraProvider>
 
   );
 
 }
-

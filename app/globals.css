@@ -19,6 +19,8 @@ body {
   color: var(--foreground);
   margin: 0;
   font-family: Arial, sans-serif; /* Choose a font-family you prefer */
+  overflow-x: hidden; /* Prevents horizontal scroll */
+
 }
 
 @layer utilities {

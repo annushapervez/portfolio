@@ -3,7 +3,7 @@ import SlideUpWhenVisible from '../components/SlideUpwhenVisible.js'; // Ensure 
 
 export default function AboutMe({ aboutMeContent }) {
   return (
-    <Box padding={0} px={10}>
+    <Box padding={0} px={20} mt={20}>
       <Grid 
         templateColumns={{ base: '1fr', md: '1fr 1fr' }} 
         gap={6}
@@ -17,7 +17,7 @@ export default function AboutMe({ aboutMeContent }) {
               <span id="header1" className="header1"></span>
               <span className="input-cursor2"></span>
             </div>    
-            <Text mt={2} >{aboutMeContent.introduction}</Text>
+            <Text fontSize="lg" mt={2} >{aboutMeContent.introduction}</Text>
           </SlideUpWhenVisible>
 
           {/* Adding margin-bottom to the typing container of "About Me" */}
@@ -27,7 +27,7 @@ export default function AboutMe({ aboutMeContent }) {
                 <span id="header2" className="header2"></span>
                 <span className="input-cursor2"></span>
               </div>
-              <Text mt={2}>{aboutMeContent.seeking}</Text>
+              <Text fontSize="lg" mt={2}>{aboutMeContent.seeking}</Text>
             </Box>
           </SlideUpWhenVisible>
         </Box>
