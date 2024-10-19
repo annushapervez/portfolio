@@ -1,17 +1,17 @@
-import { Link, Button, chakra, Stack, Text } from '@chakra-ui/react'
+import { Link, Button, chakra, Stack, Text } from '@chakra-ui/react';
 import useMediaQuery from '../components/useMediaQuery';
-import { FaLinkedin, FaEnvelope, FaFileAlt } from 'react-icons/fa'
-import ReactGA from 'react-ga4'
+import { FaLinkedin, FaEnvelope, FaFileAlt } from 'react-icons/fa';
+import ReactGA from 'react-ga4';
 import SlideUpWhenVisible from './SlideUpwhenVisible.js'; // Ensure the path is correct
 
 export default function ContactMe({ contactMe }) {
-  const isLargerThan800 = useMediaQuery(800)
+  const isLargerThan800 = useMediaQuery(800);
   const handleClick = (event) => {
     ReactGA.event({
       category: 'click',
       action: event,
-    })
-  }
+    });
+  };
 
   const title = contactMe?.[0]?.fields?.title || "Let’s connect—I'm always open to new conversations and opportunities";
   
@@ -25,7 +25,11 @@ export default function ContactMe({ contactMe }) {
       </SlideUpWhenVisible>
 
       <SlideUpWhenVisible>
-        <Text color="textSecondary" fontSize="xl" textAlign="center">
+        <Text 
+          color="textSecondary" 
+          fontSize={{ base: 'lg', md: 'xl' }} // Adjust the font size here
+          textAlign="center"
+        >
           {title}{' '}
           <chakra.span
             color="button1"
@@ -89,5 +93,5 @@ export default function ContactMe({ contactMe }) {
         </Stack>
       </SlideUpWhenVisible>
     </Stack>
-  )
+  );
 }

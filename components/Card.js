@@ -69,24 +69,24 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
       minH="320px"
       maxH="500px"
       bg="secondary"
-      borderColor={{ base: '#333', md: 'borderColor' }}
+      border="1px"
+      borderColor={{ base: '#333', md: '#111111' }}
       borderRadius="10px"
       overflow="hidden"
-      margin="2"
     >
       <NextLink href={`/projects/${slug}`} passHref>
         <ScaleFade transition={{ duration: 1 }} in={true}>
           <Center w="auto">
-            <Image
-              width={700}
-              height={150}
-              minH="270px"
-              borderRadius="10px 10px 0px 0px"
-              transition="0.3s"
-              objectFit="cover"
-              alt={title}
-              src={imageURL}
-            />
+          <Image
+  width="100%" // Make the image responsive
+  height="auto" // Let height adjust automatically based on width
+  minH={['200px', '250px', '270px']} // Responsive minimum height for different breakpoints
+  borderRadius="10px 10px 0px 0px"
+  transition="0.3s"
+  objectFit="cover" // Maintain aspect ratio while covering the container
+  alt={title}
+  src={imageURL}
+/>
           </Center>
           <Stack px={4} py={2}>
             <Stack alignItems="center" justifyContent="space-between" isInline>

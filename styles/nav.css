@@ -3,7 +3,7 @@
     flex-direction: column !important; /* Stack items */
     align-items: center !important; /* Center items */
     width: 100% !important; /* Use full width */
-    gap: 370px !important;
+    gap: 260px !important;
     display: flex !important;
 
   }
@@ -15,8 +15,37 @@
 
   .image-container {
     width: 100%; /* Ensure the iPhone fits nicely */
-    max-width: 350px; /* Keep a limit on the width */
+    max-width: 300px; /* Keep a limit on the width */
+    height: auto; /* Maintain aspect ratio */
   }
+  
+  .image-container img {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the container without distortion */
+  }
+
+  .bubble1 {
+    bottom: 10% !important; /* Adjust the position as needed */
+    right: 11%; /* Adjust the position as needed */
+    width: 211px!important;
+    height: 26px;
+  }
+  
+  .bubble2 {
+    bottom: 1%!important; /* Adjust the position as needed */
+    right: 11%; /* Adjust the position as needed */
+    width: 211px!important;
+    height: 26px;
+  }
+  
+  .bubble3 {
+    bottom: -8%!important; /* Adjust the position as needed */
+    right: 11%; /* Adjust the position as needed */
+    width: 211px!important;
+    height: 26px;
+  }
+  
   .recruitment-terminal-container {
     display: flex;
     flex-direction: column; /* or 'row' if you want them side by side */
@@ -55,11 +84,11 @@
   .typing-container {
     font-family: "Arial", sans-serif;
     font-weight:300;
-    font-size: 3rem;
+    font-size: 2rem !important;
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    height: 30px !important; /* Ensure a consistent height */
+    height: 25px !important; /* Ensure a consistent height */
     margin-top: 50px !important;
     text-align: center; /* Ensure text is centered */
   }
@@ -74,6 +103,18 @@
     justify-content: center; /* Center horizontally */
     text-align: center; /* Ensure text is centered */
   }
+
+  .typing-container3 {
+    font-weight: 600; /* Semi-bold */
+    font-family: "Arial", sans-serif;
+    font-size: 1.7rem !important;
+    display: flex;
+    align-items: center;
+    height: 50px; /* Set a fixed height to prevent jumping */
+  
+    
+  }
+  
 
 }
 .image-container {

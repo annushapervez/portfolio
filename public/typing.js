@@ -2,13 +2,12 @@
 async function typeSentence(sentence, elementId, speed = 100) {
   const element = document.querySelector(elementId);
   if (!element) {
-    console.warn(`Element with ID '${elementId}' not found.`);
     return; // Exit if the element does not exist
   }
   
   element.innerHTML = ''; // Clear any existing text
   for (let i = 0; i < sentence.length; i++) {
-    element.innerHTML += sentence.charAt(i);
+    element.innerHTML += sentence.charAts(i);
     await new Promise(resolve => setTimeout(resolve, speed));
   }
 }
@@ -17,7 +16,6 @@ async function typeSentence(sentence, elementId, speed = 100) {
 async function deleteSentence(elementId, speed = 50) {
   const element = document.querySelector(elementId);
   if (!element) {
-    console.warn(`Element with ID '${elementId}' not found.`);
     return; // Exit if the element does not exist
   }
 

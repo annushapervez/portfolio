@@ -79,14 +79,7 @@ export default function Project({ metadata, source, toc }) {
                 <HStack spacing={4} p={4} mx="auto" align="start">
                     {/* Main Content Section */}
                     <Stack flex="1" spacing={4}>
-                        <Stack
-                            mt="20px"
-                            border="1px"
-                            borderColor={{ base: '#333', md: 'borderColor' }}
-                            borderRadius="10px"
-                        >
-
-                        <Link href="/projects" passHref>
+                    <Link href="/projects" passHref>
                             <IconButton
                             aria-label="Back to Home"
                             icon={<FaArrowLeft size={24} />}
@@ -96,6 +89,11 @@ export default function Project({ metadata, source, toc }) {
                             alignSelf="flex-start"
                             />
                         </Link>
+                        <Stack
+                            border="1px"
+                            borderColor={{ base: '#333', md: 'borderColor' }}
+                            borderRadius="10px"
+                        >
                             <Image
                                 src={imageURL}
                                 alt={metadata.title}
