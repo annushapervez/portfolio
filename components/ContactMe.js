@@ -16,7 +16,7 @@ export default function ContactMe({ contactMe }) {
   const title = contactMe?.[0]?.fields?.title || "Let’s connect—I'm always open to new conversations and opportunities";
   
   return (
-    <Stack alignItems="center" justifyContent="center" w="100%" spacing={4} mt={20}>
+    <Stack alignItems="center" justifyContent="center" w="100%" spacing={4} mt={{ base: 10, md: 20 }}>
       <SlideUpWhenVisible>
         <div className="typing-container3">
           <span id="header4" className="header4"></span>
@@ -36,7 +36,7 @@ export default function ContactMe({ contactMe }) {
       </SlideUpWhenVisible>
 
       <SlideUpWhenVisible>
-        <Stack isInline spacing={4} mt={4} mb={40}>
+        <Stack isInline spacing={4} mt={4} mb={{ base: 20, md: 40 }}>
           <Link
             href="https://www.linkedin.com/in/annusha-pervez/"
             isExternal

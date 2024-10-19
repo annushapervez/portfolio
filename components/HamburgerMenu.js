@@ -1,9 +1,23 @@
-// components/HamburgerMenu.js
-"use client";
-
-import { Box, Button, Flex, IconButton, Collapse } from '@chakra-ui/react';
-import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
-import { useState } from 'react';
+import React, { useRef } from 'react';
+import {
+  Button,
+  Flex,
+  Box,
+  Text,
+  Slide,
+  useDisclosure,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerHeader,
+  DrawerBody,
+  Stack,
+  Icon,
+} from '@chakra-ui/react';
+import NextLink from 'next/link';
+import useMediaQuery from '../components/useMediaQuery';
+import { AiOutlineMenu } from 'react-icons/ai';
 
 const sections = [
   { id: 'Home', title: 'Home' },
@@ -12,58 +26,75 @@ const sections = [
   { id: 'Resume', title: 'Resume' },
 ];
 
-export default function HamburgerMenu() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function Navbar({ enableTransition }) {
+  const isLargerThan768 = useMediaQuery(768);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const firstField = useRef();
 
-  const handleNavClick = (id) => {
-    setIsOpen(false); // Close the menu after selection
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const NavbarDrawer = () => (
+    <Drawer
+      initialFocusRef={firstField}
+      isOpen={isOpen}
+      onClose={onClose}
+      placement="right"
+    >
+      <DrawerOverlay />
+      <DrawerContent bgColor="black"> {/* Set background color to black */}
+        <DrawerCloseButton color="white" />
+        <DrawerHeader borderBottomWidth="1px" color="white" mt={4} mb={2}>
+          {/* You can add a title here if needed */}
+        </DrawerHeader>
+
+        <DrawerBody>
+          <Stack spacing="24px">
+            {sections.map((section) => (
+              <NextLink key={section.id} passHref href={`/#${section.id}`}>
+                <Text 
+                  fontSize="lg" 
+                  fontWeight="bold" 
+                  color="white" 
+                  onClick={onClose} // Close the drawer on click
+                >
+                  {section.title}
+                </Text>
+              </NextLink>
+            ))}
+          </Stack>
+        </DrawerBody>
+      </DrawerContent>
+    </Drawer>
+  );
 
   return (
-    <Box>
-      <IconButton
-        icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label={isOpen ? "Close Menu" : "Open Menu"}
-        variant="outline"
-        colorScheme="teal"
-        size="lg"
-        position="absolute"
-        top={4}
-        right={4}
-      />
-
-      <Collapse in={isOpen}>
-        <Box
-          p={4}
-          bg="gray.800"
-          borderRadius="md"
-          boxShadow="md"
-          position="absolute"
-          top={16}
-          right={4}
-          zIndex={1}
+    <Box pos="sticky" zIndex={99}>
+      <Slide
+        direction="top"
+        bg="black"
+        transition={
+          enableTransition
+            ? { enter: { duration: 0.5, delay: 0.01 } }
+            : { enter: { duration: 0, delay: 0 } }
+        }
+        in={true}
+        reverse
+      >
+        <Flex
+          as="nav"
+          align="center"
+          justify="flex-end"
+          direction="row"
+          w="100%"
+          px="22px"
+          py="3"
+          bg="black"
+          borderBottom="0.5px solid #1e2029"
         >
-          <Flex direction="column" alignItems="flex-start">
-            {sections.map((section) => (
-              <Button
-                key={section.id}
-                variant="ghost"
-                colorScheme="whiteAlpha"
-                onClick={() => handleNavClick(section.id)} // Use the navigation handler
-                width="100%"
-                justifyContent="flex-start"
-              >
-                {section.title}
-              </Button>
-            ))}
-          </Flex>
-        </Box>
-      </Collapse>
+          {!isLargerThan768 && (
+            <Icon as={AiOutlineMenu} w={7} h={7} onClick={onOpen} color="white" />
+          )}
+        </Flex>
+      </Slide>
+      <NavbarDrawer />
     </Box>
   );
 }

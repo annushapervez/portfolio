@@ -1,14 +1,16 @@
-@media (max-width: 450px) { /* Adjust this breakpoint as needed */
+@media (max-width: 768px) { /* Adjust this breakpoint as needed */
   .content-columns {
-    flex-direction: column; /* Stack items */
-    align-items: center; /* Center items */
-    width: 100vw !important; /* Force width */
+    flex-direction: column !important; /* Stack items */
+    align-items: center !important; /* Center items */
+    width: 100% !important; /* Use full width */
     gap: 370px !important;
+    display: flex !important;
+
   }
 
   .recruitment-terminal-container {
-    width: 100%; /* Responsive width */
-    max-width: 550px; /* Maintain maximum width */
+    width: 100%!important; /* Responsive width */
+    max-width: 550px!important; /* Maintain maximum width */
   }
 
   .image-container {
@@ -23,10 +25,21 @@
   }
 
   [data-termynal] {
-   width: 100vw !important; /* Force width */
-height: auto !important; /* Force height */
-max-height: 100vh !important; /* Force max height */
-font-size: 16px !important; /* Force font size */
+    width: 100% !important; /* Maintain full width */
+    height: auto !important; /* Adjust height automatically */
+    max-height: 400px !important; /* Adjust this to limit the max height */
+    overflow-y: auto; /* Enable vertical scroll if content exceeds max-height */
+    font-size: 14px !important; /* Ensure font size remains intact */
+    scrollbar-width: thin; /* Make scrollbar thinner for better look (Firefox) */
+  }
+  
+  [data-termynal]::-webkit-scrollbar {
+    width: 8px; /* Control scrollbar width (Chrome, Safari) */
+  }
+  
+  [data-termynal]::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3); /* Light color scrollbar thumb */
+    border-radius: 10px; /* Rounded scrollbar edges */
   }
 
   .recruitment-container {
@@ -37,6 +50,29 @@ font-size: 16px !important; /* Force font size */
 
   .json-animation {
     margin-left: -20px; /* Add spacing below the animation */
+  }
+
+  .typing-container {
+    font-family: "Arial", sans-serif;
+    font-weight:300;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 30px !important; /* Ensure a consistent height */
+    margin-top: 50px !important;
+    text-align: center; /* Ensure text is centered */
+  }
+
+  .typing-container2 {
+    font-weight: 600; /* Semi-bold */
+    font-family: "Arial", sans-serif;
+    font-size: 1.7rem;
+    display: flex;
+    height: 50px; /* Set a fixed height to prevent jumping */
+    align-items: center; /* Vertically center the cursor with the text */
+    justify-content: center; /* Center horizontally */
+    text-align: center; /* Ensure text is centered */
   }
 
 }

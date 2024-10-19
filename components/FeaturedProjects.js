@@ -18,13 +18,15 @@ export default function FeaturedProjects({ projects }) {
     });
   };
 
-  
   return (
-    <Stack spacing={8} w="full">
-      <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={16} px={20} mt={20}>
+    <Stack spacing={8} w="full" px={{ base: 4, md: 20 }} mt={{ base: 10, md: 20 }}>
+      <SimpleGrid 
+        columns={{ base: 1, sm: 1, md: 2 }} 
+        spacing={16} // Adjust spacing for better mobile appearance
+      >
         <SlideUpWhenVisible threshold={0.1}>
           <Stack spacing={1}>
-            <Stack isInline alignItems="center" justifyContent="space-between">
+          <Stack direction={{ base: 'column'}} alignItems={{ base: 'center', md: 'flex-start' }} justifyContent="space-between"> {/* Center on mobile, left-align on larger screens */}
               <div className="typing-container2">
                 <span id="header3" className="header3"></span>
                 <span className="input-cursor2"></span>
@@ -39,16 +41,20 @@ export default function FeaturedProjects({ projects }) {
                     _hover={{ color: '#63b3ed' }} // Change this to your desired blue shade
                     color="#63b3ed" // Set the initial color to blue
                     display={{ base: 'block', md: 'none' }}
-                    fontSize={{ base: 'sm', md: 'xl' }}
+                    fontSize={{ base: 'md', md: 'xl' }}
                   >
                     Explore more &rarr;
                   </Text>
                 </Link>
               </NextLink>
             </Stack>
-            <Text color="textSecondary" fontSize={{ base: 'md', md: 'xl' }}>
-              Here&apos;s some of my projects that I have worked on.
-            </Text>
+            <Text 
+            color="textSecondary"  
+            fontSize={{ base: 'md', md: 'xl' }} 
+            textAlign={{ base: 'center', md: 'left' }} // Center on mobile, left-align on larger screens
+          >
+            Here&apos;s some of my projects that I have worked on.
+          </Text>
             <NextLink href="/projects">
               <Link
                 onClick={() => handleClick('featuredprojects_explore more')}
@@ -68,6 +74,7 @@ export default function FeaturedProjects({ projects }) {
           </Stack>
         </SlideUpWhenVisible>
         
+        {/* Adjust card display for better mobile experience */}
         <SlideUpWhenVisible>
           <Cards
             slug={projects[0].fields.slug}
@@ -80,7 +87,7 @@ export default function FeaturedProjects({ projects }) {
 
         {projects && projects.length > 1 && (
           <SlideUpWhenVisible>
-            <Box mt={{ md: '-65%' }}>
+            <Box mt={{ base: 4, md: '-65%' }}> {/* Adjusted margin for mobile */}
               <Cards
                 slug={projects[1].fields.slug}
                 desc={projects[1].fields.description}
