@@ -7,7 +7,7 @@ async function typeSentence(sentence, elementId, speed = 100) {
   
   element.innerHTML = ''; // Clear any existing text
   for (let i = 0; i < sentence.length; i++) {
-    element.innerHTML += sentence.charAts(i);
+    element.innerHTML += sentence.charAt(i);
     await new Promise(resolve => setTimeout(resolve, speed));
   }
 }
@@ -44,7 +44,7 @@ async function typeAndDelete() {
 }
 
 // Expose the typeHeaders function to the window object
-window.typeHeaders = async function() {
+ async function typeHeaders() {
   const headers = ["About Me", "What I'm Looking For", "Projects", "Keep In Touch!"];
   for (let i = 0; i < headers.length; i++) {
     await typeSentence(headers[i], `#header${i + 1}`);
