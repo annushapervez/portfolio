@@ -16,6 +16,7 @@ import { ChakraProvider, extendTheme,Box} from "@chakra-ui/react";
 import Lottie from 'lottie-react'; // Correct import
 
 
+
 const theme = extendTheme({
   styles: {
     global: {
@@ -43,14 +44,14 @@ export default function Home() {
   
   const isMobile = useBreakpointValue({ base: true, md: false });
 
+
   useEffect(() => {
     // This function will be called every time the component mounts
     const loadTypingScript = () => {
       const script = document.createElement('script');
       script.src = '/typing.js';
       script.onload = () => {
-        if (typeof window !== 'undefined' && typeof window.typeAndDelete === 'function') {
-          window.typeAndDelete();
+        if (typeof window !== 'undefined') {
           window.typeHeaders(); // Call the function only if it's defined
         }
       };
@@ -62,7 +63,7 @@ export default function Home() {
     };
 
     loadTypingScript();
-  }, []); // Empty dependency array ensures it runs on mount
+  }, []);
   const projects = [
     {
       fields: {
@@ -224,6 +225,16 @@ export default function Home() {
         <ContactMe contactMe={ContactMe} />
 
         </section>
+        <Script
+  src="/typing.js"
+  strategy="afterInteractive" // Load script after the page is interactive
+  onLoad={() => {
+    if (typeof window !== 'undefined' && typeof window.typeAndDelete === 'function') {
+      window.typeAndDelete();
+
+    }
+  }}
+/>
         <Script
               src="/termynal.js"
               strategy="afterInteractive"

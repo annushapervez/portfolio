@@ -2,6 +2,7 @@
 async function typeSentence(sentence, elementId, speed = 100) {
   const element = document.querySelector(elementId);
   if (!element) {
+    console.warn(`Element with ID '${elementId}' not found.`);
     return; // Exit if the element does not exist
   }
   
@@ -16,6 +17,7 @@ async function typeSentence(sentence, elementId, speed = 100) {
 async function deleteSentence(elementId, speed = 50) {
   const element = document.querySelector(elementId);
   if (!element) {
+    console.warn(`Element with ID '${elementId}' not found.`);
     return; // Exit if the element does not exist
   }
 
@@ -33,6 +35,13 @@ async function typeAndDelete() {
 
   while (true) {
     const currentMessage = messages[index];
+    
+    // Clear text before typing to prevent jumps
+    const sentenceElement = document.querySelector("#sentence");
+    if (sentenceElement) {
+      sentenceElement.innerHTML = ''; // Clear text here
+    }
+
     await typeSentence(currentMessage, "#sentence");
     await new Promise(resolve => setTimeout(resolve, 4000)); // Pause before deleting
     await deleteSentence("#sentence");
@@ -43,28 +52,24 @@ async function typeAndDelete() {
   }
 }
 
-// Expose the typeHeaders function to the window object
- async function typeHeaders() {
-  const headers = ["About Me", "What I'm Looking For", "Projects", "Keep In Touch!"];
-  for (let i = 0; i < headers.length; i++) {
-    await typeSentence(headers[i], `#header${i + 1}`);
-  }
-};
 
-// Call the function when document is ready
-document.addEventListener("DOMContentLoaded", () => {
-  // Only call typeAndDelete and typeHeaders if the elements exist
-  if (document.querySelector("#sentence")) {
-    typeAndDelete();
-  } else {
-    console.warn("Element with ID 'sentence' not found on this page. Skipping typeAndDelete.");
-  }
+// Expose the typeHeaders f unction to the window object
+async function typeHeaders() {
+  const headers = [
+    { id: "#header1", text: "About Me" },
+    { id: "#header2", text: "What I'm Looking For" },
+    { id: "#header3", text: "Projects" },
+    { id: "#header4", text: "Keep In Touch!" }
 
-  // Call typeHeaders only if the header elements exist
-  const allHeadersExist = [1, 2, 3, 4].every(i => document.querySelector(`#header${i}`));
-  if (allHeadersExist) {
-    typeHeaders();
-  } else {
-    console.warn("One or more header elements not found. Skipping typeHeaders.");
+
+  ];
+
+  for (const header of headers) {
+    const headerElement = document.querySelector(header.id);
+    if (headerElement) {
+      headerElement.innerHTML = ''; // Clear previous text
+    }
+    await typeSentence(header.text, header.id);
+    await new Promise(resolve => setTimeout(resolve, 1000)); // Pause between headers
   }
-});
+}
