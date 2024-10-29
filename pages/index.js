@@ -86,7 +86,7 @@ export default function Home() {
     },
     {
       fields: {
-        slug: 'project-3',
+        slug: 'the-climb',
         description: 'A web application allows users to track their nutrition and exercise, offering personalized suggestions and fostering connections with friends for motivation.',
         imageUrl: '/theclimb.png', // Update with actual image path
         tags: ['PHP', 'JavaScript', 'HTML', 'CSS'],

@@ -3,11 +3,11 @@ title: "Helping Hands"
 slug: "HelpingHands"
 summary: "A web application that helps users discover volunteering opportunities in New York City based on their personal interests."
 githubLink: "https://github.com/annushapervez/helpinghands"
-deployLink: "https://annusha.tech"
 ---
 
 ## Overview
 Helping Hands is a web application that matches volunteers with local opportunities based on their interests and proximity. Users can input their location or allow the app to detect it, and the system returns a list of opportunities sorted by distance. This project focuses on simplifying the volunteer search process by eliminating complex user profiles and highlighting a straightforward matching algorithm.
+ **This project is currently in progress, with ongoing development focused on frontend development.**
 
 ## Project Goals
 - **Simplify Volunteer Matching**: Develop an intuitive platform that makes it easy for users to find volunteer opportunities based on location and interests.

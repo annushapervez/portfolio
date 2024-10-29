@@ -79,7 +79,7 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
           <Center w="auto">
           <Image
   width="100%" // Make the image responsive
-  height="auto" // Let height adjust automatically based on width
+  height="300px" // Let height adjust automatically based on width
   minH={['200px', '250px', '270px']} // Responsive minimum height for different breakpoints
   borderRadius="10px 10px 0px 0px"
   transition="0.3s"

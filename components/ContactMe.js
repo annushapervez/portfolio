@@ -75,7 +75,7 @@ export default function ContactMe({ contactMe }) {
             </Button>
           </Link>
           <Link
-            href="/V2resume.pdf" // Link to your PDF file
+            href="/V2Resume.pdf" // Link to your PDF file
             isExternal
             onClick={() => handleClick('contact_resume')}
           >
