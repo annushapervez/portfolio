@@ -26,7 +26,7 @@ import {
   FaCss3,
   FaCogs,
 } from 'react-icons/fa';
-import { SiChakraui, SiNextdotjs , SiGo, SiPhp,  SiShell, SiAssembly } from 'react-icons/si';
+import { SiChakraui, SiNextdotjs , SiGo, SiPhp,  SiShell } from 'react-icons/si';
 import useMediaQuery from '../components/useMediaQuery';
 import NextLink from 'next/link';
 

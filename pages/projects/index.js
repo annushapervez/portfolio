@@ -35,8 +35,8 @@ export default function Projects({ projects }) {
     <ChakraProvider theme={theme}>
       <Container>
         <Head>
-          <title>Repositories</title>
-          <meta content="GitHub repositories by Annusha Pervez" name="description" />
+          <title>Projects</title>
+          <meta content="Projects by Annusha Pervez" name="description" />
         </Head>
         
         {/* Stack containing the back arrow and heading */}
@@ -59,7 +59,7 @@ export default function Projects({ projects }) {
             Projects
           </Heading>
           <Text fontSize={{ base: '18px', md: '18px' }} color="gray">
-          Here is an archive of things that I've worked on.
+          Here is an archive of things that I have worked on.
           </Text>
           <InputGroup maxW="400px">
             <InputRightElement pointerEvents="none">
