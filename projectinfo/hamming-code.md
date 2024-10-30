@@ -2,7 +2,6 @@
 title: "Hamming Code"
 slug: "hamming-code"
 summary: "A MIPS assembly subroutine for 7-bit Hamming codes to handle error detection, correction, and data encoding with a user-friendly menu system."
-githubLink: "https://github.com/annushapervez/hamming-code"
 ---
 
 ## Overview
@@ -14,11 +13,11 @@ A Hamming code is a type of error-correcting code used in digital communication 
 In a 7-bit Hamming code, 4 bits contain the actual data (called the data bits), while the remaining 3 bits are parity bits. These parity bits are strategically placed within the code to check combinations of data bits, forming a structure that can identify errors. When a single-bit error occurs, the parity bits help determine the exact position of the error, allowing it to be corrected. This makes Hamming codes especially useful in situations where data reliability is crucial, such as in computer memory, data storage, and network transmissions.
 
 ## Project Goals
-- **Enable Error Detection and Correction**: Develop a MIPS subroutine capable of detecting and correcting single-bit errors in 7-bit Hamming codes.
-- **User-Friendly Menu System**: Implement an intuitive menu interface to allow users to input Hamming codes or data words, and perform various encoding and error-checking operations.
-- **Efficient Data Encoding**: Allow users to encode a 4-bit data word into a 7-bit Hamming code through optimized MIPS assembly subroutines.
-- **Error Reporting**: Create functionality to identify and report any errors in a 7-bit Hamming code, ensuring accurate data transmission.
-- **Deepen Architecture Knowledge**: Showcase my understanding of low-level computing and MIPS architecture by avoiding pseudo instructions and designing efficient subroutines for each operation.
+- **✅ Enable Error Detection and Correction**: Develop a MIPS subroutine capable of detecting and correcting single-bit errors in 7-bit Hamming codes.
+- **🍱 User-Friendly Menu System**: Implement an intuitive menu interface to allow users to input Hamming codes or data words, and perform various encoding and error-checking operations.
+- **⚙️ Efficient Data Encoding**: Allow users to encode a 4-bit data word into a 7-bit Hamming code through optimized MIPS assembly subroutines.
+- **🚨 Error Reporting**: Create functionality to identify and report any errors in a 7-bit Hamming code, ensuring accurate data transmission.
+- **🧠 Deepen Architecture Knowledge**: Showcase my understanding of low-level computing and MIPS architecture by avoiding pseudo instructions and designing efficient subroutines for each operation.
 
 ## Tech Stack
 - **Programming Language**: 
@@ -32,7 +31,7 @@ In a 7-bit Hamming code, 4 bits contain the actual data (called the data bits), 
 - **Version Control**: 
   - Git and GitHub for source code management and collaboration.
 
-##  Features
+##  Features 🌟
 ### Demo Video
 <VideoPlayer src="/hamming.mp4" />
 

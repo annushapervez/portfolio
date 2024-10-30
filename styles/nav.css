@@ -96,7 +96,7 @@
   .typing-container2 {
     font-weight: 600; /* Semi-bold */
     font-family: "Arial", sans-serif;
-    font-size: 1.7rem;
+    font-size: 1.7rem!important;
     display: flex;
     height: 50px; /* Set a fixed height to prevent jumping */
     align-items: center; /* Vertically center the cursor with the text */
@@ -115,8 +115,32 @@
     
   }
   
-
 }
+
+@media only screen and (max-width: 375px) {
+  .typing-container2 {
+    font-weight: 600; /* Semi-bold */
+    font-family: "Arial", sans-serif;
+    font-size: 1.5rem !important;
+    display: flex;
+    height: 50px; /* Set a fixed height to prevent jumping */
+    align-items: center; /* Vertically center the cursor with the text */
+    justify-content: center; /* Center horizontally */
+    text-align: center; /* Ensure text is centered */
+  }
+
+  .typing-container3 {
+    font-weight: 600; /* Semi-bold */
+    font-family: "Arial", sans-serif;
+    font-size: 1.5rem !important;
+    display: flex;
+    align-items: center;
+    height: 50px; /* Set a fixed height to prevent jumping */
+  
+    
+  }
+}
+
 .image-container {
   position: relative;
   width: 350px; /* Match width with your Image component */

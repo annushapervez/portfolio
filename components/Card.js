@@ -22,8 +22,11 @@ import {
   FaPython,
   FaReact,
   FaSass,
+  FaFileCode, // TypeScript icon
+  FaCss3,
+  FaCogs,
 } from 'react-icons/fa';
-import { SiChakraui, SiNextdotjs } from 'react-icons/si';
+import { SiChakraui, SiNextdotjs , SiGo, SiPhp,  SiShell, SiAssembly } from 'react-icons/si';
 import useMediaQuery from '../components/useMediaQuery';
 import NextLink from 'next/link';
 
@@ -48,6 +51,18 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
         return { color: 'blue', icon: FaDatabase };
       case 'Next.js':
         return { color: 'gray', icon: SiNextdotjs };
+      case 'TypeScript':
+        return { color: 'teal', icon: FaFileCode };
+      case 'CSS':
+          return { color: 'purple', icon: FaCss3 };
+      case 'PHP':
+          return { color: 'blue', icon: SiPhp  };
+      case 'Go':
+          return { color: 'green', icon: SiGo }; // Use your desired color
+      case 'Assembly':
+          return { color: 'orange', icon: FaCogs }; // Color and icon for Assembly
+      case 'Shell':
+            return { color: 'pink', icon: SiShell };
       case 'Chakra UI':
         return { color: 'teal', icon: SiChakraui };
       default:
@@ -79,7 +94,7 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
           <Center w="auto">
           <Image
   width="100%" // Make the image responsive
-  height="300px" // Let height adjust automatically based on width
+  height={{ base: "auto", md: "300px" }} // Let height adjust automatically based on width
   minH={['200px', '250px', '270px']} // Responsive minimum height for different breakpoints
   borderRadius="10px 10px 0px 0px"
   transition="0.3s"
@@ -100,17 +115,17 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
                 </Link>
               </Stack>
             </Stack>
-            <Stack isInline>
-              {tag.map((item) => {
-                const { color, icon } = getTagDetails(item);
-                return (
-                  <Tag key={item} colorScheme={color} size={isLargerThan800 ? 'md' : 'sm'}>
-                    <TagLeftIcon as={icon} />
-                    <TagLabel>{item}</TagLabel>
-                  </Tag>
-                );
-              })}
-            </Stack>
+            <Stack isInline wrap="wrap" overflow="hidden" maxW="100%">
+  {tag.map((item) => {
+    const { color, icon } = getTagDetails(item);
+    return (
+      <Tag key={item} colorScheme={color} size={isLargerThan800 ? 'md' : 'sm'} marginRight={1} marginBottom={1}>
+        <TagLeftIcon as={icon} />
+        <TagLabel>{item}</TagLabel>
+      </Tag>
+    );
+  })}
+</Stack>
             <Divider />
             <Text color="gray" fontFamily="Arial, sans-serif" fontSize={['sm', 'md']}>
               {desc}

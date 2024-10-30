@@ -12,6 +12,7 @@ import AboutMe from '../components/AboutMe'; // Adjust the path if necessary
 import HamburgerMenu from '../components/HamburgerMenu'; // Ensure the path is correct
 import { useBreakpointValue } from '@chakra-ui/react';
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { ChakraProvider, extendTheme,Box} from "@chakra-ui/react";
 import Lottie from 'lottie-react'; // Correct import
 
@@ -41,37 +42,33 @@ const theme = extendTheme({
 
 
 export default function Home() {
-  
+  const router = useRouter();
   const isMobile = useBreakpointValue({ base: true, md: false });
 
 
   useEffect(() => {
-    // This function will be called every time the component mounts
-    const loadTypingScript = () => {
-      const script = document.createElement('script');
-      script.src = '/typing.js';
-      script.onload = () => {
-        if (typeof window !== 'undefined') {
-          window.typeHeaders(); // Call the function only if it's defined
-        }
-      };
-      document.body.appendChild(script);
-      // Cleanup function to remove the scripts when the component unmounts
-      return () => {
-        document.body.removeChild(script);
-      };
+    const handleRouteChange = (url) => {
+      if (url === '/') {
+        // Force refresh the page
+        window.location.reload();
+      }
     };
 
-    loadTypingScript();
-  }, []);
+    router.events.on('routeChangeComplete', handleRouteChange);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]); 
   const projects = [
     {
       fields: {
-        slug: 'spotify-clone',
-        description: 'This Spotify clone enables song uploads, playlist management, and Stripe payment integration all while ensuring efficient data handling and real-time updates',
-        imageUrl: '/spotify.png', // Update with actual image path
-        tags: ['TypeScript', 'React', 'Tailwind'],
-        title: 'Spotify Clone'
+        slug: 'shland',
+        description: 'A real-time quiz web application developed leveraging Flask, Docker, and MongoDB for a scalable and engaging quiz experience.',
+         imageUrl: 'https://raw.githubusercontent.com/annushapervez/shland/main/main.png', // Update with actual image path
+        tags: ['Python', 'JavaScript', 'CSS'],
+        title: 'Shland'
       }
     },
     {
@@ -79,7 +76,7 @@ export default function Home() {
       fields: {
         slug: 'HelpingHands',
         description: 'A web application that helps users discover volunteering opportunities in New York City based on their personal interests.',
-        imageUrl: '/helping.png', // Update with actual image path
+        imageUrl: 'https://raw.githubusercontent.com/annushapervez/HelpingHands/main/main.png', // Update with actual image path
         tags: ['React', 'Next.js', 'CSS'],
         title: 'HelpingHands'
       }
@@ -88,8 +85,8 @@ export default function Home() {
       fields: {
         slug: 'the-climb',
         description: 'A web application allows users to track their nutrition and exercise, offering personalized suggestions and fostering connections with friends for motivation.',
-        imageUrl: '/theclimb.png', // Update with actual image path
-        tags: ['PHP', 'JavaScript', 'HTML', 'CSS'],
+        imageUrl: 'https://raw.githubusercontent.com/annushapervez/the-climb/main/main.png', // Update with actual image path
+        tags: ['PHP', 'JavaScript', 'CSS'],
         title: 'The Climb'
       }
     }
@@ -231,6 +228,7 @@ export default function Home() {
   onLoad={() => {
     if (typeof window !== 'undefined' && typeof window.typeAndDelete === 'function') {
       window.typeAndDelete();
+      window.typeHeaders();
 
     }
   }}

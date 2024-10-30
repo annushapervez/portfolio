@@ -12,10 +12,10 @@ Welcome to my portfolio! This site is a snapshot of my journey as a software dev
 I wanted to create a space that reflects who I am and what I can do. With a clean design and easy navigation, I aimed to make it simple for you to explore my work. Whether you’re a potential employer, a fellow developer, or just someone curious about my projects, I hope you find something that resonates with you!
 
 ## Project Goals
-- **Showcase Skills**: Display my technical skills and proficiencies in various programming languages and frameworks.
-- **Highlight Projects**: Present detailed case studies of significant projects, including the challenges faced and solutions implemented.
-- **Professional Branding**: Establish a personal brand that reflects my style, values, and aspirations in the tech industry.
-- **Continuous Improvement**: Provide a platform that I can update regularly to reflect my growing skills and experiences.
+- **🎯 Showcase Skills**: Display my technical skills and proficiencies in various programming languages and frameworks.
+- **✨ Highlight Projects**: Present detailed case studies of significant projects, including the challenges faced and solutions implemented.
+- **🧑‍💼 Professional Branding**: Establish a personal brand that reflects my style, values, and aspirations in the tech industry.
+- **📈 Continuous Improvement**: Provide a platform that I can update regularly to reflect my growing skills and experiences.
 
 ## Tech Stack
 - **Frontend**: 
@@ -29,7 +29,7 @@ I wanted to create a space that reflects who I am and what I can do. With a clea
 - **Version Control**: 
   - Git and GitHub for source code management and collaboration.
 
-## Features
+## Features 🌟
 ### Responsive Design
 - Optimized for both desktop and mobile devices to ensure accessibility.
 - Fluid grid layout that adapts seamlessly to various screen sizes.

@@ -3,18 +3,17 @@ title: "The Climb"
 slug: "the-climb"
 summary: "A web application that allows users to track their nutrition and exercise, offering personalized suggestions and fostering connections with friends for motivation."
 githubLink: "https://github.com/annushapervez/the-climb"
-deployLink: "https://annusha.tech"
 ---
 
 ## Overview
 The Climb is a group project designed as a fitness web application to empower users in their health journey by allowing them to log their nutrition and exercise routines. The platform provides personalized recommendations based on user data, fostering a sense of community through friend connections and competitive features. By tracking a variety of statistics related to nutrition and exercise, users can gain valuable insights into their health progress and make informed decisions about their lifestyle changes.
 
 ## Project Goals
-- **User-Centric Tracking**: Enable users to log their daily meals and workouts efficiently, providing them with a comprehensive view of their health journey.
-- **Personalized Suggestions**: Offer tailored meal and exercise recommendations based on individual user data and goals.
-- **Social Connectivity**: Foster a community environment by allowing users to connect with friends, share progress, and provide mutual motivation.
-- **Gamification Elements**: Introduce competitive features such as leaderboards and status updates to encourage friendly competition among users.
-- **Accessibility**: Ensure the platform is accessible to a wide range of users, from beginners to experienced athletes, emphasizing affordability for those who cannot access professional dietitians or trainers.
+- **📊 User-Centric Tracking**: Enable users to log their daily meals and workouts efficiently, providing them with a comprehensive view of their health journey.
+- **🥑 Personalized Suggestions**: Offer tailored meal and exercise recommendations based on individual user data and goals.
+- **👥 Social Connectivity**: Foster a community environment by allowing users to connect with friends, share progress, and provide mutual motivation.
+- **🏆 Gamification Elements**: Introduce competitive features such as leaderboards and status updates to encourage friendly competition among users.
+- **♿ Accessibility**: Ensure the platform is accessible to a wide range of users, from beginners to experienced athletes, emphasizing affordability for those who cannot access professional dietitians or trainers.
 
 ## Tech Stack
 - **Frontend**: 
@@ -53,7 +52,8 @@ The Climb is a group project designed as a fitness web application to empower us
     { src: '/17.png', alt: 'Description of image 17' },
   ]}
 />
-## Features
+
+## Features 🌟
 ### Nutrition and Exercise Tracking
 - Users can log meals and track caloric intake to meet their dietary goals.
 - Allows users to record workouts, including cardio and weightlifting activities.

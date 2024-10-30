@@ -43,7 +43,7 @@ export default function Projects({ projects }) {
         <Stack justifyContent="center" mt={10} spacing={5}>
           
           {/* Back Arrow Button */}
-          <Link href="/#FeaturedProjects" passHref>
+          <Link href="/" passHref>
             <IconButton
               aria-label="Back to Home"
               icon={<FaArrowLeft size={24} />}
@@ -56,10 +56,10 @@ export default function Projects({ projects }) {
           
           {/* Heading and description */}
           <Heading color="displayColor" fontSize={{ base: '4xl', md: '4xl' }}>
-            Repositories
+            Projects
           </Heading>
           <Text fontSize={{ base: '18px', md: '18px' }} color="gray">
-            Here are some of my public GitHub repositories.
+          Here is an archive of things that I've worked on.
           </Text>
           <InputGroup maxW="400px">
             <InputRightElement pointerEvents="none">
@@ -72,28 +72,35 @@ export default function Projects({ projects }) {
               onChange={handleChange}
             />
           </InputGroup>
-          <Divider />
+          <Divider mb={4} borderColor="gray"/>
         </Stack>
 
         <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={8}>
-        {projects
-  .filter((repo) =>
-    repo.name && repo.name.toLowerCase().includes(query.toLowerCase())
-)
-  .map((repo) => (
-    <Link href={`/projects/${encodeURIComponent(repo.name)}`} passHref key={repo.name}>
-      <Cards
-        desc={repo.description}
-slug={encodeURIComponent(repo.name)}
-        imageURL={`https://raw.githubusercontent.com/annushapervez/${repo.name}/main/main.png`}
-        tag={repo.primaryLanguage ? [repo.primaryLanguage.name] : []}
-        title={repo.name
-          .split('-') // Split by dashes
-          .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize first letter
-          .join(' ')} 
-      />
-    </Link>
-  ))}
+          {projects
+            .filter((repo) =>
+              repo.name && repo.name.toLowerCase().includes(query.toLowerCase())
+            )
+            .map((repo) => {
+              // Extracting languages and combining them with the primary language
+              const languages = repo.languages.nodes.map(lang => lang.name); // Extract language names
+
+              // Combine primary language and other languages into tags
+
+              return (
+                <Link href={`/projects/${encodeURIComponent(repo.name)}`} passHref key={repo.name}>
+                  <Cards
+                    desc={repo.description}
+                    slug={encodeURIComponent(repo.name)}
+                    imageURL={`https://raw.githubusercontent.com/annushapervez/${repo.name}/main/main.png`}
+                    tag={languages} // Use the combined tags here
+                    title={repo.name
+                      .split('-') // Split by dashes
+                      .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize first letter
+                      .join(' ')} 
+                  />
+                </Link>
+              );
+            })}
         </SimpleGrid>
 
       </Container>
@@ -113,7 +120,7 @@ export async function getStaticProps() {
   const query = `
     query {
       user(login: "annushapervez") {
-        repositories(first: 100, orderBy: {field: CREATED_AT, direction: DESC}) {
+        repositories(first: 100, orderBy: {field: CREATED_AT, direction: ASC}) {
           nodes {
             name
             description
@@ -123,9 +130,15 @@ export async function getStaticProps() {
             primaryLanguage {
               name
             }
+            languages(first: 5) {
+              nodes {
+                name
+              }
+            }
             owner {
               login
             }
+            isPrivate
           }
         }
       }
@@ -138,8 +151,10 @@ export async function getStaticProps() {
     const repositories = response.user.repositories.nodes;
 
     // Filter to only include repositories owned by the specified user
-    const userRepositories = repositories.filter(repo => repo.owner.login === "annushapervez");
-
+    const userRepositories = repositories.filter(
+      repo => repo.owner.login === "annushapervez" && !repo.isPrivate
+    );
+    
     return {
       props: {
         projects: userRepositories, // Pass user repositories as projects

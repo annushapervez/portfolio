@@ -101,7 +101,6 @@ export default function Project({ metadata, source, toc }) {
                                 width="100%"
                                 height="auto"
                                 objectFit="cover"
-                                marginTop={2}
                             />
                         </Stack>
                         

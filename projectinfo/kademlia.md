@@ -10,11 +10,11 @@ The Kademlia project is a peer-to-peer (P2P) network that uses a Distributed Has
 
 ## Project Goals
 
-- **Implement the Kademlia DHT protocol** to enable decentralized data storage and retrieval.
-- **Create an efficient lookup mechanism** that allows nodes to find data across the network with minimal overhead.
+- **🌐 Implement the Kademlia DHT protocol** to enable decentralized data storage and retrieval.
+- **🔍 Create an efficient lookup mechanism** that allows nodes to find data across the network with minimal overhead.
 - **Ensure fault tolerance and redundancy** by distributing data across multiple nodes.
-- **Optimize network performance** by implementing efficient routing, based on XOR distance.
-- **Provide secure peer-to-peer communication** between nodes in the network.
+- **🛡️ Optimize network performance** by implementing efficient routing, based on XOR distance.
+- **🔒 Provide secure peer-to-peer communication** between nodes in the network.
 
 ## Tech Stack
 
@@ -30,8 +30,7 @@ The Kademlia project is a peer-to-peer (P2P) network that uses a Distributed Has
 - **Unit Testing Framework**: Go’s built-in testing package.
 - **Integration Testing**: Custom test cases to validate data lookup, routing, and fault tolerance under network partitions and failures.
 
-## Features
-
+## Features 🌟
 - **Peer Discovery**: Automatically finds new peers to join the network, maintaining an updated list of active nodes.
 - **Efficient Routing**: Uses XOR-based distance metrics to locate nodes close to the data, ensuring low-latency lookups.
 - **Data Redundancy**: Stores data across multiple nodes for improved fault tolerance and data availability.

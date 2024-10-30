@@ -10,11 +10,11 @@ Helping Hands is a web application that matches volunteers with local opportunit
  **This project is currently in progress, with ongoing development focused on frontend development.**
 
 ## Project Goals
-- **Simplify Volunteer Matching**: Develop an intuitive platform that makes it easy for users to find volunteer opportunities based on location and interests.
-- **Location-Based Filtering**: Implement a system that sorts and filters opportunities based on the user's current location, ensuring relevant and nearby matches.
-- **Efficient Data Handling**: Leverage CSV files to store and process volunteer opportunities and zipcodes, making data management simple and flexible.
-- **Promote Community Engagement**: Encourage volunteering by providing a streamlined and user-friendly experience for discovering local causes.
-- **Build Technical Expertise**: Demonstrate my ability to create a full-stack application using modern web technologies, including Next.js, CSV parsing, and geolocation.
+- **🌍 Simplify Volunteer Matching**: Develop an intuitive platform that makes it easy for users to find volunteer opportunities based on location and interests.
+- **📍 Location-Based Filtering**: Implement a system that sorts and filters opportunities based on the user's current location, ensuring relevant and nearby matches.
+- **📂 Efficient Data Handling**: Leverage CSV files to store and process volunteer opportunities and zipcodes, making data management simple and flexible.
+- **🤝 Promote Community Engagement**: Encourage volunteering by providing a streamlined and user-friendly experience for discovering local causes.
+- **🚀 Build Technical Expertise**: Demonstrate my ability to create a full-stack application using modern web technologies, including Next.js, CSV parsing, and geolocation.
 
 ## Tech Stack
 - **Frontend**: 
@@ -30,7 +30,7 @@ Helping Hands is a web application that matches volunteers with local opportunit
 - **Version Control**: 
   - **Git** and **GitHub** for source code management and collaboration.
 
-## Features
+## Features 🌟
 ### Location Detection
   - Users input their zip code or allow the app to automatically detect their location using the browser's Geolocation API.
   - Option to manually adjust the location in case of inaccuracies in automatic detection.
