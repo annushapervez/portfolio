@@ -6,7 +6,7 @@ import { useBreakpointValue } from '@chakra-ui/react';
 
 const ImageCarousel = ({ images }) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null); // Set to null initially
-  const [isHoveringEnlarged, setIsHoveringEnlarged] = useState(false);
+  const [setIsHoveringEnlarged] = useState(false);
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   const nextImage = () => {
