@@ -59,6 +59,8 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
           return { color: 'blue', icon: SiPhp  };
       case 'Go':
           return { color: 'green', icon: SiGo }; // Use your desired color
+      case 'C':
+            return { color: 'red', icon: FaCogs };
       case 'Assembly':
           return { color: 'orange', icon: FaCogs }; // Color and icon for Assembly
       case 'Shell':
