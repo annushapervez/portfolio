@@ -51,10 +51,10 @@ export default function FeaturedProjects({ projects }) {
       _hover={{ textDecoration: 'none' }}
     >
       <Text
-        fontSize={{ base: 'md', md: 'xl' }}
+        fontSize={{ base: 'lg', md: 'xl' }}
         color="#63b3ed"
         display="inline-block"
-        p="4px 8px"
+        p="8px 16px"
         border="1px solid rgba(99, 179, 237, 0.434)"
         borderRadius="md"
         boxShadow="md"
@@ -83,10 +83,10 @@ export default function FeaturedProjects({ projects }) {
       _hover={{ textDecoration: 'none' }}
     >
       <Text
-        fontSize={{ base: 'md', md: 'xl' }}
+        fontSize={{ base: 'lg', md: 'xl' }}
         color="#63b3ed"
         display="inline-block"
-        p="4px 8px"
+        p="8px 16px"
         border="1px solid rgba(99, 179, 237, 0.434)"
         borderRadius="md"
         boxShadow="md"
@@ -96,6 +96,7 @@ export default function FeaturedProjects({ projects }) {
           transform: "scale(1.05)",
           transition: "all 0.3s ease",
         }}
+
       >
         Explore more &rarr;
       </Text>
