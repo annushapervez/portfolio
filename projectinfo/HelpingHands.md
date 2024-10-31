@@ -1,5 +1,5 @@
 ---
-title: "Helping Hands"
+title: "HelpingHands"
 slug: "HelpingHands"
 summary: "A web application that helps users discover volunteering opportunities in New York City based on their personal interests."
 githubLink: "https://github.com/annushapervez/helpinghands"
@@ -25,8 +25,6 @@ Helping Hands is a web application that matches volunteers with local opportunit
 - **Geolocation & Distance Calculation**:
   - **Browser Geolocation API**: For detecting the user's current location.
   - **Zipcode CSV File**: Distance between the user's location and opportunities is calculated using a CSV file containing ZIP codes and their corresponding latitude/longitude, rather than relying on an external API.
-- **Hosting**: 
-  - **Vercel**: Deploying the Next.js application with automatic scaling and global distribution.
 - **Version Control**: 
   - **Git** and **GitHub** for source code management and collaboration.
 

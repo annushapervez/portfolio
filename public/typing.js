@@ -2,7 +2,6 @@
 async function typeSentence(sentence, elementId, speed = 100) {
   const element = document.querySelector(elementId);
   if (!element) {
-    console.warn(`Element with ID '${elementId}' not found.`);
     return; // Exit if the element does not exist
   }
   

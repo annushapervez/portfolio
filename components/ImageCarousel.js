@@ -5,21 +5,20 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { useBreakpointValue } from '@chakra-ui/react';
 
 const ImageCarousel = ({ images }) => {
-  const [selectedImageIndex, setSelectedImageIndex] = useState(null); // Start with null
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null); // Set to null initially
+  const [isHoveringEnlarged, setIsHoveringEnlarged] = useState(false);
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   const nextImage = () => {
-    if (selectedImageIndex !== null) {
-      setSelectedImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }
+    setSelectedImageIndex((prevIndex) =>
+      prevIndex !== null ? (prevIndex + 1) % images.length : 0
+    );
   };
 
   const prevImage = () => {
-    if (selectedImageIndex !== null) {
-      setSelectedImageIndex((prevIndex) =>
-        prevIndex === 0 ? images.length - 1 : prevIndex - 1
-      );
-    }
+    setSelectedImageIndex((prevIndex) =>
+      prevIndex !== null ? (prevIndex === 0 ? images.length - 1 : prevIndex - 1) : images.length - 1
+    );
   };
 
   return (
@@ -35,8 +34,8 @@ const ImageCarousel = ({ images }) => {
           />
           <Box width="70vw" height="70vw" position="relative" mx="4">
             <Image
-              src={images[selectedImageIndex]?.src || images[0].src} // Fallback to the first image if none is selected
-              alt={images[selectedImageIndex]?.alt || images[0].alt} // Fallback to the first image if none is selected
+              src={images[selectedImageIndex]?.src || images[0].src} 
+              alt={images[selectedImageIndex]?.alt || images[0].alt}
               layout="fill"
               objectFit="contain"
             />
@@ -51,20 +50,15 @@ const ImageCarousel = ({ images }) => {
         </Box>
       ) : (
         <Box position="relative" width="100%">
-          <Box
-            display="flex"
-            overflowX="auto"
-            whiteSpace="nowrap"
-            width="100%"
-          >
+          <Box display="flex" overflowX="auto" whiteSpace="nowrap" width="100%">
             {images.map((image, index) => (
               <Box
                 key={index}
-                position={index === 0 ? 'relative' : 'initial'} // Applies relative positioning only to the first image
-                top={index === 0 ? '17px' : '0'} // Moves the first image down               
-                marginRight="10px" // Adjust spacing between images
-                onMouseEnter={() => setSelectedImageIndex(index)} // Set selected image on hover
-                onClick={() => setSelectedImageIndex(index)} // Open enlarged view on click
+                position={index === 0 ? 'relative' : 'initial'}
+                top={index === 0 ? '17px' : '0'}
+                marginRight="10px"
+                onMouseEnter={() => setSelectedImageIndex(index)}
+                onClick={() => setSelectedImageIndex(index)}
                 cursor="pointer"
                 transition="transform 0.2s"
                 _hover={{ transform: 'scale(1.1)', zIndex: 10 }}
@@ -81,15 +75,14 @@ const ImageCarousel = ({ images }) => {
               </Box>
             ))}
           </Box>
-
           {selectedImageIndex !== null && (
             <Box
               position="fixed"
               top="50%"
               left="50%"
               transform="translate(-50%, -50%)"
-              width="80vw"
-              height="80vh"
+              width="60vw"
+              height="60vh"
               display="flex"
               justifyContent="center"
               alignItems="center"
@@ -99,7 +92,7 @@ const ImageCarousel = ({ images }) => {
               onMouseEnter={() => setIsHoveringEnlarged(true)}
               onMouseLeave={() => {
                 setIsHoveringEnlarged(false);
-                setSelectedImageIndex(null); // Close on leaving enlarged image
+                setSelectedImageIndex(null); // Close when leaving the enlarged image
               }}
             >
               <Box
@@ -121,7 +114,7 @@ const ImageCarousel = ({ images }) => {
                     aria-label="Previous Image"
                     icon={<ChevronLeftIcon />}
                     onClick={(e) => {
-                      e.stopPropagation(); // Prevent click from closing the enlarged view
+                      e.stopPropagation();
                       prevImage();
                     }}
                     colorScheme="blue"
@@ -130,7 +123,7 @@ const ImageCarousel = ({ images }) => {
                     aria-label="Next Image"
                     icon={<ChevronRightIcon />}
                     onClick={(e) => {
-                      e.stopPropagation(); // Prevent click from closing the enlarged view
+                      e.stopPropagation();
                       nextImage();
                     }}
                     colorScheme="blue"

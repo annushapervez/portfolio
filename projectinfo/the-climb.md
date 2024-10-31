@@ -67,8 +67,5 @@ The Climb is a group project designed as a fitness web application to empower us
 
 ### Profile Customization
 - Each user can customize their profile based on personal fitness goals and preferences, ensuring a tailored experience.
-## Typical Users and Uses
-
-The Climb caters to a diverse audience, ranging from experienced athletes to newcomers looking to track their progress during lifestyle changes. Designed for individuals interested in improving their health through better nutrition and exercise tracking, the application primarily targets gym-goers who may not have access to professional guidance. This allows users to benefit from tailored suggestions and community support, making it especially useful for new gym members and regular attendees seeking to maintain motivation and accountability.
-
+## Typical Uses
 The Climb functions as a comprehensive platform where users can log their daily food intake and workouts on personal profiles, providing a clear record of their health choices. The app analyzes this data to automatically suggest meal and exercise options to help users achieve their fitness goals. Additionally, its social features enhance motivation by enabling users to connect with friends, track each other's progress, and engage in friendly competition through status updates and leaderboards. Ultimately, this application empowers individuals to manage their health journeys while fostering a supportive community environment.
