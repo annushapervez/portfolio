@@ -199,7 +199,7 @@ export default function Home() {
                 <span data-ty></span>
 
                 <span data-ty="input">ls Databases</span>
-                <span data-ty>MongoDB, SQL</span>
+                <span data-ty>MongoDB, SQL, Supabase</span>
                 <span data-ty></span>
 
                 <span data-ty="input">ls Tools</span>
