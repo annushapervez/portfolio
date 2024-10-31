@@ -137,8 +137,21 @@
     align-items: center;
     height: 50px; /* Set a fixed height to prevent jumping */
   
-    
   }
+
+  .recruitment-status {
+    font-size: 18px !important;
+    line-height: 1.5;
+    
+    /* Remove the margin-left from here */
+  }
+  
+  .recruitment-status h2 {
+    font-size: 24px !important;
+    margin-bottom: 0px;
+  }
+
+
 }
 
 .image-container {
