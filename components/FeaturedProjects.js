@@ -31,22 +31,6 @@ export default function FeaturedProjects({ projects }) {
                 <span id="header3" className="header3"></span>
                 <span className="input-cursor2"></span>
               </div>              
-              <NextLink passHref href="/projects">
-                <Link
-                  onClick={() => handleClick('featuredprojects_explore more')}
-                  textDecoration="none" // Remove underline
-                  _hover={{ textDecoration: 'none', color: '#63b3ed' }} // Keep no underline on hover
-                >
-                  <Text
-                    _hover={{ color: '#63b3ed' }} // Change this to your desired blue shade
-                    color="#63b3ed" // Set the initial color to blue
-                    display={{ base: 'block', md: 'none' }}
-                    fontSize={{ base: 'md', md: 'xl' }}
-                  >
-                    Explore more &rarr;
-                  </Text>
-                </Link>
-              </NextLink>
             </Stack>
             <Text 
             color="textSecondary"  
@@ -55,22 +39,33 @@ export default function FeaturedProjects({ projects }) {
           >
             Here&apos;s some of my projects that I have worked on.
           </Text>
-            <NextLink href="/projects">
-              <Link
-                onClick={() => handleClick('featuredprojects_explore more')}
-                textDecoration="none" // Remove underline
-                _hover={{ textDecoration: 'none', color: '#63b3ed' }} // Keep no underline on hover
-              >
-                <Text
-                  display={{ base: 'none', md: 'block' }}
-                  fontSize={{ base: 'md', md: 'xl' }}
-                  color="#63b3ed" // Set the initial color to blue
-                  _hover={{ color: '#63b3ed' }}
-                >
-                  Explore more &rarr;
-                </Text>
-              </Link>
-            </NextLink>
+          <NextLink href="/projects" passHref>
+  <Link
+    onClick={() => handleClick('featuredprojects_explore more')}
+    textDecoration="none"
+    _hover={{ textDecoration: 'none' }}
+  >
+    <Text
+      fontSize={{ base: 'md', md: 'xl' }}
+      color="#63b3ed"
+      display="inline-block" // Change to inline-block
+      p="4px 8px" // Optional: Adjust padding to create some space around the text
+      border="1px solid rgba(99, 179, 237, 0.434)" // Keeps border for visibility
+      borderRadius="md" // Rounds the corners slightly
+      boxShadow="md" // Adds shadow for depth
+      _hover={{
+        backgroundColor: 'rgba(99, 179, 237, 0.434)',
+        color: "white",
+        transform: "scale(1.05)", // Slightly increases size on hover
+        transition: "all 0.3s ease",
+      }}
+      mt={4} // Add margin-top for space above the button
+
+    >
+      Explore more &rarr;
+    </Text>
+  </Link>
+</NextLink>
           </Stack>
         </SlideUpWhenVisible>
         

@@ -59,14 +59,14 @@ export default function Projects({ projects }) {
             Projects
           </Heading>
           <Text fontSize={{ base: '18px', md: '18px' }} color="gray">
-          Here is an archive of things that I have worked on.
+          Explore my portfolio of projects that highlight my growth, skills, and the technologies I&apos;ve utilized along the way. 
           </Text>
           <InputGroup maxW="400px">
             <InputRightElement pointerEvents="none">
               <FaSearch />
             </InputRightElement>
             <Input
-              placeholder="Search repositories"
+              placeholder="Search Projects"
               type="text"
               value={query}
               onChange={handleChange}

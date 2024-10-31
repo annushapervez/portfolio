@@ -81,7 +81,7 @@ export default function Project({ metadata, source, toc }) {
                     <Stack flex="1" spacing={4}>
                     <Link href="/projects" passHref>
                             <IconButton
-                            aria-label="Back to Home"
+                            aria-label="Back to Projects"
                             icon={<FaArrowLeft size={24} />}
                             variant="ghost"
                             color="white"
