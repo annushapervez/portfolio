@@ -103,8 +103,8 @@ export default function Home() {
     <ChakraProvider theme={theme}>
     <>
       <Head>
-        <title>My Portfolio</title>
-        <meta name="description" content="My personal portfolio" />
+        <title>Portfolio</title>
+        <meta name="description" content="Annusha's portfolio" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"  />
         <link rel="icon" href="/favicon.ico" />
       </Head>
