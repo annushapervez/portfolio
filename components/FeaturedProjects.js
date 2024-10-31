@@ -40,35 +40,68 @@ export default function FeaturedProjects({ projects }) {
             >
               Here&apos;s some of my projects that I have worked on.
             </Text>
+            <Center 
+  display={{ base: 'flex', md: 'none' }} // Center on mobile only
+  mt={4} // Margin top for spacing
+> 
+  <NextLink href="/projects" passHref>
+    <Link
+      onClick={() => handleClick('featuredprojects_explore more')}
+      textDecoration="none"
+      _hover={{ textDecoration: 'none' }}
+    >
+      <Text
+        fontSize={{ base: 'md', md: 'xl' }}
+        color="#63b3ed"
+        display="inline-block"
+        p="4px 8px"
+        border="1px solid rgba(99, 179, 237, 0.434)"
+        borderRadius="md"
+        boxShadow="md"
+        _hover={{
+          backgroundColor: 'rgba(99, 179, 237, 0.434)',
+          color: "white",
+          transform: "scale(1.05)",
+          transition: "all 0.3s ease",
+        }}
+      >
+        Explore more &rarr;
+      </Text>
+    </Link>
+  </NextLink>
+</Center>
 
-            <Center> {/* Center the link */}
-              <NextLink href="/projects" passHref>
-                <Link
-                  onClick={() => handleClick('featuredprojects_explore more')}
-                  textDecoration="none"
-                  _hover={{ textDecoration: 'none' }}
-                >
-                  <Text
-                    fontSize={{ base: 'md', md: 'xl' }}
-                    color="#63b3ed"
-                    display="inline-block"
-                    p="4px 8px"
-                    border="1px solid rgba(99, 179, 237, 0.434)"
-                    borderRadius="md"
-                    boxShadow="md"
-                    _hover={{
-                      backgroundColor: 'rgba(99, 179, 237, 0.434)',
-                      color: "white",
-                      transform: "scale(1.05)",
-                      transition: "all 0.3s ease",
-                    }}
-                    mt={4}
-                  >
-                    Explore more &rarr;
-                  </Text>
-                </Link>
-              </NextLink>
-            </Center> {/* Closing Center */}
+<Center 
+  display={{ base: 'none', md: 'flex' }} // Default alignment for larger screens
+  justifyContent="flex-start" // Adjust alignment on larger screens if needed
+  mt={4} // Margin top for spacing
+> 
+  <NextLink href="/projects" passHref>
+    <Link
+      onClick={() => handleClick('featuredprojects_explore more')}
+      textDecoration="none"
+      _hover={{ textDecoration: 'none' }}
+    >
+      <Text
+        fontSize={{ base: 'md', md: 'xl' }}
+        color="#63b3ed"
+        display="inline-block"
+        p="4px 8px"
+        border="1px solid rgba(99, 179, 237, 0.434)"
+        borderRadius="md"
+        boxShadow="md"
+        _hover={{
+          backgroundColor: 'rgba(99, 179, 237, 0.434)',
+          color: "white",
+          transform: "scale(1.05)",
+          transition: "all 0.3s ease",
+        }}
+      >
+        Explore more &rarr;
+      </Text>
+    </Link>
+  </NextLink>
+</Center>
           </Stack>
         </SlideUpWhenVisible>
 
