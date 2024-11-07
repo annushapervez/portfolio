@@ -195,7 +195,7 @@ export default function Home() {
                 <span data-ty></span>
 
                 <span data-ty="input">ls Frameworks</span>
-                <span data-ty>Flask, TensorFlow, React, Next.js, Unreal Engine 5</span>
+                <span data-ty>Flask, TensorFlow, React, Next.js, Node.js, Unreal Engine 5</span>
                 <span data-ty></span>
 
                 <span data-ty="input">ls Databases</span>
