@@ -1,11 +1,14 @@
 import { Box, Flex, Stack, Text, chakra } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
+import ReactGA from 'react-ga4'
 
 const Container = ({ children }) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    ReactGA.initialize(process.env.NEXT_PUBLIC_MEASUREMENT_ID)
+
   }, []);
 
   // fix hydration mismatch from using useMediaQuery hooks
