@@ -2,6 +2,7 @@
 title: "Hamming Code"
 slug: "hamming-code"
 summary: "A MIPS assembly subroutine for 7-bit Hamming codes to handle error detection, correction, and data encoding with a user-friendly menu system."
+githubLink: "https://github.com/annushapervez/hamming-code"
 ---
 
 ## Overview
