@@ -1,6 +1,5 @@
 import { Box, Flex, Stack, Text, chakra } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import ReactGA from 'react-ga4'
 
 const Container = ({ children }) => {
   const [mounted, setMounted] = useState(false);
