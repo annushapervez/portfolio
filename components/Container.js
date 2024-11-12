@@ -7,7 +7,7 @@ const Container = ({ children }) => {
 
   useEffect(() => {
     setMounted(true);
-    ReactGA.initialize(process.env.NEXT_PUBLIC_UA_CODE)
+    ReactGA.initialize(process.env.NEXT_PUBLIC_MEASUREMENT_ID)
 
   }, []);
 
