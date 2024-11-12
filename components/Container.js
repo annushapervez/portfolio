@@ -7,8 +7,6 @@ const Container = ({ children }) => {
 
   useEffect(() => {
     setMounted(true);
-    ReactGA.initialize(process.env.NEXT_PUBLIC_MEASUREMENT_ID)
-
   }, []);
 
   // fix hydration mismatch from using useMediaQuery hooks
