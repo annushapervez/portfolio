@@ -10,6 +10,7 @@ import {
   DrawerContent,
   DrawerCloseButton,
   DrawerHeader,
+  Divider,
   DrawerBody,
   Stack,
   Icon,
@@ -19,9 +20,8 @@ import useMediaQuery from '../components/useMediaQuery';
 import { AiOutlineMenu } from 'react-icons/ai';
 
 const sections = [
-  { id: 'Home', title: 'Home' },
   { id: 'AboutMe', title: 'About Me' },
-  { id: 'FeaturedProjects', title: 'Projects' },
+  { id: 'FeaturedProjects', title: 'Featured Projects' },
   { id: 'Resume', title: 'Resume' },
 ];
 
@@ -41,16 +41,26 @@ export default function Navbar({ enableTransition }) {
       <DrawerContent bgColor="black"> {/* Set background color to black */}
         <DrawerCloseButton color="white" />
         <DrawerHeader borderBottomWidth="1px" color="white" mt={4} mb={2}>
-          {/* You can add a title here if needed */}
         </DrawerHeader>
 
         <DrawerBody>
-          <Stack spacing="24px">
-            {sections.map((section) => (
-              <NextLink key={section.id} passHref href={`/#${section.id}`}>
+          <Stack spacing="16px">
+          <NextLink key={'Home'} passHref href={`/`}>
                 <Text 
                   fontSize="lg" 
                   fontWeight="bold" 
+                  color="white" 
+                  onClick={onClose} // Close the drawer on click
+                >
+                  Home
+                </Text>
+              </NextLink>
+              <Divider borderColor="white" my={0} />
+
+            {sections.map((section) => (
+              <NextLink key={section.id} passHref href={`/#${section.id}`}>
+                <Text 
+                  fontSize="md" 
                   color="white" 
                   onClick={onClose} // Close the drawer on click
                 >
@@ -58,6 +68,18 @@ export default function Navbar({ enableTransition }) {
                 </Text>
               </NextLink>
             ))}
+                    <Divider borderColor="white" my={0} />
+                    <NextLink key={'Projects'} passHref href={`/projects`}>
+                <Text 
+                  fontSize="lg" 
+                  fontWeight="bold" 
+                  color="white" 
+                  onClick={onClose} // Close the drawer on click
+                >
+                  Projects
+                </Text>
+              </NextLink>
+
           </Stack>
         </DrawerBody>
       </DrawerContent>

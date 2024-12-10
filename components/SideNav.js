@@ -1,17 +1,19 @@
 "use client";
 
-import { Box, Flex, Link } from '@chakra-ui/react';
+import { Box, Flex, Text, Divider } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router'; // For handling navigation to pages
 
+// Define sections for the Home page
 const sections = [
-  { id: 'Home', title: 'Home' },
   { id: 'AboutMe', title: 'About Me' },
-  { id: 'FeaturedProjects', title: 'Projects' },
+  { id: 'FeaturedProjects', title: 'Featured Projects' },
   { id: 'Resume', title: 'Resume' },
 ];
 
 export default function SideNav() {
   const [activeSection, setActiveSection] = useState('');
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +38,11 @@ export default function SideNav() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Navigate to the Projects page
+  const navigateToProjects = () => {
+    router.push('/projects');
+  };
+
   return (
     <Box
       position="fixed"
@@ -48,24 +55,63 @@ export default function SideNav() {
       p={4} // Added padding for spacing
     >
       <Flex direction="column" align="center" justify="center" height="100%">
+        {/* Home Page Text */}
+        <Text
+          fontSize="20px" // Larger font size for current page
+          p="8px" // Reduced padding
+          m="6px 0" // Reduced margin
+          width="100%" // Ensure consistent width
+          textAlign="center"
+          whiteSpace="nowrap" // Prevent text wrapping
+          cursor="pointer" // Add cursor for pointer interaction
+          onClick={() => router.push('/')} // Handle navigation
+          fontWeight={router.pathname === '/' ? 'bold' : 'normal'} // Bold for the active page
+          _hover={{ fontWeight: 'bold' }} // Bold on hover
+        >
+          Home
+        </Text>
+
+        <Divider borderColor="white" my={2} />
+
+        {/* Sections for Home */}
         {sections.map((section) => (
-          <Link
+          <Text
             key={section.id}
-            href={`#${section.id}`}
             fontSize="18px"
-            p="10px"
-            m="10px 0"
-            borderRadius="4px"
-            bg={activeSection === section.id ? 'rgba(99, 179, 237, 0.434)' : 'transparent'}
-            _hover={{ bg: 'rgba(45, 55, 72, 0.8)' }}
-            width="100%"
+            p="8px" // Reduced padding
+            m="6px 0" // Reduced margin
+            width="100%" // Ensure consistent width
             textAlign="center"
+            whiteSpace="nowrap" // Prevent text wrapping
+            cursor="pointer" // Add cursor for pointer interaction
+            onClick={() => document.getElementById(section.id)?.scrollIntoView({ behavior: 'smooth' })} // Scroll to section on click
+            fontWeight={activeSection === section.id ? 'bold' : 'normal'} // Bold for the active section
+            _hover={{ fontWeight: 'bold' }} // Bold on hover
+            transition="font-weight 0.2s ease" // Smooth font-weight transition
           >
             {section.title}
-          </Link>
+          </Text>
         ))}
+
+        <Divider borderColor="white" my={2} />
+
+        {/* Projects Page Text */}
+        <Text
+          fontSize="20px" // Larger font size for current page
+          p="8px" // Reduced padding
+          m="6px 0" // Reduced margin
+          width="100%" // Ensure consistent width
+          textAlign="center"
+          whiteSpace="nowrap" // Prevent text wrapping
+          cursor="pointer" // Add cursor for pointer interaction
+          onClick={navigateToProjects} // Trigger navigation to Projects page
+          fontWeight={router.pathname === '/projects' ? 'bold' : 'normal'} // Bold for active Projects page
+          _hover={{ fontWeight: 'bold' }} // Bold on hover
+          transition="font-weight 0.2s ease" // Smooth font-weight transition
+        >
+          Projects
+        </Text>
       </Flex>
     </Box>
   );
 }
-
