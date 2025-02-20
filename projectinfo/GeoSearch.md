@@ -2,7 +2,9 @@
 title: "Geo Search"
 slug: "GeoSearch"
 summary: "A dynamic store locator application that visualizes store locations on an interactive map, allowing users to search and filter by store type and address. This project was commissioned to provide an efficient solution for locating stores across multiple categories."
-githubLink: "https://github.com/annushapervez/total"
+githubLink: "https://github.com/annushapervez/GeoSearch"
+deployLink: "https://total-by-wireless-query.vercel.app/"
+
 ---
 
 ## Overview
