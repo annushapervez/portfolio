@@ -120,7 +120,7 @@ export async function getStaticProps() {
   const query = `
     query {
       user(login: "annushapervez") {
-        repositories(first: 100, orderBy: {field: CREATED_AT, direction: ASC}) {
+        repositories(first: 100, orderBy: {field: NAME, direction: ASC}) {
           nodes {
             name
             description
