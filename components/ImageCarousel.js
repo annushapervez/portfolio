@@ -76,62 +76,59 @@ const ImageCarousel = ({ images }) => {
             ))}
           </Box>
           {selectedImageIndex !== null && (
-            <Box
-              position="fixed"
-              top="50%"
-              left="50%"
-              transform="translate(-50%, -50%)"
-              width="60vw"
-              height="60vh"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              backgroundColor="rgba(0, 0, 0, 0.8)"
-              zIndex={1000}
-              borderRadius="8px"
-              onMouseEnter={() => setIsHoveringEnlarged(true)}
-              onMouseLeave={() => {
-                setIsHoveringEnlarged(false);
-                setSelectedImageIndex(null); // Close when leaving the enlarged image
-              }}
-            >
-              <Box
-                position="relative"
-                width="90%"
-                height="90%"
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <Image
-                  src={images[selectedImageIndex].src}
-                  alt={images[selectedImageIndex].alt}
-                  layout="fill"
-                  objectFit="contain"
-                />
-                <HStack position="absolute" top="50%" width="100%" justifyContent="space-between" zIndex={10}>
-                  <IconButton
-                    aria-label="Previous Image"
-                    icon={<ChevronLeftIcon />}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      prevImage();
-                    }}
-                    colorScheme="blue"
-                  />
-                  <IconButton
-                    aria-label="Next Image"
-                    icon={<ChevronRightIcon />}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      nextImage();
-                    }}
-                    colorScheme="blue"
-                  />
-                </HStack>
-              </Box>
-            </Box>
-          )}
+  <Box
+    position="fixed"
+    top="50%"
+    left="50%"
+    transform="translate(-50%, -50%)"
+    width="60vw"
+    height="60vh"
+    display="flex"
+    justifyContent="center"
+    alignItems="center"
+    backgroundColor="rgba(0, 0, 0, 0.8)"
+    zIndex={1000}
+    borderRadius="8px"
+    onMouseLeave={() => setSelectedImageIndex(null)} // Close when leaving
+  >
+    <Box
+      position="relative"
+      width="90%"
+      height="90%"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <Image
+        src={images[selectedImageIndex].src}
+        alt={images[selectedImageIndex].alt}
+        layout="fill"
+        objectFit="contain"
+      />
+      <HStack position="absolute" top="50%" width="100%" justifyContent="space-between" zIndex={10}>
+        <IconButton
+          aria-label="Previous Image"
+          icon={<ChevronLeftIcon />}
+          onClick={(e) => {
+            e.stopPropagation();
+            prevImage();
+          }}
+          colorScheme="blue"
+        />
+        <IconButton
+          aria-label="Next Image"
+          icon={<ChevronRightIcon />}
+          onClick={(e) => {
+            e.stopPropagation();
+            nextImage();
+          }}
+          colorScheme="blue"
+        />
+      </HStack>
+    </Box>
+  </Box>
+)}
+
         </Box>
       )}
     </Box>
