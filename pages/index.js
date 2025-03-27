@@ -74,11 +74,11 @@ export default function Home() {
     {
     
       fields: {
-        slug: 'HelpingHands',
-        description: 'A web application that helps users discover volunteering opportunities in New York City based on their personal interests.',
-        imageUrl: 'https://raw.githubusercontent.com/annushapervez/HelpingHands/main/main.png', // Update with actual image path
-        tags: ['React', 'Next.js', 'CSS'],
-        title: 'HelpingHands'
+        slug: 'GeoSearch',
+        description: 'A dynamic store locator application that visualizes store locations on an interactive map allowing users to search and filter by store type and address.',
+        imageUrl: 'https://raw.githubusercontent.com/annushapervez/GeoSearch/main/main.png', // Update with actual image path
+        tags: ['JavaScript', 'React', 'Python'],
+        title: 'GeoSearch'
       }
     },
     {
