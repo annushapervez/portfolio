@@ -64,11 +64,11 @@ export default function Home() {
   const projects = [
     {
       fields: {
-        slug: 'shland',
-        description: 'A real-time quiz web application developed leveraging Flask, Docker, and MongoDB for a scalable and engaging quiz experience.',
-         imageUrl: 'https://raw.githubusercontent.com/annushapervez/shland/main/main.png', // Update with actual image path
-        tags: ['Python', 'JavaScript', 'CSS'],
-        title: 'Shland'
+        slug: "the-safety-net-project",
+        description: "A non-profit website dedicated to providing support and safety for children around the world.",
+         imageUrl: 'https://raw.githubusercontent.com/annushapervez/the-safety-net-project/main/main.png', // Update with actual image path
+        tags: ['TypeScript', 'JavaScript', 'React'],
+        title: 'The Safety Net Project'
       }
     },
     {
