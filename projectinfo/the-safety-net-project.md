@@ -2,6 +2,9 @@
 title: "The Safety Net Project"
 slug: "the-safety-net-project"
 summary: "A non-profit website dedicated to providing support and safety for children around the world."
+githubLink: "https://github.com/annushapervez/thesafetynetproject"
+deployLink: "https://thesafetynetproject.org/"
+
 ---
 
 ## Overview
