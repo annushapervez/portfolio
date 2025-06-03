@@ -35,20 +35,38 @@ export default function AboutMe({ aboutMeContent }) {
             </Box>
           </SlideUpWhenVisible>
         </Box>
+{/* Second column with profile image centered */}
+<SlideUpWhenVisible>
+  <Box display="flex" justifyContent="center" alignItems="center" mt={{ base: 6, md: 0 }}>
+    <Box
+      position="relative"
+      boxSize={{ base: '200px', md: '300px' }}
+      borderRadius="full"
+      boxShadow="0 0 60px rgba(255, 255, 255, 0.6)" // white glow
+      _before={{
+        content: '""',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        borderRadius: 'full',
+        background: 'radial-gradient(circle, rgba(0,191,255,0.4) 0%, transparent 70%)',
+        zIndex: -1,
+      }}
+    >
+      <Image 
+        src="/pic.jpg" 
+        alt="Annusha Pervez" 
+        boxSize="100%"
+        borderRadius="full"
+        objectFit="cover"
+        objectPosition="top center"
+      />
+    </Box>
+  </Box>
+</SlideUpWhenVisible>
 
-        {/* Second column with profile image centered */}
-        <SlideUpWhenVisible>
-          <Box display="flex" justifyContent="center" alignItems="center" mt={{ base: 6, md: 0 }}>
-            <Image 
-              src="/pic.jpg" 
-              alt="Annusha Pervez" 
-              boxSize={{ base: '200px', md: '300px' }} // Adjust image size for mobile
-              borderRadius="full" // Make it circular
-              objectFit="cover" // Ensure proper scaling within the circle
-              objectPosition="top center" // Shift the image upward
-            />
-          </Box>
-        </SlideUpWhenVisible>
       </Grid>
     </Box>
   );
