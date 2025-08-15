@@ -74,22 +74,6 @@ export default function ContactMe({ contactMe }) {
               Email
             </Button>
           </Link>
-          <Link
-            href="/V2Resume.pdf" // Link to your PDF file
-            isExternal
-            onClick={() => handleClick('contact_resume')}
-          >
-            <Button
-              pos="static"
-              bg="black"
-              color="white"
-              leftIcon={<FaFileAlt fill="#63b3ed" />}
-              size={isLargerThan800 ? 'md' : 'sm'}
-              _hover={{ backgroundColor: 'rgba(255, 255, 255, 0.9)', color: 'black' }}
-            >
-              Resume
-            </Button>
-          </Link>
         </Stack>
       </SlideUpWhenVisible>
     </Stack>

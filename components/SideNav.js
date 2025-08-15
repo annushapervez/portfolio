@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'; // For handling navigation to pages
 const sections = [
   { id: 'AboutMe', title: 'About Me' },
   { id: 'FeaturedProjects', title: 'Featured Projects' },
-  { id: 'Resume', title: 'Resume' },
+  { id: 'Resume', title: 'Connect' },
 ];
 
 export default function SideNav() {

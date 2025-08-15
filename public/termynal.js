@@ -54,7 +54,13 @@ class Termynal {
     init() {
         // Appends dynamically loaded lines to existing line elements.
         this.lines = [...this.container.querySelectorAll(`[${this.pfx}]`)].concat(this.lineData);
-
+        this.lines.forEach(line => {
+            if (!line.textContent || !line.textContent.trim()) {
+              line.style.lineHeight = '0.6';
+              line.style.margin = '0';
+              line.style.padding = '0';
+            }
+          });
         /** 
          * Calculates width and height of Termynal container.
          * If container is empty and lines are dynamically loaded, defaults to browser `auto` or CSS.

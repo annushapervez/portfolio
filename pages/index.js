@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Script from 'next/script';
 import Image from 'next/image';
 import SideNav from '../components/SideNav'; // Ensure the path is correct
-import "../styles/nav.css"; // Ensure the path is correct
+import "../styles/nav.css"; // Ensure the path is correct]
 import animationData from '../public/animation.json';
 import FeaturedProjects from '../components/FeaturedProjects';
 import ContactMe from '../components/ContactMe';
@@ -191,7 +191,7 @@ export default function Home() {
               <div id="termynal" data-termynal data-ty-typedelay="40" data-ty-linedelay="700">
                 {/* Terminal Content */}
                 <span data-ty="input">ls Languages</span>
-                <span data-ty>Python, C, Scala, PHP, Go, JavaScript, TypeScript, CSS, HTML, OCaml, Mips Assembly</span>
+                <span data-ty>Python, C, Scala, PHP, Go, JavaScript, TypeScript, JSON, CSS, HTML, OCaml, Mips Assembly, Shell</span>
                 <span data-ty></span>
 
                 <span data-ty="input">ls Frameworks</span>
@@ -199,11 +199,11 @@ export default function Home() {
                 <span data-ty></span>
 
                 <span data-ty="input">ls Databases</span>
-                <span data-ty>MongoDB, SQL, Supabase</span>
+                <span data-ty>MongoDB, SQL, Supabase, Firebase, MySQL</span>
                 <span data-ty></span>
 
                 <span data-ty="input">ls Tools</span>
-                <span data-ty>Docker, GitHub, Git</span>
+                <span data-ty>Docker, GitHub, Git, Visual Studio Code, GraphQL, Trello </span>
                 <span data-ty></span>
               </div>
             </div>
