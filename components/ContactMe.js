@@ -1,6 +1,6 @@
 import { Link, Button, chakra, Stack, Text } from '@chakra-ui/react';
 import useMediaQuery from '../components/useMediaQuery';
-import { FaLinkedin, FaEnvelope, FaFileAlt } from 'react-icons/fa';
+import { FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import ReactGA from 'react-ga4';
 import SlideUpWhenVisible from './SlideUpwhenVisible.js'; // Ensure the path is correct
 
