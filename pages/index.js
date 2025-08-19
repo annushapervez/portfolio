@@ -95,7 +95,7 @@ export default function Home() {
   const aboutMeContent = {
     introduction: " I'm a passionate software engineer based in New York City with a unique blend of expertise in computer science and psychology. I graduated from the University at Buffalo with a Bachelor of Science in Computer Science and a Bachelor of Arts in Psychology in May 2024. My academic journey has equipped me with a solid foundation in data structures, algorithms, web development, machine learning, and software quality practices.",
     problemSolving: " I thrive on tackling complex problems and developing innovative solutions. I enjoy finding creative approaches to challenges, whether it's optimizing algorithms, designing intuitive user experiences, or implementing efficient systems. Every problem presents a new puzzle, and I am always eager to explore unconventional solutions that push boundaries and deliver meaningful results.",
-    seeking: "I am actively seeking a software engineering position where I can apply my skills in web development, distributed systems, and software engineering to contribute to innovative projects. I’m excited to collaborate with a dynamic team and work in an environment that fosters growth, creativity, and impactful problem-solving."
+    seeking: "I am actively seeking opportunities in software engineering or product management where I can apply my skills in web development, distributed systems, and user-centered thinking to contribute to innovative, impactful products. I’m excited to collaborate with a dynamic team and work in an environment that fosters growth, creativity, and meaningful problem-solving across both technical and product domains."
   };
 
 
