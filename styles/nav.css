@@ -26,23 +26,23 @@
   }
 
   .bubble1 {
-    bottom: 10% !important; /* Adjust the position as needed */
+    bottom: -20% !important; /* Adjust the position as needed */
     right: 11%; /* Adjust the position as needed */
-    width: 211px!important;
+    width: 220px!important;
     height: 26px;
   }
   
   .bubble2 {
-    bottom: 1%!important; /* Adjust the position as needed */
+    bottom: -29%!important; /* Adjust the position as needed */
     right: 11%; /* Adjust the position as needed */
-    width: 211px!important;
+    width: 220px!important;
     height: 26px;
   }
   
   .bubble3 {
-    bottom: -8%!important; /* Adjust the position as needed */
+    bottom: -38%!important; /* Adjust the position as needed */
     right: 11%; /* Adjust the position as needed */
-    width: 211px!important;
+    width: 220px!important;
     height: 26px;
   }
   
@@ -193,24 +193,21 @@
 }
 
 .bubble1 {
-  bottom: -4%; /* Adjust the position as needed */
-  right: 11%; /* Adjust the position as needed */
-  width: 261px;
-  height: 26px;
+  bottom: -39%; /* Adjust the position as needed */
+  right: 12%; /* Adjust the position as needed */
+
 }
 
 .bubble2 {
-  bottom: -14%; /* Adjust the position as needed */
-  right: 11%; /* Adjust the position as needed */
-  width: 261px;
-  height: 26px;
+  bottom: -50%; /* Adjust the position as needed */
+  right: 12%; /* Adjust the position as needed */
+
 }
 
 .bubble3 {
-  bottom: -24%; /* Adjust the position as needed */
-  right: 11%; /* Adjust the position as needed */
-  width: 261px;
-  height: 26px;
+  bottom: -61%; /* Adjust the position as needed */
+  right: 12%; /* Adjust the position as needed */
+
 }
 
 /* Add more bubble styles as needed */

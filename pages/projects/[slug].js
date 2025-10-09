@@ -137,6 +137,16 @@ export default function Project({ metadata, source, toc }) {
                                         </HStack>
                                     </Link>
                                 )}
+                                 {metadata.tableauLink && (
+                                    <Link href={metadata.tableauLink} isExternal>
+                                        <HStack>
+                                            <FaLink fontSize="18px" color="#63b3ed"/>
+                                            <Text color="textPrimary" fontSize={['sm', 'md']}> {/* Increased font size */}
+                                               Tabeleau Dashboard
+                                            </Text>
+                                        </HStack>
+                                    </Link>
+                                )}
                             </HStack>
 
                             <Divider my={4} />

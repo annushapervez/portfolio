@@ -75,7 +75,7 @@ export default function Home() {
     
       fields: {
         slug: 'GeoSearch',
-        description: 'A dynamic store locator application that visualizes store locations on an interactive map allowing users to search and filter by store type and address.',
+        description: "Internship project: a data-informed, multi-brand store-locator that lets users search and filter by store type/address, created for leadership to quickly identify optimal purchase locations.",
         imageUrl: 'https://raw.githubusercontent.com/annushapervez/GeoSearch/main/main.png', // Update with actual image path
         tags: ['JavaScript', 'React', 'Python'],
         title: 'GeoSearch'
@@ -83,20 +83,22 @@ export default function Home() {
     },
     {
       fields: {
-        slug: 'the-climb',
-        description: 'A web application allows users to track their nutrition and exercise, offering personalized suggestions and fostering connections with friends for motivation.',
-        imageUrl: 'https://raw.githubusercontent.com/annushapervez/the-climb/main/main.png', // Update with actual image path
-        tags: ['PHP', 'JavaScript', 'CSS'],
-        title: 'The Climb'
+        slug: 'music-streaming-battle',
+        description: 'A Tableau dashboard comparing premium adoption, conversion, engagement, and audience mix across major streaming platforms.',
+        imageUrl: 'https://raw.githubusercontent.com/annushapervez/music-streaming-battle/main/main.png', // Update with actual image path
+        tags: ['Tableau'],
+        title: 'Who’s Winning the Music Streaming Battle?'
       }
     }
   ];
 
-  const aboutMeContent = {
-    introduction: " I'm a passionate software engineer based in New York City with a unique blend of expertise in computer science and psychology. I graduated from the University at Buffalo with a Bachelor of Science in Computer Science and a Bachelor of Arts in Psychology in 2024. My academic journey has equipped me with a solid foundation in data structures, algorithms, web development, machine learning, and software quality practices.",
-    problemSolving: " I thrive on tackling complex problems and developing innovative solutions. I enjoy finding creative approaches to challenges, whether it's optimizing algorithms, designing intuitive user experiences, or implementing efficient systems. Every problem presents a new puzzle, and I am always eager to explore unconventional solutions that push boundaries and deliver meaningful results.",
-    seeking: "I am actively seeking opportunities in software engineering or product management where I can apply my skills in web development, distributed systems, and user-centered thinking to contribute to innovative, impactful products. I’m excited to collaborate with a dynamic team and work in an environment that fosters growth, creativity, and meaningful problem-solving across both technical and product domains."
-  };
+ const aboutMeContent = {
+  introduction: "I'm a data analyst based in New York City with a background in computer science and psychology. I graduated from the University at Buffalo with a Bachelor of Science in Computer Science and a Bachelor of Arts in Psychology in 2024. My studies and projects have equipped me with a strong foundation in data analysis, visualization, web development, and user behavior research, allowing me to bridge the gap between data, technology, and people.",
+  
+  problemSolving: "I love uncovering insights hidden within data and translating them into actionable strategies. Whether it’s analyzing user engagement patterns, creating interactive dashboards, or improving product workflows, I enjoy connecting analytical insights with real-world impact. My psychology background gives me a unique lens to understand how users think and behave, helping me design more intuitive, data-informed product experiences.",
+  
+  seeking: "I’m actively seeking opportunities in data analytics or product management where I can apply my technical and analytical skills to drive business decisions and improve user experiences. I’m excited to collaborate with cross-functional teams, contribute to product strategy, and use data storytelling to shape products that are both meaningful and impactful."
+};
 
 
   return (
@@ -133,7 +135,7 @@ export default function Home() {
               {/* iPhone Wrapper */}
               <div className="image-container">
                 <Image
-                  src="/iphone2.png"
+                  src="/iphone127.png"
                   alt="iPhone"
                   width={350}
                   height={300}
@@ -144,7 +146,7 @@ export default function Home() {
                     <Image
                       src="/linkedin2.png"
                       alt="LinkedIn Bubble"
-                      width={261}
+                      width={270}
                       height={26}
                       className="bubble-image"
                     />
@@ -153,7 +155,7 @@ export default function Home() {
                     <Image
                       src="/github2.png"
                       alt="GitHub Bubble"
-                      width={261}
+                      width={270}
                       height={26}
                       className="bubble-image"
                     />
@@ -162,7 +164,7 @@ export default function Home() {
                     <Image
                       src="/email2.png"
                       alt="Email Bubble"
-                      width={261}
+                      width={270}
                       height={26}
                       className="bubble-image"
                     />
@@ -203,7 +205,7 @@ export default function Home() {
                 <span data-ty></span>
 
                 <span data-ty="input">ls Tools</span>
-                <span data-ty>Docker, GitHub, Git, Visual Studio Code, GraphQL, Trello </span>
+                <span data-ty>Docker, GitHub, Git, Visual Studio Code, GraphQL, Trello, Tabeleau </span>
                 <span data-ty></span>
               </div>
             </div>

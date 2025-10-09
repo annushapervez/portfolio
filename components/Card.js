@@ -89,7 +89,7 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
       border="1px"
       borderColor={{ base: '#333', md: '#111111' }}
       borderRadius="10px"
-      overflow="hidden"
+    
     >
       <NextLink href={`/projects/${slug}`} passHref>
         <ScaleFade transition={{ duration: 1 }} in={true}>
