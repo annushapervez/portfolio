@@ -21,7 +21,13 @@ export default function AboutMe({ aboutMeContent }) {
               {aboutMeContent.introduction}
             </Text>
           </SlideUpWhenVisible>
-
+  <SlideUpWhenVisible>
+            <Box mt={5}> {/* Adjust this value for space */}
+              <Text fontSize={{ base: 'md', md: 'lg' }} mt={2}>
+                {aboutMeContent.problemSolving}
+              </Text>
+            </Box>
+          </SlideUpWhenVisible>
           {/* Adding margin-bottom to the typing container of "About Me" */}
           <SlideUpWhenVisible>
             <Box mt={10}> {/* Adjust this value for space */}
@@ -40,7 +46,7 @@ export default function AboutMe({ aboutMeContent }) {
   <Box display="flex" justifyContent="center" alignItems="center" mt={{ base: 6, md: 0 }}>
     <Box
       position="relative"
-      boxSize={{ base: '200px', md: '300px' }}
+      boxSize={{ base: '200px', md: '340px' }}
       borderRadius="full"
       boxShadow="0 0 60px rgba(255, 255, 255, 0.6)" // white glow
       _before={{

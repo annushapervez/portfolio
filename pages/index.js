@@ -93,11 +93,9 @@ export default function Home() {
   ];
 
  const aboutMeContent = {
-  introduction: "I'm a data analyst based in New York City with a background in computer science and psychology. I graduated from the University at Buffalo with a Bachelor of Science in Computer Science and a Bachelor of Arts in Psychology in 2024. My studies and projects have equipped me with a strong foundation in data analysis, visualization, web development, and user behavior research, allowing me to bridge the gap between data, technology, and people.",
-  
-  problemSolving: "I love uncovering insights hidden within data and translating them into actionable strategies. Whether it’s analyzing user engagement patterns, creating interactive dashboards, or improving product workflows, I enjoy connecting analytical insights with real-world impact. My psychology background gives me a unique lens to understand how users think and behave, helping me design more intuitive, data-informed product experiences.",
-  
-  seeking: "I’m actively seeking opportunities in data analytics or product management where I can apply my technical and analytical skills to drive business decisions and improve user experiences. I’m excited to collaborate with cross-functional teams, contribute to product strategy, and use data storytelling to shape products that are both meaningful and impactful."
+  introduction: "I'm a full-stack web developer based in New York City with a background in computer science and psychology. I graduated from the University at Buffalo with a Bachelor of Science in Computer Science and a Bachelor of Arts in Psychology in 2024. My experience spans front-end and back-end development, UI/UX design, and building interactive and data-driven web applications. ",
+  problemSolving: "My work combines clean, modern design with functional, scalable development. With a strong foundation in user behavior and technical problem-solving, I build products that feel intuitive, look polished, and perform reliably.",
+  seeking:  "I’m actively seeking opportunities in full-stack or front-end web development, where I can build responsive interfaces, create dynamic features, and collaborate with teams to launch meaningful digital products. I'm excited to take on projects that involve modern web technologies, user-centric design, and creating seamless experiences from concept to deployment."
 };
 
 
@@ -135,7 +133,7 @@ export default function Home() {
               {/* iPhone Wrapper */}
               <div className="image-container">
                 <Image
-                  src="/iphone127.png"
+                  src="/iphone128.png"
                   alt="iPhone"
                   width={350}
                   height={300}
