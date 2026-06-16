@@ -134,7 +134,7 @@ description: "A multi-brand store locator with search and filtering by store typ
               {/* iPhone Wrapper */}
               <div className="image-container">
                 <Image
-                  src="/iphone777.png"
+                  src="/iPhone777.png"
                   alt="iPhone"
                   width={350}
                   height={300}
