@@ -1,4 +1,5 @@
 import {
+  Box,
   Center,
   Divider,
   Link,
@@ -30,7 +31,7 @@ import { SiChakraui, SiNextdotjs , SiGo, SiPhp,  SiShell } from 'react-icons/si'
 import useMediaQuery from '../components/useMediaQuery';
 import NextLink from 'next/link';
 
-export default function Cards({ imageURL, title, slug, desc, tag }) {
+export default function Cards({ imageURL, title, slug, desc, tag, mediaPosition = 'center' }) {
   const getTagDetails = (tag) => {
     switch (tag) {
       case 'React':
@@ -73,6 +74,7 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
   };
 
   const isLargerThan800 = useMediaQuery(800);
+  const isVideo = /\.(mov|mp4|webm)$/i.test(imageURL || '');
 
   const handleClick = (event) => {
     ReactGA.event({
@@ -94,7 +96,24 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
       <NextLink href={`/projects/${slug}`} passHref>
         <ScaleFade transition={{ duration: 1 }} in={true}>
           <Center w="auto">
-          <Image
+          {isVideo ? (
+            <Box
+              as="video"
+              width="100%"
+              height={{ base: "auto", md: "300px" }}
+              minH={['200px', '250px', '270px']}
+              borderRadius="10px 10px 0px 0px"
+              transition="0.3s"
+              objectFit="cover"
+              objectPosition={mediaPosition}
+              src={imageURL}
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          ) : (
+            <Image
   width="100%" // Make the image responsive
   height={{ base: "auto", md: "300px" }} // Let height adjust automatically based on width
   minH={['200px', '250px', '270px']} // Responsive minimum height for different breakpoints
@@ -104,6 +123,7 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
   alt={title}
   src={imageURL}
 />
+          )}
           </Center>
           <Stack px={4} py={2}>
             <Stack alignItems="center" justifyContent="space-between" isInline>

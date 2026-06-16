@@ -91,7 +91,11 @@ export default function Projects({ projects }) {
                   <Cards
                     desc={repo.description}
                     slug={encodeURIComponent(repo.name)}
-                    imageURL={`https://raw.githubusercontent.com/annushapervez/${repo.name}/main/main.png`}
+                    imageURL={
+                      repo.name === 'SyeLabs'
+                        ? `https://raw.githubusercontent.com/annushapervez/SyeLabs/main/main.mov`
+                        : `https://raw.githubusercontent.com/annushapervez/${repo.name}/main/main.png`
+                    }
                     tag={languages} // Use the combined tags here
                     title={repo.name
                       .split('-') // Split by dashes

@@ -70,8 +70,11 @@ export default function Project({ metadata, source, toc }) {
         };
     }, [toc]);
 
-    // Construct the image URL based on the slug
-    const imageURL = `https://raw.githubusercontent.com/annushapervez/${slug}/main/main.png`;
+    // Construct the image/video URL based on the slug
+    const isSyeLabs = slug?.toLowerCase() === 'syelabs';
+    const mediaURL = isSyeLabs
+        ? `https://raw.githubusercontent.com/annushapervez/SyeLabs/main/main.mov`
+        : `https://raw.githubusercontent.com/annushapervez/${slug}/main/main.png`;
 
     return (
         <ChakraProvider theme={customTheme}>
@@ -94,14 +97,29 @@ export default function Project({ metadata, source, toc }) {
                             borderColor={{ base: '#333', md: 'borderColor' }}
                             borderRadius="10px"
                         >
-                            <Image
-                                src={imageURL}
-                                alt={metadata.title}
-                                borderRadius="10px"
-                                width="100%"
-                                height="auto"
-                                objectFit="cover"
-                            />
+                            {isSyeLabs ? (
+                                <Box
+                                    as="video"
+                                    src={mediaURL}
+                                    borderRadius="10px"
+                                    width="100%"
+                                    height="auto"
+                                    objectFit="cover"
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                />
+                            ) : (
+                                <Image
+                                    src={mediaURL}
+                                    alt={metadata.title}
+                                    borderRadius="10px"
+                                    width="100%"
+                                    height="auto"
+                                    objectFit="cover"
+                                />
+                            )}
                         </Stack>
                         
 

@@ -125,6 +125,7 @@ export default function FeaturedProjects({ projects }) {
                 imageURL={projects[1].fields.imageUrl}
                 tag={projects[1].fields.tags}
                 title={projects[1].fields.title}
+                mediaPosition="left center"
               />
             </Box>
           </SlideUpWhenVisible>

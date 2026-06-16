@@ -14,7 +14,8 @@ import { useBreakpointValue } from '@chakra-ui/react';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { ChakraProvider, extendTheme,Box} from "@chakra-ui/react";
-import Lottie from 'lottie-react'; // Correct import
+import dynamic from 'next/dynamic';
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 
 
@@ -72,30 +73,30 @@ export default function Home() {
       }
     },
     {
-    
       fields: {
-        slug: 'GeoSearch',
-        description: "Internship project: a data-informed, multi-brand store-locator that lets users search and filter by store type/address, created for leadership to quickly identify optimal purchase locations.",
-        imageUrl: 'https://raw.githubusercontent.com/annushapervez/GeoSearch/main/main.png', // Update with actual image path
-        tags: ['JavaScript', 'React', 'Python'],
-        title: 'GeoSearch'
+        slug: 'SyeLabs',
+        description: "An editorial site for a tech-education platform built around mentorship, conferences, and home labs. Currently in active development.",
+        imageUrl: 'https://raw.githubusercontent.com/annushapervez/SyeLabs/main/main.mov',
+        tags: ['React', 'JavaScript', 'CSS'],
+        title: 'SyeLabs'
       }
     },
     {
+
       fields: {
-        slug: 'music-streaming-battle',
-        description: 'A Tableau dashboard comparing premium adoption, conversion, engagement, and audience mix across major streaming platforms.',
-        imageUrl: 'https://raw.githubusercontent.com/annushapervez/music-streaming-battle/main/main.png', // Update with actual image path
-        tags: ['Tableau'],
-        title: 'Who’s Winning the Music Streaming Battle?'
+        slug: 'GeoSearch',
+description: "A multi-brand store locator with search and filtering by store type and address, built to support leadership in identifying optimal purchase locations.",
+        imageUrl: 'https://raw.githubusercontent.com/annushapervez/GeoSearch/main/main.png', // Update with actual image path
+        tags: ['JavaScript', 'React', 'Python'],
+        title: 'GeoSearch'
       }
     }
   ];
 
  const aboutMeContent = {
-  introduction: "I'm a full-stack web developer based in New York City with a background in computer science and psychology. I graduated from the University at Buffalo with a Bachelor of Science in Computer Science and a Bachelor of Arts in Psychology in 2024. My experience spans front-end and back-end development, UI/UX design, and building interactive and data-driven web applications. ",
-  problemSolving: "My work combines clean, modern design with functional, scalable development. With a strong foundation in user behavior and technical problem-solving, I build products that feel intuitive, look polished, and perform reliably.",
-  seeking:  "I’m actively seeking opportunities in full-stack or front-end web development, where I can build responsive interfaces, create dynamic features, and collaborate with teams to launch meaningful digital products. I'm excited to take on projects that involve modern web technologies, user-centric design, and creating seamless experiences from concept to deployment."
+  introduction: "I'm a technologist based in New York City who builds with intention, for the people the work is meant to serve. I hold dual degrees in Computer Science and Psychology from the University at Buffalo (2024), a combination that shapes how I work: psychology taught me to ask what people actually need, and computer science taught me how to build it.",
+  problemSolving: "At The Safety Net Project, a nonprofit serving rural communities with education and healthcare resources, I build donor-facing tools like fund-allocation visualizations and region-based maps that make giving tangible. At SyeLabs, a tech-education platform, I design workshops and conference sessions on AI and coding, and built the platform's website end-to-end with React, Vite, and Framer Motion.",
+  seeking:  "I'm seeking technical opportunities where I can contribute to work that matters by building products, tools, and platforms that help solve real problems. I'd love to join a team that cares about impact alongside execution, where I can keep growing technically while bringing a thoughtful, user-focused perspective."
 };
 
 
@@ -133,7 +134,7 @@ export default function Home() {
               {/* iPhone Wrapper */}
               <div className="image-container">
                 <Image
-                  src="/iphone128.png"
+                  src="/iphone777.png"
                   alt="iPhone"
                   width={350}
                   height={300}
@@ -188,29 +189,36 @@ export default function Home() {
                 <p>Currently open to new opportunities.</p>
               </div>
             </div>
-              <div id="termynal" data-termynal data-ty-typedelay="40" data-ty-linedelay="700">
+<div id="termynal" data-termynal data-ty-typedelay="40" data-ty-linedelay="700">
                 {/* Terminal Content */}
+
                 <span data-ty="input">ls Languages</span>
-                <span data-ty>Python, C, Scala, PHP, Go, JavaScript, TypeScript, JSON, CSS, HTML, OCaml, Mips Assembly, Shell</span>
+                <span data-ty>Python, C, Scala, PHP, Go, OCaml, MIPS Assembly, Shell</span>
                 <span data-ty></span>
 
-                <span data-ty="input">ls Frameworks</span>
-                <span data-ty>Flask, TensorFlow, React, Next.js, Node.js, Unreal Engine 5</span>
+                <span data-ty="input">ls Web Development</span>
+                <span data-ty>React, Next.js, TypeScript, JavaScript, HTML, CSS</span>
+                <span data-ty></span>
+
+                <span data-ty="input">ls AI</span>
+                <span data-ty>Claude (Claude Code, Claude Cowork), TensorFlow</span>
                 <span data-ty></span>
 
                 <span data-ty="input">ls Databases</span>
-                <span data-ty>MongoDB, SQL, Supabase, Firebase, MySQL</span>
+                <span data-ty>MongoDB, MySQL, Supabase, Firebase</span>
                 <span data-ty></span>
 
                 <span data-ty="input">ls Tools</span>
-                <span data-ty>Docker, GitHub, Git, Visual Studio Code, GraphQL, Trello, Tabeleau </span>
+                <span data-ty>Docker, GitHub, Git, VS Code, GraphQL, Google Analytics, Trello, Tableau, Microsoft Office suite</span>
+                <span data-ty></span>
+                <span data-ty></span>
                 <span data-ty></span>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="AboutMe" className="section1">  
+        <section id="AboutMe" className="section1" style={{ paddingTop: '60px', paddingBottom: '60px' }}>
         <AboutMe aboutMeContent={aboutMeContent} />
         </section>
         <section id="FeaturedProjects" className="section">

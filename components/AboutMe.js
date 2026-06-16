@@ -46,8 +46,9 @@ export default function AboutMe({ aboutMeContent }) {
   <Box display="flex" justifyContent="center" alignItems="center" mt={{ base: 6, md: 0 }}>
     <Box
       position="relative"
-      boxSize={{ base: '200px', md: '340px' }}
+      boxSize={{ base: '220px', md: '380px' }}
       borderRadius="full"
+      overflow="hidden"
       boxShadow="0 0 60px rgba(255, 255, 255, 0.6)" // white glow
       _before={{
         content: '""',
@@ -61,13 +62,14 @@ export default function AboutMe({ aboutMeContent }) {
         zIndex: -1,
       }}
     >
-      <Image 
-        src="/pic.jpg" 
-        alt="Annusha Pervez" 
+      <Image
+        src="/profileimg.jpg"
+        alt="Annusha Pervez"
         boxSize="100%"
-        borderRadius="full"
         objectFit="cover"
-        objectPosition="top center"
+        objectPosition="50% center"
+        transform="scale(1.2)"
+        transformOrigin="50% center"
       />
     </Box>
   </Box>
